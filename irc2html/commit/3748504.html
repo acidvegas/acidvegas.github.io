@@ -1,0 +1,252 @@
+<!doctype html>
+<link rel="stylesheet" href="../../style.css">
+<title>irc2html :: 3748504</title>
+<h1><a href="../index.html" title="Back to Repository">&larr;&#xFE0E;</a> irc2html :: 3748504</h1>
+<hr>
+<table id="main" cellpadding="0" cellspacing="0">
+<tr class="item"><td class="linenumber"><a href="#l1" name="l1">1</a></td><td><pre><span class="commit">commit 3748504e1f449eb6bada4290fe579f38f89f0f94</span><span class="commit"> (</span><span class="reference">HEAD -&gt; </span><span class="branch">master</span><span class="commit">)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l2" name="l2">2</a></td><td><pre>Author: acidvegas &lt;acid.vegas@acid.vegas&gt;</pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l3" name="l3">3</a></td><td><pre>Date:   Mon Jun 24 22:47:59 2019 -0400</pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l4" name="l4">4</a></td><td><pre></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l5" name="l5">5</a></td><td><pre>    Initial commit</pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l6" name="l6">6</a></td><td><pre>---</pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l7" name="l7">7</a></td><td><pre> data/script.js | 116 <span class="insertion">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l8" name="l8">8</a></td><td><pre> data/style.css |  50 <span class="insertion">+++++++++++++++++++++++++</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l9" name="l9">9</a></td><td><pre> index.html     |  50 <span class="insertion">+++++++++++++++++++++++++</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l10" name="l10">10</a></td><td><pre> 3 files changed, 216 insertions(+)</pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l11" name="l11">11</a></td><td><pre></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l12" name="l12">12</a></td><td><pre><span class="bold">diff --git a/data/script.js b/data/script.js</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l13" name="l13">13</a></td><td><pre><span class="bold">new file mode 100644</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l14" name="l14">14</a></td><td><pre><span class="bold">index 0000000..7858d13</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l15" name="l15">15</a></td><td><pre><span class="bold">--- /dev/null</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l16" name="l16">16</a></td><td><pre><span class="bold">+++ b/data/script.js</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l17" name="l17">17</a></td><td><pre><span class="hunk">@@ -0,0 +1,116 @@</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l18" name="l18">18</a></td><td><pre><span class="insertion">+</span><span class="insertion">function formReset() {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l19" name="l19">19</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">document.getElementById('showcase').innerHTML = &quot;&lt;span class=\&quot;placeholder\&quot;&gt;*HTML view will appear here*&lt;/span&gt;&quot;;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l20" name="l20">20</a></td><td><pre><span class="insertion">+</span><span class="insertion">}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l21" name="l21">21</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l22" name="l22">22</a></td><td><pre><span class="insertion">+</span><span class="insertion">function toggle(bool) {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l23" name="l23">23</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">if (bool == true) {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l24" name="l24">24</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">return false;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l25" name="l25">25</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l26" name="l26">26</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">else {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l27" name="l27">27</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">return true;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l28" name="l28">28</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l29" name="l29">29</a></td><td><pre><span class="insertion">+</span><span class="insertion">}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l30" name="l30">30</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l31" name="l31">31</a></td><td><pre><span class="insertion">+</span><span class="insertion">function convert() {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l32" name="l32">32</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">if (document.getElementById('text').value == &quot;&quot;) {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l33" name="l33">33</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">return false;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l34" name="l34">34</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l35" name="l35">35</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">document.getElementById('html').value = null;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l36" name="l36">36</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">document.getElementById('showcase').innerHTML = null;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l37" name="l37">37</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">lines = document.getElementById('text').value.split(&quot;\n&quot;);</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l38" name="l38">38</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">reg = new RegExp(&quot;(([0-9]{1,2})?((?:,([0-9]{1,2}))?))|(||||)&quot;);</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l39" name="l39">39</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">var showcase = &quot;&quot;;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l40" name="l40">40</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">for (var i = 0, all=lines.length; i &lt; all; i++) {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l41" name="l41">41</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">var line = lines[i];</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l42" name="l42">42</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">line = line.replace(new RegExp('&lt;','g'),'&amp;lt;');</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l43" name="l43">43</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">line = line.replace(new RegExp('&gt;','g'),'&amp;gt;');</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l44" name="l44">44</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">var match, lastf = &quot;1&quot;, lastb = &quot;0&quot;;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l45" name="l45">45</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">var bold, italic, underline, reverse = false;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l46" name="l46">46</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">var first = true;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l47" name="l47">47</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">while ((match = reg.exec(line)) != null) {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l48" name="l48">48</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">var f, b, span;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l49" name="l49">49</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">if (match[2] != null) {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l50" name="l50">50</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">f = Number(match[2])</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l51" name="l51">51</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">if (f &gt; 15) { f = f-16; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l52" name="l52">52</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">f = f.toString();</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l53" name="l53">53</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">if (match[4] != null) {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l54" name="l54">54</a></td><td><pre><span class="insertion">+</span>					<span class="insertion">b =  Number(match[4])</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l55" name="l55">55</a></td><td><pre><span class="insertion">+</span>					<span class="insertion">if (b &gt; 15) { b = b-16; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l56" name="l56">56</a></td><td><pre><span class="insertion">+</span>					<span class="insertion">b = b.toString();</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l57" name="l57">57</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l58" name="l58">58</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">else {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l59" name="l59">59</a></td><td><pre><span class="insertion">+</span>					<span class="insertion">b = lastb;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l60" name="l60">60</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l61" name="l61">61</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l62" name="l62">62</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">else if (match[2] == null &amp;&amp; (match[5] == null || match[5] == '')) {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l63" name="l63">63</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">if (match[5] == null) {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l64" name="l64">64</a></td><td><pre><span class="insertion">+</span>					<span class="insertion">f = &quot;1&quot;; b = &quot;0&quot;;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l65" name="l65">65</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l66" name="l66">66</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">else {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l67" name="l67">67</a></td><td><pre><span class="insertion">+</span>					<span class="insertion">f = &quot;1&quot;; b = &quot;0&quot;;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l68" name="l68">68</a></td><td><pre><span class="insertion">+</span>					<span class="insertion">bold = false;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l69" name="l69">69</a></td><td><pre><span class="insertion">+</span>					<span class="insertion">italic = false;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l70" name="l70">70</a></td><td><pre><span class="insertion">+</span>					<span class="insertion">underline = false;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l71" name="l71">71</a></td><td><pre><span class="insertion">+</span>					<span class="insertion">reverse = false;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l72" name="l72">72</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l73" name="l73">73</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l74" name="l74">74</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">else {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l75" name="l75">75</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">f = lastf, b = lastb;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l76" name="l76">76</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">if (match[5] == '') {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l77" name="l77">77</a></td><td><pre><span class="insertion">+</span>					<span class="insertion">bold = toggle(bold);</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l78" name="l78">78</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l79" name="l79">79</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">else if (match[5] == '') {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l80" name="l80">80</a></td><td><pre><span class="insertion">+</span>					<span class="insertion">italic = toggle(italic);</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l81" name="l81">81</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l82" name="l82">82</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">else if (match[5] == '') {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l83" name="l83">83</a></td><td><pre><span class="insertion">+</span>					<span class="insertion">underline = toggle(underline);</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l84" name="l84">84</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l85" name="l85">85</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">else if (match[5] == '') {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l86" name="l86">86</a></td><td><pre><span class="insertion">+</span>					<span class="insertion">reverse = toggle(reverse);</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l87" name="l87">87</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l88" name="l88">88</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l89" name="l89">89</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">if (reverse == false) {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l90" name="l90">90</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">span = 'f'+f+' b'+b;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l91" name="l91">91</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l92" name="l92">92</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">else {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l93" name="l93">93</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">span = 'f'+b+' b'+f;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l94" name="l94">94</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l95" name="l95">95</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">if (bold == true) { span += ' _b'; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l96" name="l96">96</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">if (italic == true) { span += ' _i'; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l97" name="l97">97</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">if (underline == true) { span += ' _u'; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l98" name="l98">98</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">if (first == false) {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l99" name="l99">99</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">line = line.replace(match[0],'&lt;/span&gt;&lt;span class=&quot;'+span+'&quot;&gt;');</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l100" name="l100">100</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l101" name="l101">101</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">else {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l102" name="l102">102</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">line = line.replace(match[0],'&lt;span class=&quot;'+span+'&quot;&gt;');</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l103" name="l103">103</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">first = false;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l104" name="l104">104</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l105" name="l105">105</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">lastf = f; lastb = b;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l106" name="l106">106</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l107" name="l107">107</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">if (first == false) {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l108" name="l108">108</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">showcase += (line+&quot;&lt;/span&gt;\n&quot;);</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l109" name="l109">109</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l110" name="l110">110</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">else {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l111" name="l111">111</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">showcase += (line+&quot;\n&quot;);</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l112" name="l112">112</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l113" name="l113">113</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l114" name="l114">114</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">showcase = showcase.replace(new RegExp(&quot;\&lt;span class=\&quot;(?:[a-zA-Z0-9_ ]+\&quot;)&gt;\&lt;\/span&gt;&quot;,&quot;g&quot;),&quot;&quot;);</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l115" name="l115">115</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">document.getElementById('showcase').innerHTML = (&quot;&lt;pre&gt;\n&quot;+showcase+&quot;&lt;/pre&gt;&quot;);</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l116" name="l116">116</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">document.getElementById('html').value = &quot;&lt;!DOCTYPE html&gt;\n&lt;html lang=\&quot;en\&quot;&gt;\n&lt;head&gt;\n&lt;meta charset=\&quot;UTF-8\&quot;&gt;\n&lt;title&gt;IRC2HTML - https://git.supernets.org/acidvegas/irc2html&lt;/title&gt;\n&lt;style type=\&quot;text/css\&quot;&gt;\n.f0 { color: #ffffff; }\n.b0 { background-color: #ffffff; }\n.f1 { color: #000000; }\n.b1 { background-color: #000000; }\n.f2 { color: #00007f; }\n.b2 { background-color: #00007f; }\n.f3 { color: #009300; }\n.b3 { background-color: #009300; }\n.f4 { color: #ff0000; }\n.b4 { background-color: #ff0000; }\n.f5 { color: #7f0000; }\n.b5 { background-color: #7f0000; }\n.f6 { color: #9c009c; }\n.b6 { background-color: #9c009c; }\n.f7 { color: #fc7f00; }\n.b7 { background-color: #fc7f00; }\n.f8 { color: #ffff00; }\n.b8 { background-color: #ffff00; }\n.f9 { color: #00fc00; }\n.b9 { background-color: #00fc00; }\n.f10 { color: #009393; }\n.b10 { background-color: #009393; }\n.f11 { color: #00ffff; }\n.b11 { background-color: #00ffff; }\n.f12 { color: #0000fc; }\n.b12 { background-color: #0000fc; }\n.f13 { color: #ff00ff; }\n.b13 { background-color: #ff00ff; }\n.f14 { color: #7f7f7f; }\n.b14 { background-color: #7f7f7f; }\n.f15 { color: #d2d2d2; }\n.b15 { background-color: #d2d2d2; }\n._b { font-weight: bold; }\n._i { font-style: italic; }\n._u { text-decoration: underline; }\npre { margin: 0; font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, monospace, serif; font-size: 0.9em; }\n&lt;/style&gt;\n&lt;/head&gt;\n&lt;body&gt;\n&quot;;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l117" name="l117">117</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">document.getElementById('html').value += document.getElementById('showcase').innerHTML;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l118" name="l118">118</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">document.getElementById('html').value += &quot;\n&lt;/body&gt;\n&lt;/html&gt;&quot;;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l119" name="l119">119</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">return false;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l120" name="l120">120</a></td><td><pre><span class="insertion">+</span><span class="insertion">}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l121" name="l121">121</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l122" name="l122">122</a></td><td><pre><span class="insertion">+</span><span class="insertion">function Submit() {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l123" name="l123">123</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">if (document.getElementById('text').value != &quot;&quot; &amp;&amp; document.getElementById('text').value != null) {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l124" name="l124">124</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">return true;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l125" name="l125">125</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l126" name="l126">126</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">return false;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l127" name="l127">127</a></td><td><pre><span class="insertion">+</span><span class="insertion">}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l128" name="l128">128</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l129" name="l129">129</a></td><td><pre><span class="insertion">+</span><span class="insertion">function Download() {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l130" name="l130">130</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">document.location='data:text/html,'+encodeURIComponent(document.getElementById('html').value);</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l131" name="l131">131</a></td><td><pre><span class="insertion">+</span><span class="insertion">}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l132" name="l132">132</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l133" name="l133">133</a></td><td><pre><span class="insertion">+</span><span class="insertion">window.onload = convert;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l134" name="l134">134</a></td><td><pre><span class="bold">diff --git a/data/style.css b/data/style.css</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l135" name="l135">135</a></td><td><pre><span class="bold">new file mode 100644</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l136" name="l136">136</a></td><td><pre><span class="bold">index 0000000..bd62933</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l137" name="l137">137</a></td><td><pre><span class="bold">--- /dev/null</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l138" name="l138">138</a></td><td><pre><span class="bold">+++ b/data/style.css</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l139" name="l139">139</a></td><td><pre><span class="hunk">@@ -0,0 +1,50 @@</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l140" name="l140">140</a></td><td><pre><span class="insertion">+</span><span class="insertion">@charset &quot;utf-8&quot;;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l141" name="l141">141</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l142" name="l142">142</a></td><td><pre><span class="insertion">+</span><span class="insertion">._b{font-weight:bold;}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l143" name="l143">143</a></td><td><pre><span class="insertion">+</span><span class="insertion">._i{font-style:italic;}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l144" name="l144">144</a></td><td><pre><span class="insertion">+</span><span class="insertion">._u{text-decoration:underline;}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l145" name="l145">145</a></td><td><pre><span class="insertion">+</span><span class="insertion">.f0{color:#ffffff;}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l146" name="l146">146</a></td><td><pre><span class="insertion">+</span><span class="insertion">.f1{color:#000000;}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l147" name="l147">147</a></td><td><pre><span class="insertion">+</span><span class="insertion">.f2{color:#00007f;}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l148" name="l148">148</a></td><td><pre><span class="insertion">+</span><span class="insertion">.f3{color:#009300;}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l149" name="l149">149</a></td><td><pre><span class="insertion">+</span><span class="insertion">.f4{color:#ff0000;}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l150" name="l150">150</a></td><td><pre><span class="insertion">+</span><span class="insertion">.f5{color:#7f0000;}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l151" name="l151">151</a></td><td><pre><span class="insertion">+</span><span class="insertion">.f6{color:#9c009c;}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l152" name="l152">152</a></td><td><pre><span class="insertion">+</span><span class="insertion">.f7{color:#fc7f00;}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l153" name="l153">153</a></td><td><pre><span class="insertion">+</span><span class="insertion">.f8{color:#ffff00;}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l154" name="l154">154</a></td><td><pre><span class="insertion">+</span><span class="insertion">.f9{color:#00fc00;}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l155" name="l155">155</a></td><td><pre><span class="insertion">+</span><span class="insertion">.f10{color:#009393;}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l156" name="l156">156</a></td><td><pre><span class="insertion">+</span><span class="insertion">.f11{color:#00ffff;}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l157" name="l157">157</a></td><td><pre><span class="insertion">+</span><span class="insertion">.f12{color:#0000fc;}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l158" name="l158">158</a></td><td><pre><span class="insertion">+</span><span class="insertion">.f13{color:#ff00ff;}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l159" name="l159">159</a></td><td><pre><span class="insertion">+</span><span class="insertion">.f14{color:#7f7f7f;}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l160" name="l160">160</a></td><td><pre><span class="insertion">+</span><span class="insertion">.f15{color:#d2d2d2;}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l161" name="l161">161</a></td><td><pre><span class="insertion">+</span><span class="insertion">.b0{background-color:#ffffff;}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l162" name="l162">162</a></td><td><pre><span class="insertion">+</span><span class="insertion">.b1{background-color:#000000;}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l163" name="l163">163</a></td><td><pre><span class="insertion">+</span><span class="insertion">.b2{background-color:#00007f;}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l164" name="l164">164</a></td><td><pre><span class="insertion">+</span><span class="insertion">.b3{background-color:#009300;}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l165" name="l165">165</a></td><td><pre><span class="insertion">+</span><span class="insertion">.b4{background-color:#ff0000;}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l166" name="l166">166</a></td><td><pre><span class="insertion">+</span><span class="insertion">.b5{background-color:#7f0000;}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l167" name="l167">167</a></td><td><pre><span class="insertion">+</span><span class="insertion">.b6{background-color:#9c009c;}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l168" name="l168">168</a></td><td><pre><span class="insertion">+</span><span class="insertion">.b7{background-color:#fc7f00;}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l169" name="l169">169</a></td><td><pre><span class="insertion">+</span><span class="insertion">.b8{background-color:#ffff00;}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l170" name="l170">170</a></td><td><pre><span class="insertion">+</span><span class="insertion">.b9{background-color:#00fc00;}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l171" name="l171">171</a></td><td><pre><span class="insertion">+</span><span class="insertion">.b10{background-color:#009393;}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l172" name="l172">172</a></td><td><pre><span class="insertion">+</span><span class="insertion">.b11{background-color:#00ffff;}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l173" name="l173">173</a></td><td><pre><span class="insertion">+</span><span class="insertion">.b12{background-color:#0000fc;}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l174" name="l174">174</a></td><td><pre><span class="insertion">+</span><span class="insertion">.b13{background-color:#ff00ff;}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l175" name="l175">175</a></td><td><pre><span class="insertion">+</span><span class="insertion">.b14{background-color:#7f7f7f;}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l176" name="l176">176</a></td><td><pre><span class="insertion">+</span><span class="insertion">.b15{background-color:#d2d2d2;}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l177" name="l177">177</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l178" name="l178">178</a></td><td><pre><span class="insertion">+</span><span class="insertion">html, body, p{font-family:segoe ui, trebuchet MS,Lucida Sans Unicode, Lucida Sans, Sans-Serif;}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l179" name="l179">179</a></td><td><pre><span class="insertion">+</span><span class="insertion">h1{font-size:1.5em;text-align:center;}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l180" name="l180">180</a></td><td><pre><span class="insertion">+</span><span class="insertion">h2{font-size:1em;font-weight:700;}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l181" name="l181">181</a></td><td><pre><span class="insertion">+</span><span class="insertion">h6{font-size:1em;text-align:center;}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l182" name="l182">182</a></td><td><pre><span class="insertion">+</span><span class="insertion">pre{font-family:Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, monospace, serif;margin:0;}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l183" name="l183">183</a></td><td><pre><span class="insertion">+</span><span class="insertion">textarea{background-color:#F8F8F8;border:solid 1px #ddd;display:block;font-family:Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, monospace, serif;font-size:0.9em;height:36em;padding:1%;resize:none;width:97%;}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l184" name="l184">184</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l185" name="l185">185</a></td><td><pre><span class="insertion">+</span><span class="insertion">.butt{width:150px;}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l186" name="l186">186</a></td><td><pre><span class="insertion">+</span><span class="insertion">.container{margin:0;width:100%;}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l187" name="l187">187</a></td><td><pre><span class="insertion">+</span><span class="insertion">.hidden{display:none;}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l188" name="l188">188</a></td><td><pre><span class="insertion">+</span><span class="insertion">.placeholder{color:gray;}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l189" name="l189">189</a></td><td><pre><span class="insertion">+</span><span class="insertion">.showcase{border:solid 1px #ddd;display:block;font-size:0.9em;padding:1%;}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l190" name="l190">190</a></td><td><pre><span class="bold">diff --git a/index.html b/index.html</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l191" name="l191">191</a></td><td><pre><span class="bold">new file mode 100644</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l192" name="l192">192</a></td><td><pre><span class="bold">index 0000000..cbd6e3c</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l193" name="l193">193</a></td><td><pre><span class="bold">--- /dev/null</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l194" name="l194">194</a></td><td><pre><span class="bold">+++ b/index.html</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l195" name="l195">195</a></td><td><pre><span class="hunk">@@ -0,0 +1,50 @@</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l196" name="l196">196</a></td><td><pre><span class="insertion">+</span><span class="insertion">&lt;!DOCTYPE html&gt;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l197" name="l197">197</a></td><td><pre><span class="insertion">+</span><span class="insertion">&lt;html lang=&quot;en&quot;&gt;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l198" name="l198">198</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">&lt;head&gt;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l199" name="l199">199</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">&lt;title&gt;IRC2HTML&lt;/title&gt;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l200" name="l200">200</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">&lt;meta charset=&quot;UTF-8&quot;&gt;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l201" name="l201">201</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">&lt;link rel=&quot;stylesheet&quot; href=&quot;data/style.css&quot; type=&quot;text/css&quot;&gt;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l202" name="l202">202</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">&lt;script type=&quot;text/javascript&quot; src=&quot;data/script.js&quot;&gt;&lt;/script&gt;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l203" name="l203">203</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">&lt;/head&gt;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l204" name="l204">204</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">&lt;body&gt;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l205" name="l205">205</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">&lt;div id=&quot;script&quot; class=&quot;hidden&quot;&gt;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l206" name="l206">206</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">&lt;form id=&quot;form&quot; accept-charset=&quot;UTF-8&quot;&gt;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l207" name="l207">207</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">&lt;table width=&quot;100%&quot;&gt;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l208" name="l208">208</a></td><td><pre><span class="insertion">+</span>					<span class="insertion">&lt;tr&gt;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l209" name="l209">209</a></td><td><pre><span class="insertion">+</span>						<span class="insertion">&lt;td rowspan=&quot;3&quot; width=&quot;45%&quot;&gt;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l210" name="l210">210</a></td><td><pre><span class="insertion">+</span>							<span class="insertion">&lt;textarea width=&quot;100%&quot; id=&quot;text&quot; name=&quot;text&quot; placeholder=&quot;*Enter ASCII here*&quot;&gt;&lt;/textarea&gt;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l211" name="l211">211</a></td><td><pre><span class="insertion">+</span>						<span class="insertion">&lt;/td&gt;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l212" name="l212">212</a></td><td><pre><span class="insertion">+</span>						<span class="insertion">&lt;td align=&quot;center&quot; height=&quot;33%&quot; valign=&quot;top&quot;&gt;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l213" name="l213">213</a></td><td><pre><span class="insertion">+</span>							<span class="insertion">&lt;b&gt;IRC2HTML&lt;/b&gt;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l214" name="l214">214</a></td><td><pre><span class="insertion">+</span>							<span class="insertion">&lt;br&gt;&lt;small&gt;&lt;i&gt;(&lt;a href=&quot;https://acid.vegas/irc2html&quot;&gt;source&lt;/a&gt;)&lt;/i&gt;&lt;/small&gt;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l215" name="l215">215</a></td><td><pre><span class="insertion">+</span>						<span class="insertion">&lt;/td&gt;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l216" name="l216">216</a></td><td><pre><span class="insertion">+</span>						<span class="insertion">&lt;td rowspan=&quot;3&quot; width=&quot;45%&quot;&gt;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l217" name="l217">217</a></td><td><pre><span class="insertion">+</span>							<span class="insertion">&lt;textarea width=&quot;100%&quot; id=&quot;html&quot; name=&quot;html&quot; placeholder=&quot;*HTML code will appear here*&quot; readonly&gt;&lt;/textarea&gt;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l218" name="l218">218</a></td><td><pre><span class="insertion">+</span>						<span class="insertion">&lt;/td&gt;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l219" name="l219">219</a></td><td><pre><span class="insertion">+</span>					<span class="insertion">&lt;/tr&gt;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l220" name="l220">220</a></td><td><pre><span class="insertion">+</span>					<span class="insertion">&lt;tr&gt;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l221" name="l221">221</a></td><td><pre><span class="insertion">+</span>						<span class="insertion">&lt;td height=&quot;33%&quot; width=&quot;10%&quot;&gt;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l222" name="l222">222</a></td><td><pre><span class="insertion">+</span>							<span class="insertion">&lt;input class=&quot;butt&quot; type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;Convert&quot; onclick=&quot;return convert();&quot;/&gt;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l223" name="l223">223</a></td><td><pre><span class="insertion">+</span>							<span class="insertion">&lt;br&gt;&lt;br&gt;&lt;input class=&quot;butt&quot; type=&quot;reset&quot; name=&quot;reset&quot; value=&quot;Reset&quot; onclick=&quot;formReset();&quot;/&gt;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l224" name="l224">224</a></td><td><pre><span class="insertion">+</span>							<span class="insertion">&lt;br&gt;&lt;br&gt;&lt;input class=&quot;butt&quot; type=&quot;button&quot; name=&quot;download&quot; value=&quot;Download&quot; onclick=&quot;Download();&quot;/&gt;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l225" name="l225">225</a></td><td><pre><span class="insertion">+</span>						<span class="insertion">&lt;/td&gt;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l226" name="l226">226</a></td><td><pre><span class="insertion">+</span>					<span class="insertion">&lt;/tr&gt;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l227" name="l227">227</a></td><td><pre><span class="insertion">+</span>					<span class="insertion">&lt;tr&gt;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l228" name="l228">228</a></td><td><pre><span class="insertion">+</span>						<span class="insertion">&lt;td align=&quot;center&quot; height=&quot;33%&quot; valign=&quot;bottom&quot;&gt;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l229" name="l229">229</a></td><td><pre><span class="insertion">+</span>							<span class="insertion">&lt;b&gt;View&lt;/b&gt;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l230" name="l230">230</a></td><td><pre><span class="insertion">+</span>						<span class="insertion">&lt;/td&gt;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l231" name="l231">231</a></td><td><pre><span class="insertion">+</span>					<span class="insertion">&lt;/tr&gt;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l232" name="l232">232</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">&lt;/table&gt;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l233" name="l233">233</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">&lt;/form&gt;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l234" name="l234">234</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">&lt;div id=&quot;showcase&quot; class=&quot;showcase&quot;&gt;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l235" name="l235">235</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">&lt;span class=&quot;placeholder&quot;&gt;*HTML view will appear here*&lt;/span&gt;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l236" name="l236">236</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">&lt;/div&gt;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l237" name="l237">237</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">&lt;/div&gt;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l238" name="l238">238</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">&lt;script type=&quot;text/javascript&quot;&gt;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l239" name="l239">239</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">document.getElementById(&quot;script&quot;).style.display = &quot;block&quot;;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l240" name="l240">240</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">&lt;/script&gt;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l241" name="l241">241</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">&lt;noscript&gt;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l242" name="l242">242</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">Javascript is required to use this tool.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l243" name="l243">243</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">&lt;/noscript&gt;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l244" name="l244">244</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">&lt;/body&gt;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l245" name="l245">245</a></td><td><pre><span class="insertion">+</span><span class="insertion">&lt;/html&gt;</span></pre></td></tr>
+</table></pre>

@@ -1,0 +1,735 @@
+<!doctype html>
+<link rel="stylesheet" href="../../style.css">
+<title>blackjack :: 6522459</title>
+<h1><a href="../index.html" title="Back to Repository">&larr;&#xFE0E;</a> blackjack :: 6522459</h1>
+<hr>
+<table id="main" cellpadding="0" cellspacing="0">
+<tr class="item"><td class="linenumber"><a href="#l1" name="l1">1</a></td><td><pre><span class="commit">commit 652245941e457826b064299377fcb03f06b1c967</span><span class="commit"> (</span><span class="reference">HEAD -&gt; </span><span class="branch">master</span><span class="commit">)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l2" name="l2">2</a></td><td><pre>Author: acidvegas &lt;acid.vegas@acid.vegas&gt;</pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l3" name="l3">3</a></td><td><pre>Date:   Mon Jun 24 19:00:01 2019 -0400</pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l4" name="l4">4</a></td><td><pre></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l5" name="l5">5</a></td><td><pre>    Initial commit</pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l6" name="l6">6</a></td><td><pre>---</pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l7" name="l7">7</a></td><td><pre> LICENSE                    |  15 <span class="insertion">++</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l8" name="l8">8</a></td><td><pre> README.md                  |  22 <span class="insertion">+++</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l9" name="l9">9</a></td><td><pre> blackjack/blackjack.py     |  20 <span class="insertion">+++</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l10" name="l10">10</a></td><td><pre> blackjack/core/config.py   |  34 <span class="insertion">++++</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l11" name="l11">11</a></td><td><pre> blackjack/core/database.py |  27 <span class="insertion">+++</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l12" name="l12">12</a></td><td><pre> blackjack/core/debug.py    |  63 <span class="insertion">+++++++</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l13" name="l13">13</a></td><td><pre> blackjack/core/irc.py      | 398 <span class="insertion">+++++++++++++++++++++++++++++++++++++++++++++</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l14" name="l14">14</a></td><td><pre> blackjack/data/cheat.txt   |  32 <span class="insertion">++++</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l15" name="l15">15</a></td><td><pre> blackjack/data/help.txt    |  31 <span class="insertion">++++</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l16" name="l16">16</a></td><td><pre> screens/banner.png         | Bin <span class="deletion">0</span> -&gt; <span class="insertion">9111</span> bytes</pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l17" name="l17">17</a></td><td><pre> screens/cheat.png          | Bin <span class="deletion">0</span> -&gt; <span class="insertion">30389</span> bytes</pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l18" name="l18">18</a></td><td><pre> screens/game.png           | Bin <span class="deletion">0</span> -&gt; <span class="insertion">19796</span> bytes</pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l19" name="l19">19</a></td><td><pre> 12 files changed, 642 insertions(+)</pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l20" name="l20">20</a></td><td><pre></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l21" name="l21">21</a></td><td><pre><span class="bold">diff --git a/LICENSE b/LICENSE</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l22" name="l22">22</a></td><td><pre><span class="bold">new file mode 100644</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l23" name="l23">23</a></td><td><pre><span class="bold">index 0000000..69997e8</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l24" name="l24">24</a></td><td><pre><span class="bold">--- /dev/null</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l25" name="l25">25</a></td><td><pre><span class="bold">+++ b/LICENSE</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l26" name="l26">26</a></td><td><pre><span class="hunk">@@ -0,0 +1,15 @@</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l27" name="l27">27</a></td><td><pre><span class="insertion">+</span><span class="insertion">ISC License</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l28" name="l28">28</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l29" name="l29">29</a></td><td><pre><span class="insertion">+</span><span class="insertion">Copyright (c) 2019, acidvegas &lt;acid.vegas@acid.vegas&gt;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l30" name="l30">30</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l31" name="l31">31</a></td><td><pre><span class="insertion">+</span><span class="insertion">Permission to use, copy, modify, and/or distribute this software for any</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l32" name="l32">32</a></td><td><pre><span class="insertion">+</span><span class="insertion">purpose with or without fee is hereby granted, provided that the above</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l33" name="l33">33</a></td><td><pre><span class="insertion">+</span><span class="insertion">copyright notice and this permission notice appear in all copies.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l34" name="l34">34</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l35" name="l35">35</a></td><td><pre><span class="insertion">+</span><span class="insertion">THE SOFTWARE IS PROVIDED &quot;AS IS&quot; AND THE AUTHOR DISCLAIMS ALL WARRANTIES</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l36" name="l36">36</a></td><td><pre><span class="insertion">+</span><span class="insertion">WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l37" name="l37">37</a></td><td><pre><span class="insertion">+</span><span class="insertion">MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l38" name="l38">38</a></td><td><pre><span class="insertion">+</span><span class="insertion">ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l39" name="l39">39</a></td><td><pre><span class="insertion">+</span><span class="insertion">WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l40" name="l40">40</a></td><td><pre><span class="insertion">+</span><span class="insertion">ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l41" name="l41">41</a></td><td><pre><span class="insertion">+</span><span class="insertion">OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l42" name="l42">42</a></td><td><pre><span class="bold">diff --git a/README.md b/README.md</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l43" name="l43">43</a></td><td><pre><span class="bold">new file mode 100644</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l44" name="l44">44</a></td><td><pre><span class="bold">index 0000000..69f62fe</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l45" name="l45">45</a></td><td><pre><span class="bold">--- /dev/null</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l46" name="l46">46</a></td><td><pre><span class="bold">+++ b/README.md</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l47" name="l47">47</a></td><td><pre><span class="hunk">@@ -0,0 +1,22 @@</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l48" name="l48">48</a></td><td><pre><span class="insertion">+</span><span class="insertion">![](screens/banner.png)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l49" name="l49">49</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l50" name="l50">50</a></td><td><pre><span class="insertion">+</span><span class="insertion">###### Commands</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l51" name="l51">51</a></td><td><pre><span class="insertion">+</span><span class="insertion">| Command | Description |</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l52" name="l52">52</a></td><td><pre><span class="insertion">+</span><span class="insertion">| --- | --- |</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l53" name="l53">53</a></td><td><pre><span class="insertion">+</span><span class="insertion">| @help | Information about the commands. |</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l54" name="l54">54</a></td><td><pre><span class="insertion">+</span><span class="insertion">| @cheat | Betting cheat sheet. |</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l55" name="l55">55</a></td><td><pre><span class="insertion">+</span><span class="insertion">| .hit | Draw a card. |</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l56" name="l56">56</a></td><td><pre><span class="insertion">+</span><span class="insertion">| .mini | Toggle the mini deck. |</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l57" name="l57">57</a></td><td><pre><span class="insertion">+</span><span class="insertion">| .play | Start a game. |</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l58" name="l58">58</a></td><td><pre><span class="insertion">+</span><span class="insertion">| .stand | Stop drawing cards. |</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l59" name="l59">59</a></td><td><pre><span class="insertion">+</span><span class="insertion">| .stop | End the curent game. |</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l60" name="l60">60</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l61" name="l61">61</a></td><td><pre><span class="insertion">+</span><span class="insertion">##### Todo</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l62" name="l62">62</a></td><td><pre><span class="insertion">+</span><span class="insertion">- Add player database / chip system.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l63" name="l63">63</a></td><td><pre><span class="insertion">+</span><span class="insertion">- Reward chips based on number of lines of chat in a channel. (Cap it to prevent flood.)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l64" name="l64">64</a></td><td><pre><span class="insertion">+</span><span class="insertion">- Add a player versus player and a player versus computer system.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l65" name="l65">65</a></td><td><pre><span class="insertion">+</span><span class="insertion">- Incorperate splits and double downs, etc.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l66" name="l66">66</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l67" name="l67">67</a></td><td><pre><span class="insertion">+</span><span class="insertion">##### Screens</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l68" name="l68">68</a></td><td><pre><span class="insertion">+</span><span class="insertion">![](screens/game.png)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l69" name="l69">69</a></td><td><pre><span class="insertion">+</span><span class="insertion">![](screens/cheat.png)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l70" name="l70">70</a></td><td><pre><span class="bold">diff --git a/blackjack/blackjack.py b/blackjack/blackjack.py</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l71" name="l71">71</a></td><td><pre><span class="bold">new file mode 100644</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l72" name="l72">72</a></td><td><pre><span class="bold">index 0000000..f164d38</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l73" name="l73">73</a></td><td><pre><span class="bold">--- /dev/null</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l74" name="l74">74</a></td><td><pre><span class="bold">+++ b/blackjack/blackjack.py</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l75" name="l75">75</a></td><td><pre><span class="hunk">@@ -0,0 +1,20 @@</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l76" name="l76">76</a></td><td><pre><span class="insertion">+</span><span class="insertion">#!/usr/bin/env python</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l77" name="l77">77</a></td><td><pre><span class="insertion">+</span><span class="insertion"># BlackJack IRC Bot - Developed by acidvegas in Python (https://acid.vegas/blackjack)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l78" name="l78">78</a></td><td><pre><span class="insertion">+</span><span class="insertion"># blackjack.py</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l79" name="l79">79</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l80" name="l80">80</a></td><td><pre><span class="insertion">+</span><span class="insertion">import os</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l81" name="l81">81</a></td><td><pre><span class="insertion">+</span><span class="insertion">import sys</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l82" name="l82">82</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l83" name="l83">83</a></td><td><pre><span class="insertion">+</span><span class="insertion">sys.dont_write_bytecode = True</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l84" name="l84">84</a></td><td><pre><span class="insertion">+</span><span class="insertion">os.chdir(sys.path[0] or '.')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l85" name="l85">85</a></td><td><pre><span class="insertion">+</span><span class="insertion">sys.path += ('core',)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l86" name="l86">86</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l87" name="l87">87</a></td><td><pre><span class="insertion">+</span><span class="insertion">import debug</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l88" name="l88">88</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l89" name="l89">89</a></td><td><pre><span class="insertion">+</span><span class="insertion">debug.info()</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l90" name="l90">90</a></td><td><pre><span class="insertion">+</span><span class="insertion">if not debug.check_version(3):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l91" name="l91">91</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">debug.error_exit('BlackJack requires Python 3!')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l92" name="l92">92</a></td><td><pre><span class="insertion">+</span><span class="insertion">elif debug.check_privileges():</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l93" name="l93">93</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">debug.error_exit('Do not run BlackJack as admin/root!')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l94" name="l94">94</a></td><td><pre><span class="insertion">+</span><span class="insertion">import irc</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l95" name="l95">95</a></td><td><pre><span class="insertion">+</span><span class="insertion">irc.BlackJack.connect()</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l96" name="l96">96</a></td><td><pre><span class="bold">diff --git a/blackjack/core/config.py b/blackjack/core/config.py</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l97" name="l97">97</a></td><td><pre><span class="bold">new file mode 100644</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l98" name="l98">98</a></td><td><pre><span class="bold">index 0000000..135af5a</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l99" name="l99">99</a></td><td><pre><span class="bold">--- /dev/null</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l100" name="l100">100</a></td><td><pre><span class="bold">+++ b/blackjack/core/config.py</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l101" name="l101">101</a></td><td><pre><span class="hunk">@@ -0,0 +1,34 @@</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l102" name="l102">102</a></td><td><pre><span class="insertion">+</span><span class="insertion">#!/usr/bin/env python</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l103" name="l103">103</a></td><td><pre><span class="insertion">+</span><span class="insertion"># BlackJack IRC Bot - Developed by acidvegas in Python (https://acid.vegas/blackjack)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l104" name="l104">104</a></td><td><pre><span class="insertion">+</span><span class="insertion"># config.py</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l105" name="l105">105</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l106" name="l106">106</a></td><td><pre><span class="insertion">+</span><span class="insertion">class connection:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l107" name="l107">107</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">server     = 'irc.server.com'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l108" name="l108">108</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">port       = 6667</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l109" name="l109">109</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">proxy      = None</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l110" name="l110">110</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">ipv6       = False</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l111" name="l111">111</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">ssl	       = False</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l112" name="l112">112</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">ssl_verify = False</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l113" name="l113">113</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">vhost      = None</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l114" name="l114">114</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">channel	   = '#blackjack'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l115" name="l115">115</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">key	       = None</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l116" name="l116">116</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l117" name="l117">117</a></td><td><pre><span class="insertion">+</span><span class="insertion">class cert:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l118" name="l118">118</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">file     = None</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l119" name="l119">119</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">key      = None</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l120" name="l120">120</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">password = None</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l121" name="l121">121</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l122" name="l122">122</a></td><td><pre><span class="insertion">+</span><span class="insertion">class ident:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l123" name="l123">123</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">nickname = 'BlackJack'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l124" name="l124">124</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">username = 'blackjack'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l125" name="l125">125</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">realname = 'https://acid.vegas/blackjack'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l126" name="l126">126</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l127" name="l127">127</a></td><td><pre><span class="insertion">+</span><span class="insertion">class login:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l128" name="l128">128</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">network  = None</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l129" name="l129">129</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">nickserv = None</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l130" name="l130">130</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">operator = None</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l131" name="l131">131</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l132" name="l132">132</a></td><td><pre><span class="insertion">+</span><span class="insertion">class settings:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l133" name="l133">133</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">cmd_char = '!'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l134" name="l134">134</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">log      = False</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l135" name="l135">135</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">modes    = None</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l136" name="l136">136</a></td><td><pre><span class="bold">diff --git a/blackjack/core/database.py b/blackjack/core/database.py</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l137" name="l137">137</a></td><td><pre><span class="bold">new file mode 100644</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l138" name="l138">138</a></td><td><pre><span class="bold">index 0000000..72653f1</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l139" name="l139">139</a></td><td><pre><span class="bold">--- /dev/null</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l140" name="l140">140</a></td><td><pre><span class="bold">+++ b/blackjack/core/database.py</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l141" name="l141">141</a></td><td><pre><span class="hunk">@@ -0,0 +1,27 @@</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l142" name="l142">142</a></td><td><pre><span class="insertion">+</span><span class="insertion">#!/usr/bin/env python</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l143" name="l143">143</a></td><td><pre><span class="insertion">+</span><span class="insertion"># BlackJack IRC Bot - Developed by acidvegas in Python (https://acid.vegas/blackjack)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l144" name="l144">144</a></td><td><pre><span class="insertion">+</span><span class="insertion"># functions.py</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l145" name="l145">145</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l146" name="l146">146</a></td><td><pre><span class="insertion">+</span><span class="insertion">import datetime</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l147" name="l147">147</a></td><td><pre><span class="insertion">+</span><span class="insertion">import os</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l148" name="l148">148</a></td><td><pre><span class="insertion">+</span><span class="insertion">import sqlite3</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l149" name="l149">149</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l150" name="l150">150</a></td><td><pre><span class="insertion">+</span><span class="insertion"># Globals</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l151" name="l151">151</a></td><td><pre><span class="insertion">+</span><span class="insertion">db  = sqlite3.connect(os.path.join('data', 'bot.db'), check_same_thread=False)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l152" name="l152">152</a></td><td><pre><span class="insertion">+</span><span class="insertion">sql = db.cursor()</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l153" name="l153">153</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l154" name="l154">154</a></td><td><pre><span class="insertion">+</span><span class="insertion">def check():</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l155" name="l155">155</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">tables = sql.execute('SELECT name FROM sqlite_master WHERE type=\'table\'').fetchall()</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l156" name="l156">156</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">if not len(tables):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l157" name="l157">157</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">sql.execute('CREATE TABLE IGNORE (IDENT TEXT NOT NULL);')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l158" name="l158">158</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">db.commit()</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l159" name="l159">159</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l160" name="l160">160</a></td><td><pre><span class="insertion">+</span><span class="insertion">class Player:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l161" name="l161">161</a></td><td><pre><span class="insertion">+</span><span class="insertion">    def register(nick, ident):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l162" name="l162">162</a></td><td><pre><span class="insertion">+</span><span class="insertion">        now = str(datetime.datetime.now())</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l163" name="l163">163</a></td><td><pre><span class="insertion">+</span><span class="insertion">        sql.execute('INSERT INTO PLAYERS (NICK,IDENT,MONEY,LAST) VALUES (\'{0}\', \'{1}\', \'{2}\', \'{3}\')'.format(nick, ident, '0', now))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l164" name="l164">164</a></td><td><pre><span class="insertion">+</span><span class="insertion">        db.commit()</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l165" name="l165">165</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l166" name="l166">166</a></td><td><pre><span class="insertion">+</span><span class="insertion">    def get_money(ident):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l167" name="l167">167</a></td><td><pre><span class="insertion">+</span><span class="insertion">        return sql.execute('SELECT MONEY FROM PLAYERS WHERE IDENT=\'{0}\''.format(ident)).fetchall()[0][0]</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l168" name="l168">168</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l169" name="l169">169</a></td><td><pre><span class="bold">diff --git a/blackjack/core/debug.py b/blackjack/core/debug.py</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l170" name="l170">170</a></td><td><pre><span class="bold">new file mode 100644</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l171" name="l171">171</a></td><td><pre><span class="bold">index 0000000..6594fb7</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l172" name="l172">172</a></td><td><pre><span class="bold">--- /dev/null</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l173" name="l173">173</a></td><td><pre><span class="bold">+++ b/blackjack/core/debug.py</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l174" name="l174">174</a></td><td><pre><span class="hunk">@@ -0,0 +1,63 @@</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l175" name="l175">175</a></td><td><pre><span class="insertion">+</span><span class="insertion">#!/usr/bin/env python</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l176" name="l176">176</a></td><td><pre><span class="insertion">+</span><span class="insertion"># BlackJack IRC Bot - Developed by acidvegas in Python (https://acid.vegas/blackjack)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l177" name="l177">177</a></td><td><pre><span class="insertion">+</span><span class="insertion"># debug.py</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l178" name="l178">178</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l179" name="l179">179</a></td><td><pre><span class="insertion">+</span><span class="insertion">import ctypes</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l180" name="l180">180</a></td><td><pre><span class="insertion">+</span><span class="insertion">import os</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l181" name="l181">181</a></td><td><pre><span class="insertion">+</span><span class="insertion">import sys</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l182" name="l182">182</a></td><td><pre><span class="insertion">+</span><span class="insertion">import time</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l183" name="l183">183</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l184" name="l184">184</a></td><td><pre><span class="insertion">+</span><span class="insertion">def check_privileges():</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l185" name="l185">185</a></td><td><pre><span class="insertion">+</span><span class="insertion">    if check_windows():</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l186" name="l186">186</a></td><td><pre><span class="insertion">+</span><span class="insertion">        if ctypes.windll.shell32.IsUserAnAdmin() != 0:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l187" name="l187">187</a></td><td><pre><span class="insertion">+</span><span class="insertion">            return True</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l188" name="l188">188</a></td><td><pre><span class="insertion">+</span><span class="insertion">        else:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l189" name="l189">189</a></td><td><pre><span class="insertion">+</span><span class="insertion">            return False</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l190" name="l190">190</a></td><td><pre><span class="insertion">+</span><span class="insertion">    else:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l191" name="l191">191</a></td><td><pre><span class="insertion">+</span><span class="insertion">        if os.getuid() == 0 or os.geteuid() == 0:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l192" name="l192">192</a></td><td><pre><span class="insertion">+</span><span class="insertion">            return True</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l193" name="l193">193</a></td><td><pre><span class="insertion">+</span><span class="insertion">        else:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l194" name="l194">194</a></td><td><pre><span class="insertion">+</span><span class="insertion">            return False</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l195" name="l195">195</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l196" name="l196">196</a></td><td><pre><span class="insertion">+</span><span class="insertion">def check_version(major):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l197" name="l197">197</a></td><td><pre><span class="insertion">+</span><span class="insertion">    if sys.version_info.major == major:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l198" name="l198">198</a></td><td><pre><span class="insertion">+</span><span class="insertion">        return True</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l199" name="l199">199</a></td><td><pre><span class="insertion">+</span><span class="insertion">    else:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l200" name="l200">200</a></td><td><pre><span class="insertion">+</span><span class="insertion">        return False</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l201" name="l201">201</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l202" name="l202">202</a></td><td><pre><span class="insertion">+</span><span class="insertion">def check_windows():</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l203" name="l203">203</a></td><td><pre><span class="insertion">+</span><span class="insertion">    if os.name == 'nt':</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l204" name="l204">204</a></td><td><pre><span class="insertion">+</span><span class="insertion">        return True</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l205" name="l205">205</a></td><td><pre><span class="insertion">+</span><span class="insertion">    else:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l206" name="l206">206</a></td><td><pre><span class="insertion">+</span><span class="insertion">        return False</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l207" name="l207">207</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l208" name="l208">208</a></td><td><pre><span class="insertion">+</span><span class="insertion">def clear():</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l209" name="l209">209</a></td><td><pre><span class="insertion">+</span><span class="insertion">    if check_windows():</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l210" name="l210">210</a></td><td><pre><span class="insertion">+</span><span class="insertion">        os.system('cls')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l211" name="l211">211</a></td><td><pre><span class="insertion">+</span><span class="insertion">    else:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l212" name="l212">212</a></td><td><pre><span class="insertion">+</span><span class="insertion">        os.system('clear')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l213" name="l213">213</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l214" name="l214">214</a></td><td><pre><span class="insertion">+</span><span class="insertion">def error(msg, reason=None):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l215" name="l215">215</a></td><td><pre><span class="insertion">+</span><span class="insertion">    if reason:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l216" name="l216">216</a></td><td><pre><span class="insertion">+</span><span class="insertion">        print(f'{get_time()} | [!] - {msg} ({reason})')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l217" name="l217">217</a></td><td><pre><span class="insertion">+</span><span class="insertion">    else:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l218" name="l218">218</a></td><td><pre><span class="insertion">+</span><span class="insertion">        print(f'{get_time()} | [!] - {msg}')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l219" name="l219">219</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l220" name="l220">220</a></td><td><pre><span class="insertion">+</span><span class="insertion">def error_exit(msg):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l221" name="l221">221</a></td><td><pre><span class="insertion">+</span><span class="insertion">    raise SystemExit(f'{get_time()} | [!] - {msg}')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l222" name="l222">222</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l223" name="l223">223</a></td><td><pre><span class="insertion">+</span><span class="insertion">def get_time():</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l224" name="l224">224</a></td><td><pre><span class="insertion">+</span><span class="insertion">    return time.strftime('%I:%M:%S')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l225" name="l225">225</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l226" name="l226">226</a></td><td><pre><span class="insertion">+</span><span class="insertion">def info():</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l227" name="l227">227</a></td><td><pre><span class="insertion">+</span><span class="insertion">    clear()</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l228" name="l228">228</a></td><td><pre><span class="insertion">+</span><span class="insertion">    print(''.rjust(56, '#'))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l229" name="l229">229</a></td><td><pre><span class="insertion">+</span><span class="insertion">    print('#{0}#'.format(''.center(54)))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l230" name="l230">230</a></td><td><pre><span class="insertion">+</span><span class="insertion">    print('#{0}#'.format('BlackJack IRC Bot'.center(54)))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l231" name="l231">231</a></td><td><pre><span class="insertion">+</span><span class="insertion">    print('#{0}#'.format('Developed by acidvegas in Python'.center(54)))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l232" name="l232">232</a></td><td><pre><span class="insertion">+</span><span class="insertion">    print('#{0}#'.format('https://acid.vegas/blackjack'.center(54)))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l233" name="l233">233</a></td><td><pre><span class="insertion">+</span><span class="insertion">    print('#{0}#'.format(''.center(54)))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l234" name="l234">234</a></td><td><pre><span class="insertion">+</span><span class="insertion">    print(''.rjust(56, '#'))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l235" name="l235">235</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l236" name="l236">236</a></td><td><pre><span class="insertion">+</span><span class="insertion">def irc(msg):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l237" name="l237">237</a></td><td><pre><span class="insertion">+</span><span class="insertion">    print(f'{get_time()} | [~] - {msg}')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l238" name="l238">238</a></td><td><pre><span class="bold">diff --git a/blackjack/core/irc.py b/blackjack/core/irc.py</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l239" name="l239">239</a></td><td><pre><span class="bold">new file mode 100644</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l240" name="l240">240</a></td><td><pre><span class="bold">index 0000000..819f91c</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l241" name="l241">241</a></td><td><pre><span class="bold">--- /dev/null</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l242" name="l242">242</a></td><td><pre><span class="bold">+++ b/blackjack/core/irc.py</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l243" name="l243">243</a></td><td><pre><span class="hunk">@@ -0,0 +1,398 @@</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l244" name="l244">244</a></td><td><pre><span class="insertion">+</span><span class="insertion">#!/usr/bin/env python</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l245" name="l245">245</a></td><td><pre><span class="insertion">+</span><span class="insertion"># BlackJack IRC Bot - Developed by acidvegas in Python (https://acid.vegas/blackjack)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l246" name="l246">246</a></td><td><pre><span class="insertion">+</span><span class="insertion"># irc.py</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l247" name="l247">247</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l248" name="l248">248</a></td><td><pre><span class="insertion">+</span><span class="insertion">import inspect</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l249" name="l249">249</a></td><td><pre><span class="insertion">+</span><span class="insertion">import os</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l250" name="l250">250</a></td><td><pre><span class="insertion">+</span><span class="insertion">import random</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l251" name="l251">251</a></td><td><pre><span class="insertion">+</span><span class="insertion">import socket</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l252" name="l252">252</a></td><td><pre><span class="insertion">+</span><span class="insertion">import ssl</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l253" name="l253">253</a></td><td><pre><span class="insertion">+</span><span class="insertion">import threading</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l254" name="l254">254</a></td><td><pre><span class="insertion">+</span><span class="insertion">import time</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l255" name="l255">255</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l256" name="l256">256</a></td><td><pre><span class="insertion">+</span><span class="insertion">import config</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l257" name="l257">257</a></td><td><pre><span class="insertion">+</span><span class="insertion">import debug</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l258" name="l258">258</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l259" name="l259">259</a></td><td><pre><span class="insertion">+</span><span class="insertion"># Data Directories &amp; Files (DO NOT EDIT)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l260" name="l260">260</a></td><td><pre><span class="insertion">+</span><span class="insertion">data_dir   = os.path.join(os.path.dirname(os.path.realpath(inspect.stack()[-1][1])), 'data')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l261" name="l261">261</a></td><td><pre><span class="insertion">+</span><span class="insertion">cheat_file = os.path.join(data_dir, 'cheat.txt')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l262" name="l262">262</a></td><td><pre><span class="insertion">+</span><span class="insertion">help_file  = os.path.join(data_dir, 'help.txt')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l263" name="l263">263</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l264" name="l264">264</a></td><td><pre><span class="insertion">+</span><span class="insertion"># Card Types</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l265" name="l265">265</a></td><td><pre><span class="insertion">+</span><span class="insertion">club	= ('♣','clubs')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l266" name="l266">266</a></td><td><pre><span class="insertion">+</span><span class="insertion">diamond = ('♦','diamonds')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l267" name="l267">267</a></td><td><pre><span class="insertion">+</span><span class="insertion">heart   = ('♥','hearts')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l268" name="l268">268</a></td><td><pre><span class="insertion">+</span><span class="insertion">spade   = ('♠','spades')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l269" name="l269">269</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l270" name="l270">270</a></td><td><pre><span class="insertion">+</span><span class="insertion"># Deck Table (Name, ASCII, Value, Remaining Suits)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l271" name="l271">271</a></td><td><pre><span class="insertion">+</span><span class="insertion">deck = {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l272" name="l272">272</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'ace'   : [None, 11, [club,diamond,heart,spade]],</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l273" name="l273">273</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'two'   : [None, 2,  [club,diamond,heart,spade]],</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l274" name="l274">274</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'three' : [None, 3,  [club,diamond,heart,spade]],</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l275" name="l275">275</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'four'  : [None, 4,  [club,diamond,heart,spade]],</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l276" name="l276">276</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'five'  : [None, 5,  [club,diamond,heart,spade]],</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l277" name="l277">277</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'six'   : [None, 6,  [club,diamond,heart,spade]],</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l278" name="l278">278</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'seven' : [None, 7,  [club,diamond,heart,spade]],</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l279" name="l279">279</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'eight' : [None, 8,  [club,diamond,heart,spade]],</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l280" name="l280">280</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'nine'  : [None, 9,  [club,diamond,heart,spade]],</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l281" name="l281">281</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'ten'   : [None, 10, [club,diamond,heart,spade]],</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l282" name="l282">282</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'jack'  : [None, 10, [club,diamond,heart,spade]],</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l283" name="l283">283</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'queen' : [None, 10, [club,diamond,heart,spade]],</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l284" name="l284">284</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'king'  : [None, 10, [club,diamond,heart,spade]]</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l285" name="l285">285</a></td><td><pre><span class="insertion">+</span><span class="insertion">}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l286" name="l286">286</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l287" name="l287">287</a></td><td><pre><span class="insertion">+</span><span class="insertion"># Formatting Control Characters / Color Codes</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l288" name="l288">288</a></td><td><pre><span class="insertion">+</span><span class="insertion">bold        = '\x02'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l289" name="l289">289</a></td><td><pre><span class="insertion">+</span><span class="insertion">italic      = '\x1D'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l290" name="l290">290</a></td><td><pre><span class="insertion">+</span><span class="insertion">underline   = '\x1F'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l291" name="l291">291</a></td><td><pre><span class="insertion">+</span><span class="insertion">reverse     = '\x16'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l292" name="l292">292</a></td><td><pre><span class="insertion">+</span><span class="insertion">reset       = '\x0f'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l293" name="l293">293</a></td><td><pre><span class="insertion">+</span><span class="insertion">white       = '00'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l294" name="l294">294</a></td><td><pre><span class="insertion">+</span><span class="insertion">black       = '01'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l295" name="l295">295</a></td><td><pre><span class="insertion">+</span><span class="insertion">blue        = '02'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l296" name="l296">296</a></td><td><pre><span class="insertion">+</span><span class="insertion">green       = '03'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l297" name="l297">297</a></td><td><pre><span class="insertion">+</span><span class="insertion">red         = '04'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l298" name="l298">298</a></td><td><pre><span class="insertion">+</span><span class="insertion">brown       = '05'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l299" name="l299">299</a></td><td><pre><span class="insertion">+</span><span class="insertion">purple      = '06'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l300" name="l300">300</a></td><td><pre><span class="insertion">+</span><span class="insertion">orange      = '07'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l301" name="l301">301</a></td><td><pre><span class="insertion">+</span><span class="insertion">yellow      = '08'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l302" name="l302">302</a></td><td><pre><span class="insertion">+</span><span class="insertion">light_green = '09'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l303" name="l303">303</a></td><td><pre><span class="insertion">+</span><span class="insertion">cyan        = '10'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l304" name="l304">304</a></td><td><pre><span class="insertion">+</span><span class="insertion">light_cyan  = '11'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l305" name="l305">305</a></td><td><pre><span class="insertion">+</span><span class="insertion">light_blue  = '12'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l306" name="l306">306</a></td><td><pre><span class="insertion">+</span><span class="insertion">pink        = '13'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l307" name="l307">307</a></td><td><pre><span class="insertion">+</span><span class="insertion">grey        = '14'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l308" name="l308">308</a></td><td><pre><span class="insertion">+</span><span class="insertion">light_grey  = '15'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l309" name="l309">309</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l310" name="l310">310</a></td><td><pre><span class="insertion">+</span><span class="insertion">def color(msg, foreground, background=None):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l311" name="l311">311</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">if background:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l312" name="l312">312</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">return '\x03{0},{1}{2}{3}'.format(foreground, background, msg, reset)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l313" name="l313">313</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">else:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l314" name="l314">314</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">return '\x03{0}{1}{2}'.format(foreground, msg, reset)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l315" name="l315">315</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l316" name="l316">316</a></td><td><pre><span class="insertion">+</span><span class="insertion">class IRC(object):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l317" name="l317">317</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">def __init__(self):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l318" name="l318">318</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">self.ace_minus = False</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l319" name="l319">319</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">self.hand      = None</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l320" name="l320">320</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">self.last_move = 0</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l321" name="l321">321</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">self.last_time = 0</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l322" name="l322">322</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">self.player    = None</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l323" name="l323">323</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">self.total     = 0</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l324" name="l324">324</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">self.mini_deck = False</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l325" name="l325">325</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">self.sock       = None</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l326" name="l326">326</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l327" name="l327">327</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">def action(self, chan, msg):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l328" name="l328">328</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">self.sendmsg(chan, '\x01ACTION {0}\x01'.format(msg))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l329" name="l329">329</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l330" name="l330">330</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">def connect(self):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l331" name="l331">331</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">try:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l332" name="l332">332</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">self.create_socket()</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l333" name="l333">333</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">self.sock.connect((config.connection.server, config.connection.port))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l334" name="l334">334</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">if config.login.network:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l335" name="l335">335</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">self.raw('PASS ' + config.login.network)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l336" name="l336">336</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">self.raw('USER {0} 0 * :{1}'.format(config.ident.username, config.ident.realname))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l337" name="l337">337</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">self.raw('NICK ' + config.ident.nickname)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l338" name="l338">338</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">except socket.error as ex:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l339" name="l339">339</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">debug.error('Failed to connect to IRC server.', ex)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l340" name="l340">340</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">self.event_disconnect()</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l341" name="l341">341</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">else:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l342" name="l342">342</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">self.listen()</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l343" name="l343">343</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l344" name="l344">344</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">def create_socket(self):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l345" name="l345">345</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">family	= socket.AF_INET6 if config.connection.ipv6 else socket.AF_INET</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l346" name="l346">346</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">self.sock = socket.socket(family, socket.SOCK_STREAM)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l347" name="l347">347</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">if config.connection.vhost:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l348" name="l348">348</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">self.sock.bind((config.connection.vhost, 0))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l349" name="l349">349</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">if config.connection.ssl:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l350" name="l350">350</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">self.sock = ssl.wrap_socket(self.sock)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l351" name="l351">351</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l352" name="l352">352</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">def draw(self):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l353" name="l353">353</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">card_type = random.choice(list(deck.keys()))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l354" name="l354">354</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">remaining = deck[card_type][2]</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l355" name="l355">355</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">while not remaining:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l356" name="l356">356</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">card_type = random.choice(list(deck.keys()))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l357" name="l357">357</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">remaining = deck[card_type][2]</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l358" name="l358">358</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">card_suit = random.choice(remaining)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l359" name="l359">359</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">if card_suit in (heart,diamond):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l360" name="l360">360</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">card_color = red</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l361" name="l361">361</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">else:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l362" name="l362">362</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">card_color = black</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l363" name="l363">363</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">card_value = deck[card_type][1]</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l364" name="l364">364</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">if self.mini_deck:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l365" name="l365">365</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">card = deck[card_type][0].replace('X', card_suit[0])</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l366" name="l366">366</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">card = color(card, card_color, white)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l367" name="l367">367</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">self.hand.append(card)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l368" name="l368">368</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">else:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l369" name="l369">369</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">for i in range(5):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l370" name="l370">370</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">card = deck[card_type][0][i].replace('X', card_suit[0])</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l371" name="l371">371</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">card = color(card, card_color, white)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l372" name="l372">372</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">self.hand[i].append(card)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l373" name="l373">373</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">deck[card_type][2].remove(card_suit)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l374" name="l374">374</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">self.total += card_value</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l375" name="l375">375</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">if card_type == 'ace' and deck['ace'][1] != 1:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l376" name="l376">376</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">deck['ace'][1] = 1</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l377" name="l377">377</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">return (card_type, card_suit)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l378" name="l378">378</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l379" name="l379">379</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">def error(self, chan, msg, reason=None):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l380" name="l380">380</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">if reason:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l381" name="l381">381</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">self.sendmsg(chan, '[{0}] {1} {2}'.format(color('ERROR', red), msg, color('({0})'.format(str(reason)), grey)))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l382" name="l382">382</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">else:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l383" name="l383">383</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">self.sendmsg(chan, '[{0}] {1}'.format(color('ERROR', red), msg))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l384" name="l384">384</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l385" name="l385">385</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">def event_connect(self):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l386" name="l386">386</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">self.setup_deck('normal')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l387" name="l387">387</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">if config.login.nickserv:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l388" name="l388">388</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">self.identify(self.username, config.login.nickserv)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l389" name="l389">389</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">if config.login.operator:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l390" name="l390">390</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">self.oper(config.ident.username, config.login.operator)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l391" name="l391">391</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">self.join(config.connection.channel, config.connection.key)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l392" name="l392">392</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l393" name="l393">393</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">def event_disconnect(self):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l394" name="l394">394</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">self.sock.close()</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l395" name="l395">395</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">self.reset()</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l396" name="l396">396</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">time.sleep(10)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l397" name="l397">397</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">self.connect()</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l398" name="l398">398</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l399" name="l399">399</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">def event_kick(self, nick, chan, kicked):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l400" name="l400">400</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">if kicked == config.ident.nickname and chan == config.connection.channel:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l401" name="l401">401</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">time.sleep(3)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l402" name="l402">402</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">self.join(config.connection.channel, config.connection.key)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l403" name="l403">403</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l404" name="l404">404</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">def event_message(self, nick, chan, msg):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l405" name="l405">405</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">if chan == config.connection.channel:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l406" name="l406">406</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">if not msg.startswith('.'):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l407" name="l407">407</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">if msg == '@help':</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l408" name="l408">408</a></td><td><pre><span class="insertion">+</span>					<span class="insertion">self.action(chan, 'Sending help in a private message...')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l409" name="l409">409</a></td><td><pre><span class="insertion">+</span>					<span class="insertion">help = [line.strip() for line in open(help_file).readlines() if line]</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l410" name="l410">410</a></td><td><pre><span class="insertion">+</span>					<span class="insertion">for line in help:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l411" name="l411">411</a></td><td><pre><span class="insertion">+</span>						<span class="insertion">self.sendmsg(chan, line)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l412" name="l412">412</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">elif msg == '@cheat':</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l413" name="l413">413</a></td><td><pre><span class="insertion">+</span>					<span class="insertion">self.action(chan, 'Sending cheat sheet in a private message...')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l414" name="l414">414</a></td><td><pre><span class="insertion">+</span>					<span class="insertion">cheat_sheet = [line.strip() for line in open(cheat_file).readlines() if line]</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l415" name="l415">415</a></td><td><pre><span class="insertion">+</span>					<span class="insertion">for line in cheat_sheet:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l416" name="l416">416</a></td><td><pre><span class="insertion">+</span>						<span class="insertion">self.sendmsg(chan, line)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l417" name="l417">417</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">else:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l418" name="l418">418</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">cmd  = msg.split()[0][1:]</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l419" name="l419">419</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">args = msg[len(cmd)+2:]</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l420" name="l420">420</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">if time.time() - self.last_time &lt; 2:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l421" name="l421">421</a></td><td><pre><span class="insertion">+</span>					<span class="insertion">self.sendmsg(chan, color('Slow down nerd!', red))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l422" name="l422">422</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">elif cmd == 'hit':</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l423" name="l423">423</a></td><td><pre><span class="insertion">+</span>					<span class="insertion">if self.player:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l424" name="l424">424</a></td><td><pre><span class="insertion">+</span>						<span class="insertion">if self.player == nick:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l425" name="l425">425</a></td><td><pre><span class="insertion">+</span>							<span class="insertion">card_type, card_suit = self.draw()</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l426" name="l426">426</a></td><td><pre><span class="insertion">+</span>							<span class="insertion">if self.mini_deck:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l427" name="l427">427</a></td><td><pre><span class="insertion">+</span>								<span class="insertion">msg_str = ''</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l428" name="l428">428</a></td><td><pre><span class="insertion">+</span>								<span class="insertion">for i in self.hand:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l429" name="l429">429</a></td><td><pre><span class="insertion">+</span>									<span class="insertion">msg_str += ' ' + i</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l430" name="l430">430</a></td><td><pre><span class="insertion">+</span>								<span class="insertion">self.sendmsg(chan, msg_str)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l431" name="l431">431</a></td><td><pre><span class="insertion">+</span>							<span class="insertion">else:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l432" name="l432">432</a></td><td><pre><span class="insertion">+</span>								<span class="insertion">for i in range(5):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l433" name="l433">433</a></td><td><pre><span class="insertion">+</span>									<span class="insertion">msg_str = ''</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l434" name="l434">434</a></td><td><pre><span class="insertion">+</span>									<span class="insertion">for i in self.hand[i]:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l435" name="l435">435</a></td><td><pre><span class="insertion">+</span>										<span class="insertion">msg_str += ' ' + i</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l436" name="l436">436</a></td><td><pre><span class="insertion">+</span>									<span class="insertion">self.sendmsg(chan, msg_str)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l437" name="l437">437</a></td><td><pre><span class="insertion">+</span>							<span class="insertion">if self.total &gt; 21:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l438" name="l438">438</a></td><td><pre><span class="insertion">+</span>								<span class="insertion">if deck['ace'][1] == 1 and not self.ace_minus:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l439" name="l439">439</a></td><td><pre><span class="insertion">+</span>									<span class="insertion">self.total	 = self.total - 10</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l440" name="l440">440</a></td><td><pre><span class="insertion">+</span>									<span class="insertion">self.ace_minus = True</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l441" name="l441">441</a></td><td><pre><span class="insertion">+</span>									<span class="insertion">if self.total &gt; 21:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l442" name="l442">442</a></td><td><pre><span class="insertion">+</span>										<span class="insertion">self.sendmsg(chan, '{0} {1}'.format(color('BUST!', red), color('You went over 21 and lost!', grey)))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l443" name="l443">443</a></td><td><pre><span class="insertion">+</span>										<span class="insertion">self.reset()</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l444" name="l444">444</a></td><td><pre><span class="insertion">+</span>									<span class="insertion">else:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l445" name="l445">445</a></td><td><pre><span class="insertion">+</span>										<span class="insertion">self.sendmsg(chan, '{0} {1}'.format(color('You drew a {0} of {1}! Your total is now:'.format(card_type, card_suit[1]), yellow),  color(str(self.total), light_blue)))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l446" name="l446">446</a></td><td><pre><span class="insertion">+</span>										<span class="insertion">self.last_move = time.time()</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l447" name="l447">447</a></td><td><pre><span class="insertion">+</span>								<span class="insertion">else:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l448" name="l448">448</a></td><td><pre><span class="insertion">+</span>									<span class="insertion">self.sendmsg(chan, '{0} {1}'.format(color('BUST!', red), color('You went over 21 and lost!', grey)))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l449" name="l449">449</a></td><td><pre><span class="insertion">+</span>									<span class="insertion">self.reset()</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l450" name="l450">450</a></td><td><pre><span class="insertion">+</span>							<span class="insertion">else:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l451" name="l451">451</a></td><td><pre><span class="insertion">+</span>								<span class="insertion">self.sendmsg(chan, '{0} {1}'.format(color('You drew a {0} of {1}! Your total is now:'.format(card_type, card_suit[1]), yellow),  color(str(self.total), light_blue)))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l452" name="l452">452</a></td><td><pre><span class="insertion">+</span>								<span class="insertion">self.last_move = time.time()</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l453" name="l453">453</a></td><td><pre><span class="insertion">+</span>						<span class="insertion">else:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l454" name="l454">454</a></td><td><pre><span class="insertion">+</span>							<span class="insertion">self.error(chan, 'You are not currently playing!', '{0} is playing still'.format(self.player))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l455" name="l455">455</a></td><td><pre><span class="insertion">+</span>					<span class="insertion">else:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l456" name="l456">456</a></td><td><pre><span class="insertion">+</span>						<span class="insertion">self.error(chan, 'You are not currently playing!')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l457" name="l457">457</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">elif cmd == 'mini':</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l458" name="l458">458</a></td><td><pre><span class="insertion">+</span>					<span class="insertion">if not self.player:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l459" name="l459">459</a></td><td><pre><span class="insertion">+</span>						<span class="insertion">if self.mini_deck:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l460" name="l460">460</a></td><td><pre><span class="insertion">+</span>							<span class="insertion">self.setup_deck('normal')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l461" name="l461">461</a></td><td><pre><span class="insertion">+</span>							<span class="insertion">self.sendmsg(chan, '{0} {1}'.format(color('Mini deck has been', yellow), color('DISABLED', red)))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l462" name="l462">462</a></td><td><pre><span class="insertion">+</span>						<span class="insertion">else:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l463" name="l463">463</a></td><td><pre><span class="insertion">+</span>							<span class="insertion">self.setup_deck('mini')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l464" name="l464">464</a></td><td><pre><span class="insertion">+</span>							<span class="insertion">self.sendmsg(chan, '{0} {1}'.format(color('Mini deck has been', yellow), color('ENABLED', green)))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l465" name="l465">465</a></td><td><pre><span class="insertion">+</span>					<span class="insertion">else:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l466" name="l466">466</a></td><td><pre><span class="insertion">+</span>						<span class="insertion">self.error(chan, 'You can not change the deck in game!')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l467" name="l467">467</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">elif cmd == 'play':</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l468" name="l468">468</a></td><td><pre><span class="insertion">+</span>					<span class="insertion">if not self.player:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l469" name="l469">469</a></td><td><pre><span class="insertion">+</span>						<span class="insertion">self.player = nick</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l470" name="l470">470</a></td><td><pre><span class="insertion">+</span>						<span class="insertion">self.action(chan, 'Starting a game of blackjack with {0}!'.format(nick))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l471" name="l471">471</a></td><td><pre><span class="insertion">+</span>						<span class="insertion">for i in range(2):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l472" name="l472">472</a></td><td><pre><span class="insertion">+</span>							<span class="insertion">self.draw()</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l473" name="l473">473</a></td><td><pre><span class="insertion">+</span>						<span class="insertion">if self.mini_deck:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l474" name="l474">474</a></td><td><pre><span class="insertion">+</span>							<span class="insertion">msg_str = ''</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l475" name="l475">475</a></td><td><pre><span class="insertion">+</span>							<span class="insertion">for i in self.hand:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l476" name="l476">476</a></td><td><pre><span class="insertion">+</span>								<span class="insertion">msg_str += ' ' + i</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l477" name="l477">477</a></td><td><pre><span class="insertion">+</span>							<span class="insertion">self.sendmsg(chan, msg_str)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l478" name="l478">478</a></td><td><pre><span class="insertion">+</span>						<span class="insertion">else:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l479" name="l479">479</a></td><td><pre><span class="insertion">+</span>							<span class="insertion">for i in range(5):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l480" name="l480">480</a></td><td><pre><span class="insertion">+</span>								<span class="insertion">msg_str = ''</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l481" name="l481">481</a></td><td><pre><span class="insertion">+</span>								<span class="insertion">for i in self.hand[i]:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l482" name="l482">482</a></td><td><pre><span class="insertion">+</span>									<span class="insertion">msg_str += ' ' + i</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l483" name="l483">483</a></td><td><pre><span class="insertion">+</span>								<span class="insertion">self.sendmsg(chan, msg_str)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l484" name="l484">484</a></td><td><pre><span class="insertion">+</span>						<span class="insertion">self.sendmsg(chan, '{0} {1}'.format(color('Your total is now:', yellow), color(str(self.total), light_blue)))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l485" name="l485">485</a></td><td><pre><span class="insertion">+</span>						<span class="insertion">self.last_move = time.time()</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l486" name="l486">486</a></td><td><pre><span class="insertion">+</span>						<span class="insertion">threading.Thread(target=self.timer).start()</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l487" name="l487">487</a></td><td><pre><span class="insertion">+</span>					<span class="insertion">elif self.player == nick:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l488" name="l488">488</a></td><td><pre><span class="insertion">+</span>						<span class="insertion">self.error(chan, 'You have already started a game, please finish or stop the game!'.format(self.player))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l489" name="l489">489</a></td><td><pre><span class="insertion">+</span>					<span class="insertion">else:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l490" name="l490">490</a></td><td><pre><span class="insertion">+</span>						<span class="insertion">self.error(chan, '{0} is currently playing a game, please wait!'.format(self.player))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l491" name="l491">491</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">elif cmd == 'stand':</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l492" name="l492">492</a></td><td><pre><span class="insertion">+</span>					<span class="insertion">if self.player:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l493" name="l493">493</a></td><td><pre><span class="insertion">+</span>						<span class="insertion">if self.player == nick:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l494" name="l494">494</a></td><td><pre><span class="insertion">+</span>							<span class="insertion">self.sendmsg(chan, 'You have chosen to stand with {0} as your total.'.format(self.total))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l495" name="l495">495</a></td><td><pre><span class="insertion">+</span>						<span class="insertion">else:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l496" name="l496">496</a></td><td><pre><span class="insertion">+</span>							<span class="insertion">self.error(chan, 'You are not currently playing!', '{0} is playing still'.format(self.player))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l497" name="l497">497</a></td><td><pre><span class="insertion">+</span>					<span class="insertion">else:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l498" name="l498">498</a></td><td><pre><span class="insertion">+</span>						<span class="insertion">self.error(chan, 'You are not currently playing!')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l499" name="l499">499</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">elif cmd == 'stop':</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l500" name="l500">500</a></td><td><pre><span class="insertion">+</span>					<span class="insertion">if self.player:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l501" name="l501">501</a></td><td><pre><span class="insertion">+</span>						<span class="insertion">if self.player == nick:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l502" name="l502">502</a></td><td><pre><span class="insertion">+</span>							<span class="insertion">self.action(chan, 'Ending current game with {0}!'.format(nick))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l503" name="l503">503</a></td><td><pre><span class="insertion">+</span>							<span class="insertion">self.reset()</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l504" name="l504">504</a></td><td><pre><span class="insertion">+</span>						<span class="insertion">else:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l505" name="l505">505</a></td><td><pre><span class="insertion">+</span>							<span class="insertion">self.error(chan, 'You are not currently playing!', '{0} is playing still'.format(self.player))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l506" name="l506">506</a></td><td><pre><span class="insertion">+</span>					<span class="insertion">else:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l507" name="l507">507</a></td><td><pre><span class="insertion">+</span>						<span class="insertion">self.error(chan, 'You are not currently playing!')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l508" name="l508">508</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">self.last_time = time.time()</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l509" name="l509">509</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l510" name="l510">510</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">def event_nick_in_use(self):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l511" name="l511">511</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">debug.error_exit('BlackJack is already running.')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l512" name="l512">512</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l513" name="l513">513</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">def event_part(self, nick, chan):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l514" name="l514">514</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">if self.player == nick:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l515" name="l515">515</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">self.sendmsg(chan, 'The game with {0} has ended.'.format(color(self.nick, light_blue)))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l516" name="l516">516</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">self.reset()</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l517" name="l517">517</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l518" name="l518">518</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">def event_quit(self, nick):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l519" name="l519">519</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">if self.player == nick:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l520" name="l520">520</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">self.sendmsg(chan, 'The game with {0} has ended.'.format(color(self.nick, light_blue)))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l521" name="l521">521</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">self.reset()</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l522" name="l522">522</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l523" name="l523">523</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">def handle_events(self, data):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l524" name="l524">524</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">args = data.split()</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l525" name="l525">525</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">if args[0] == 'PING':</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l526" name="l526">526</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">self.raw('PONG ' + args[1][1:])</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l527" name="l527">527</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">elif args[1] == '001': # Use 002 or 003 if you run into issues.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l528" name="l528">528</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">self.event_connect()</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l529" name="l529">529</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">elif args[1] == '433':</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l530" name="l530">530</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">self.event_nick_in_use()</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l531" name="l531">531</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">elif args[1] in ('KICK','PART','PRIVMSG','QUIT'):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l532" name="l532">532</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">nick  = args[0].split('!')[0][1:]</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l533" name="l533">533</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">if nick != config.ident.nickname:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l534" name="l534">534</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">if args[1] == 'KICK':</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l535" name="l535">535</a></td><td><pre><span class="insertion">+</span>					<span class="insertion">chan   = args[2]</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l536" name="l536">536</a></td><td><pre><span class="insertion">+</span>					<span class="insertion">kicked = args[3]</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l537" name="l537">537</a></td><td><pre><span class="insertion">+</span>					<span class="insertion">self.event_kick(nick, chan, kicked)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l538" name="l538">538</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">elif args[1] == 'PART':</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l539" name="l539">539</a></td><td><pre><span class="insertion">+</span>					<span class="insertion">chan = args[2]</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l540" name="l540">540</a></td><td><pre><span class="insertion">+</span>					<span class="insertion">self.event_part(nick, chan)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l541" name="l541">541</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">elif args[1] == 'PRIVMSG':</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l542" name="l542">542</a></td><td><pre><span class="insertion">+</span>					<span class="insertion">chan = args[2]</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l543" name="l543">543</a></td><td><pre><span class="insertion">+</span>					<span class="insertion">msg  = data.split('{0} PRIVMSG {1} :'.format(args[0], chan))[1]</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l544" name="l544">544</a></td><td><pre><span class="insertion">+</span>					<span class="insertion">if chan != config.ident.nickname:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l545" name="l545">545</a></td><td><pre><span class="insertion">+</span>						<span class="insertion">self.event_message(nick, chan, msg)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l546" name="l546">546</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">elif args[1] == 'QUIT':</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l547" name="l547">547</a></td><td><pre><span class="insertion">+</span>					<span class="insertion">self.event_quit(nick)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l548" name="l548">548</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l549" name="l549">549</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">def identify(self, username, password):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l550" name="l550">550</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">self.sendmsg('nickserv', f'identify {username} {password}')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l551" name="l551">551</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l552" name="l552">552</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">def join(self, chan, key=None):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l553" name="l553">553</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">self.raw(f'JOIN {chan} {key}') if key else self.raw('JOIN ' + chan)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l554" name="l554">554</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l555" name="l555">555</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">def listen(self):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l556" name="l556">556</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">while True:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l557" name="l557">557</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">try:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l558" name="l558">558</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">data = self.sock.recv(1024).decode('utf-8')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l559" name="l559">559</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">if data:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l560" name="l560">560</a></td><td><pre><span class="insertion">+</span>					<span class="insertion">for line in (line for line in data.split('\r\n') if line):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l561" name="l561">561</a></td><td><pre><span class="insertion">+</span>						<span class="insertion">debug.irc(line)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l562" name="l562">562</a></td><td><pre><span class="insertion">+</span>						<span class="insertion">if line.startswith('ERROR :Closing Link:') and config.ident.nickname in data:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l563" name="l563">563</a></td><td><pre><span class="insertion">+</span>							<span class="insertion">raise Exception('Connection has closed.')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l564" name="l564">564</a></td><td><pre><span class="insertion">+</span>						<span class="insertion">elif len(line.split()) &gt;= 2:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l565" name="l565">565</a></td><td><pre><span class="insertion">+</span>							<span class="insertion">self.handle_events(line)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l566" name="l566">566</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">else:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l567" name="l567">567</a></td><td><pre><span class="insertion">+</span>					<span class="insertion">debug.error('No data recieved from server.')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l568" name="l568">568</a></td><td><pre><span class="insertion">+</span>					<span class="insertion">break</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l569" name="l569">569</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">except (UnicodeDecodeError,UnicodeEncodeError):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l570" name="l570">570</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">debug.error('Unicode error has occured.')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l571" name="l571">571</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">except Exception as ex:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l572" name="l572">572</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">debug.error('Unexpected error occured.', ex)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l573" name="l573">573</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">break</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l574" name="l574">574</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">self.event_disconnect()</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l575" name="l575">575</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l576" name="l576">576</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">def mode(self, target, mode):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l577" name="l577">577</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">self.raw(f'MODE {target} {mode}')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l578" name="l578">578</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l579" name="l579">579</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">def raw(self, msg):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l580" name="l580">580</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">self.sock.send(bytes(msg + '\r\n', 'utf-8'))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l581" name="l581">581</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l582" name="l582">582</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">def reset(self):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l583" name="l583">583</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">self.ace       = [False,False]</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l584" name="l584">584</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">self.last_move = 0</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l585" name="l585">585</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">self.player    = None</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l586" name="l586">586</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">self.total     = 0</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l587" name="l587">587</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">if self.mini_deck:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l588" name="l588">588</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">self.hand = []</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l589" name="l589">589</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">else:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l590" name="l590">590</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">self.hand = {0:[],1:[],2:[],3:[],4:[]}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l591" name="l591">591</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">deck['ace'][1] = 11</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l592" name="l592">592</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">for card in deck:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l593" name="l593">593</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">deck[card][2] = [club,diamond,heart,spade]</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l594" name="l594">594</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l595" name="l595">595</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">def sendmsg(self, target, msg):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l596" name="l596">596</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">self.raw(f'PRIVMSG {target} :{msg}')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l597" name="l597">597</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l598" name="l598">598</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">def setup_deck(self, deck_type):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l599" name="l599">599</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">if deck_type == 'mini':</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l600" name="l600">600</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">self.hand        = []</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l601" name="l601">601</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">self.mini_deck   = True</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l602" name="l602">602</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">deck['ace'][0]   = 'A X'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l603" name="l603">603</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">deck['two'][0]   = '2 X'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l604" name="l604">604</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">deck['three'][0] = '3 X'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l605" name="l605">605</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">deck['four'][0]  = '4 X'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l606" name="l606">606</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">deck['five'][0]  = '5 X'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l607" name="l607">607</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">deck['six'][0]   = '6 X'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l608" name="l608">608</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">deck['seven'][0] = '7 X'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l609" name="l609">609</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">deck['eight'][0] = '8 X'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l610" name="l610">610</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">deck['nine'][0]  = '9 X'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l611" name="l611">611</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">deck['ten'][0]   = '10X'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l612" name="l612">612</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">deck['jack'][0]  = 'J X'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l613" name="l613">613</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">deck['queen'][0] = 'Q X'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l614" name="l614">614</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">deck['king'][0]  = 'K X'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l615" name="l615">615</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">elif deck_type == 'normal':</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l616" name="l616">616</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">self.hand        = {0:[],1:[],2:[],3:[],4:[]}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l617" name="l617">617</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">self.mini_deck   = False</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l618" name="l618">618</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">deck['ace'][0]   = ('A      ','       ','   X   ','       ','      A')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l619" name="l619">619</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">deck['two'][0]   = ('2      ','   X   ','       ','   X   ','      2')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l620" name="l620">620</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">deck['three'][0] = ('3      ','   X   ','   X   ','   X   ','      3')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l621" name="l621">621</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">deck['four'][0]  = ('4      ','  X X  ','       ','  X X  ','      4')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l622" name="l622">622</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">deck['five'][0]  = ('5      ','  X X  ','   X   ','  X X  ','      5')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l623" name="l623">623</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">deck['six'][0]   = ('6      ','  X X  ','  X X  ','  X X  ','      6')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l624" name="l624">624</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">deck['seven'][0] = ('7      ','  X X  ','  XXX  ','  X X  ','      7')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l625" name="l625">625</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">deck['eight'][0] = ('8      ','  XXX  ','  X X  ','  XXX  ','      8')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l626" name="l626">626</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">deck['nine'][0]  = ('9      ','  XXX  ','  XXX  ','  XXX  ','      9')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l627" name="l627">627</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">deck['ten'][0]   = ('10     ','  XXX  ',' XX XX ','  XXX  ','     10')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l628" name="l628">628</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">deck['jack'][0]  = ('J      ','       ','   X   ','       ','      J')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l629" name="l629">629</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">deck['queen'][0] = ('Q      ','       ','   X   ','       ','      Q')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l630" name="l630">630</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">deck['king'][0]  = ('K      ','       ','   X   ','       ','      K')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l631" name="l631">631</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l632" name="l632">632</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">def timer(self):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l633" name="l633">633</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">while self.player:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l634" name="l634">634</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">if time.time() - self.last_move &gt; self.game_timeout:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l635" name="l635">635</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">self.sendmsg(config.connection.channel, '{0}, you took too long! The game has ended.'.format(self.player))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l636" name="l636">636</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">self.reset()</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l637" name="l637">637</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">break</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l638" name="l638">638</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">else:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l639" name="l639">639</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">time.sleep(1)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l640" name="l640">640</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l641" name="l641">641</a></td><td><pre><span class="insertion">+</span><span class="insertion">BlackJack = IRC()</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l642" name="l642">642</a></td><td><pre><span class="bold">diff --git a/blackjack/data/cheat.txt b/blackjack/data/cheat.txt</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l643" name="l643">643</a></td><td><pre><span class="bold">new file mode 100644</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l644" name="l644">644</a></td><td><pre><span class="bold">index 0000000..bf2500d</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l645" name="l645">645</a></td><td><pre><span class="bold">--- /dev/null</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l646" name="l646">646</a></td><td><pre><span class="bold">+++ b/blackjack/data/cheat.txt</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l647" name="l647">647</a></td><td><pre><span class="hunk">@@ -0,0 +1,32 @@</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l648" name="l648">648</a></td><td><pre><span class="insertion">+</span><span class="insertion">0,10  1      BLACKJACK CHEAT SHEET     0</span>[41m   </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l649" name="l649">649</a></td><td><pre><span class="insertion">+</span><span class="insertion">0,10 1,9 H 0,10HIT 0,4 S 0,10STAND 1,8 D 0,10DOUBLE 0,12 P 0,10SPLIT 1</span>[41m </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l650" name="l650">650</a></td><td><pre><span class="insertion">+</span><span class="insertion">0,1 1 0              DEALERS HAND    1</span>[41m     </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l651" name="l651">651</a></td><td><pre><span class="insertion">+</span><span class="insertion">0,1 1,0      1,15 A 1,14 101,15 9 1,14 8 1,15 7 1,14 6 1,15 5 1,14 4 1,15 3 1,14 2</span>[41m </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l652" name="l652">652</a></td><td><pre><span class="insertion">+</span><span class="insertion">0,1 1,5 1,15 A A 0,12 P  P  P  P  P  P  P  P  P  P14</span>[41m </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l653" name="l653">653</a></td><td><pre><span class="insertion">+</span><span class="insertion">0,1 1,5 1,1410 100,4 S  S  S  S  S  S  S  S  S  S</span>[41m </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l654" name="l654">654</a></td><td><pre><span class="insertion">+</span><span class="insertion">0,1 0,5 1,15 9 9 0,4 S  S 0,12 P  P 0,4 S 0,12 P  P  P  P  P</span>[41m </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l655" name="l655">655</a></td><td><pre><span class="insertion">+</span><span class="insertion">0,1 0,5P1,14 8 8 0,12 P  P  P  P  P  P  P  P  P  P</span>[41m </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l656" name="l656">656</a></td><td><pre><span class="insertion">+</span><span class="insertion">0,1 0,5A1,15 7 7 1,9 H  H  H  H 0,12 P  P  P  P  P  P</span>[41m </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l657" name="l657">657</a></td><td><pre><span class="insertion">+</span><span class="insertion">0,1 0,5I1,14 6 6 1,9 H  H  H  H  H  H  H  H  H  H</span>[41m </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l658" name="l658">658</a></td><td><pre><span class="insertion">+</span><span class="insertion">0,1 0,5R1,15 5 5 1,9 H  H 1,8 D  D  D  D  D  D  D  D</span>[41m </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l659" name="l659">659</a></td><td><pre><span class="insertion">+</span><span class="insertion">0,1P1,5 1,14 4 4 0,9 1H  H  H  H  H0 0,12 P  P 0,9 1H  H  H</span>[41m </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l660" name="l660">660</a></td><td><pre><span class="insertion">+</span><span class="insertion">0,1L1,5 1,15 3 3 0,9 1H0  1H  H  H0 0,12 P  P  P  P  P  P</span>[41m </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l661" name="l661">661</a></td><td><pre><span class="insertion">+</span><span class="insertion">0,1A1,5 1,14 2 2 0,9 1H  H  H  H0 0,12 P  P  P  P  P  P</span>[41m </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l662" name="l662">662</a></td><td><pre><span class="insertion">+</span><span class="insertion">0,1Y1,7 1,15 17+ 0,4 S  S  S  S  S  S  S  S  S  S</span>[41m </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l663" name="l663">663</a></td><td><pre><span class="insertion">+</span><span class="insertion">0,1E1,7 1,14 16  0,9 1H  H  H  H0  1H0 0,4 S  S  S  S  S</span>[41m </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l664" name="l664">664</a></td><td><pre><span class="insertion">+</span><span class="insertion">0,1R1,7 1,15 15  0,9 1H  H  H  H0  1H0 0,4 S  S  S  S  S</span>[41m </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l665" name="l665">665</a></td><td><pre><span class="insertion">+</span><span class="insertion">0,1S1,7H1,14 14  0,9 1H  H  H  H0  1H0 0,4 S  S  S  S  S</span>[41m </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l666" name="l666">666</a></td><td><pre><span class="insertion">+</span><span class="insertion">0,1 1,7A1,15 13  0,9 1H  H  H  H0  1H0 0,4 S  S  S  S  S</span>[41m </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l667" name="l667">667</a></td><td><pre><span class="insertion">+</span><span class="insertion">0,1H1,7R1,14 12  0,9 1H  H  H  H  H 0,4 S  S  S 0,9 1H  H</span>[41m </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l668" name="l668">668</a></td><td><pre><span class="insertion">+</span><span class="insertion">0,1A1,7D1,15 11 0 0,9 1H0 1,8 D  D  D  D  D  D  D  D  D</span>[41m </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l669" name="l669">669</a></td><td><pre><span class="insertion">+</span><span class="insertion">0,1N1,7 1,14 10  0,9 1H0  1H0 1,8 D  D  D  D  D  D  D  D</span>[41m </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l670" name="l670">670</a></td><td><pre><span class="insertion">+</span><span class="insertion">0,1D1,7 1,15  9  0,9 1H0  1H  H  H  H0 1,8 D  D  D  D 0,9 1H0</span>[41m </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l671" name="l671">671</a></td><td><pre><span class="insertion">+</span><span class="insertion">0,1 1,7 1,14 8-  0,9 1H  H  H  H  H  H  H  H  H  H0</span>[41m </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l672" name="l672">672</a></td><td><pre><span class="insertion">+</span><span class="insertion">0,1 0,5 1,15 A-9 0,4 S  S  S  S  S 1,8 D  D  D  D  D</span>[41m </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l673" name="l673">673</a></td><td><pre><span class="insertion">+</span><span class="insertion">0,1 0,5 1,14 A-8 0,4 S  S  S  S  S 1,8 D  D  D  D  D</span>[41m </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l674" name="l674">674</a></td><td><pre><span class="insertion">+</span><span class="insertion">0,1 0,5S1,15 A-7 1,9 H  H  H0 0,4 S  S 1,8 D  D  D  D  D</span>[41m </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l675" name="l675">675</a></td><td><pre><span class="insertion">+</span><span class="insertion">0,1 0,5O1,14 A-6 1,9 H  H 0 1H  H  H0 1,8 D  D  D  D 1,9 H</span>[41m </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l676" name="l676">676</a></td><td><pre><span class="insertion">+</span><span class="insertion">0,1 0,5F1,15 A-5 1,9 H  H  H  H  H0 1,8 D  D  D 0,9 1H  H</span>[41m </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l677" name="l677">677</a></td><td><pre><span class="insertion">+</span><span class="insertion">0,1 0,5T1,14 A-4 1,9 H  H  H  H0  1H0 1,8 D  D  D 0,9 1H0 1 H</span>[41m </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l678" name="l678">678</a></td><td><pre><span class="insertion">+</span><span class="insertion">0,1 0,5 1,15 A-3 0,9 1H 0 1H0 1 H0  1H0  1H0 1,8 D  D 1,9 H  H  H</span>[41m </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l679" name="l679">679</a></td><td><pre><span class="insertion">+</span><span class="insertion">0,1 0,5 1,14 A-2 0,9 1H  H  H  H  H0 1,8 D  D 1,9 H  H  H0</span>[41m </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l680" name="l680">680</a></td><td><pre><span class="bold">diff --git a/blackjack/data/help.txt b/blackjack/data/help.txt</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l681" name="l681">681</a></td><td><pre><span class="bold">new file mode 100644</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l682" name="l682">682</a></td><td><pre><span class="bold">index 0000000..ac3a3f7</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l683" name="l683">683</a></td><td><pre><span class="bold">--- /dev/null</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l684" name="l684">684</a></td><td><pre><span class="bold">+++ b/blackjack/data/help.txt</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l685" name="l685">685</a></td><td><pre><span class="hunk">@@ -0,0 +1,31 @@</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l686" name="l686">686</a></td><td><pre><span class="insertion">+</span><span class="insertion">                        1,0       1,1 1,0      1,1   1,0     1,1</span>[41m </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l687" name="l687">687</a></td><td><pre><span class="insertion">+</span><span class="insertion">                        1,1  1,0   1,1   1,0  1,1   1,0  1,1 1,0  1,1   1,0</span>[41m  </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l688" name="l688">688</a></td><td><pre><span class="insertion">+</span><span class="insertion">                        1,1  1,0   1,1   1,0      1,1  1,0  1,1</span>[41m     </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l689" name="l689">689</a></td><td><pre><span class="insertion">+</span><span class="insertion">                        1,1  1,0   1,1   1,0  1,1   1,0  1,1 1,0  1,1   1,0</span>[41m  </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l690" name="l690">690</a></td><td><pre><span class="insertion">+</span><span class="insertion">                        1,0       1,1 1,0  1,1 0  1,0  1,1  1,0     1,1</span>[41m </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l691" name="l691">691</a></td><td><pre><span class="insertion">+</span>[41m </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l692" name="l692">692</a></td><td><pre><span class="insertion">+</span><span class="insertion">12,00▓▓▓▓▓▓▓ 04,00▓▓▓▓▓▓▓ 12,00▓▓▓▓▓▓▓ 04,00▓▓▓▓▓▓▓ 12,00▓▓▓▓▓▓▓ 04,00▓▓▓▓▓▓▓ 12,00▓▓▓▓▓▓▓ 04,00▓▓▓▓▓▓▓ 12,00▓▓▓▓▓▓▓</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l693" name="l693">693</a></td><td><pre><span class="insertion">+</span><span class="insertion">12,00▓▓▓▓▓▓▓ 04,00▓▓▓▓▓▓▓ 12,00▓▓▓▓▓▓▓ 04,00▓▓▓▓▓▓▓ 12,00▓▓▓▓▓▓▓ 04,00▓▓▓▓▓▓▓ 12,00▓▓▓▓▓▓▓ 04,00▓▓▓▓▓▓▓ 12,00▓▓▓▓▓▓▓</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l694" name="l694">694</a></td><td><pre><span class="insertion">+</span><span class="insertion">12,00▓▓▓00,12B12,00▓▓▓ 04,00▓▓▓00,04L04,00▓▓▓ 12,00▓▓▓00,12A12,00▓▓▓ 04,00▓▓▓00,04C04,00▓▓▓ 12,00▓▓▓00,12K12,00▓▓▓ 04,00▓▓▓00,04J04,00▓▓▓ 12,00▓▓▓00,12A12,00▓▓▓ 04,00▓▓▓00,04C04,00▓▓▓ 12,00▓▓▓00,12K12,00▓▓▓</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l695" name="l695">695</a></td><td><pre><span class="insertion">+</span><span class="insertion">12,00▓▓▓▓▓▓▓ 04,00▓▓▓▓▓▓▓ 12,00▓▓▓▓▓▓▓ 04,00▓▓▓▓▓▓▓ 12,00▓▓▓▓▓▓▓ 04,00▓▓▓▓▓▓▓ 12,00▓▓▓▓▓▓▓ 04,00▓▓▓▓▓▓▓ 12,00▓▓▓▓▓▓▓</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l696" name="l696">696</a></td><td><pre><span class="insertion">+</span><span class="insertion">12,00▓▓▓▓▓▓▓ 04,00▓▓▓▓▓▓▓ 12,00▓▓▓▓▓▓▓ 04,00▓▓▓▓▓▓▓ 12,00▓▓▓▓▓▓▓ 04,00▓▓▓▓▓▓▓ 12,00▓▓▓▓▓▓▓ 04,00▓▓▓▓▓▓▓ 12,00▓▓▓▓▓▓▓</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l697" name="l697">697</a></td><td><pre><span class="insertion">+</span>[41m </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l698" name="l698">698</a></td><td><pre><span class="insertion">+</span><span class="insertion">00┌─────────────────────────────────────────────────────────────────────┐</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l699" name="l699">699</a></td><td><pre><span class="insertion">+</span><span class="insertion">00│                          08.: HOW TO PLAY :. 00                         │</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l700" name="l700">700</a></td><td><pre><span class="insertion">+</span><span class="insertion">00├─────────────────────────────────────────────────────────────────────┤</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l701" name="l701">701</a></td><td><pre><span class="insertion">+</span><span class="insertion">00│                                                                     │</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l702" name="l702">702</a></td><td><pre><span class="insertion">+</span><span class="insertion">00│ Type in the chat @help to see this message displayed.00               │</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l703" name="l703">703</a></td><td><pre><span class="insertion">+</span><span class="insertion">00│                                                                     │</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l704" name="l704">704</a></td><td><pre><span class="insertion">+</span><span class="insertion">00│ Start a game of BlackJack with the .play command. 00                  │</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l705" name="l705">705</a></td><td><pre><span class="insertion">+</span><span class="insertion">00│                                                                     │</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l706" name="l706">706</a></td><td><pre><span class="insertion">+</span><span class="insertion">00│ You can end the game at any time with the .stop command. 00           │</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l707" name="l707">707</a></td><td><pre><span class="insertion">+</span><span class="insertion">00│                                                                     │</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l708" name="l708">708</a></td><td><pre><span class="insertion">+</span><span class="insertion">00│ The limit is 1 player at a time, and games will end if the player 00  │</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l709" name="l709">709</a></td><td><pre><span class="insertion">+</span><span class="insertion">00│ has not executed a command after 20 seconds since the last command.00 │</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l710" name="l710">710</a></td><td><pre><span class="insertion">+</span><span class="insertion">00│                                                                     │</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l711" name="l711">711</a></td><td><pre><span class="insertion">+</span><span class="insertion">00│                                                                     │</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l712" name="l712">712</a></td><td><pre><span class="insertion">+</span><span class="insertion">00│ Once in a game, you can use the .hit command to draw another card. 00 │</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l713" name="l713">713</a></td><td><pre><span class="insertion">+</span><span class="insertion">00│                                                                     │</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l714" name="l714">714</a></td><td><pre><span class="insertion">+</span><span class="insertion">00│ You can stop drawing cards with the .stand command.  00               │</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l715" name="l715">715</a></td><td><pre><span class="insertion">+</span><span class="insertion">00│                                                                     │</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l716" name="l716">716</a></td><td><pre><span class="insertion">+</span><span class="insertion">00└─────────────────────────────────────────────────────────────────────┘</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l717" name="l717">717</a></td><td><pre><span class="bold">diff --git a/screens/banner.png b/screens/banner.png</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l718" name="l718">718</a></td><td><pre><span class="bold">new file mode 100644</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l719" name="l719">719</a></td><td><pre><span class="bold">index 0000000..34a925c</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l720" name="l720">720</a></td><td><pre>Binary files /dev/null and b/screens/banner.png differ</pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l721" name="l721">721</a></td><td><pre><span class="bold">diff --git a/screens/cheat.png b/screens/cheat.png</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l722" name="l722">722</a></td><td><pre><span class="bold">new file mode 100644</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l723" name="l723">723</a></td><td><pre><span class="bold">index 0000000..1474313</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l724" name="l724">724</a></td><td><pre>Binary files /dev/null and b/screens/cheat.png differ</pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l725" name="l725">725</a></td><td><pre><span class="bold">diff --git a/screens/game.png b/screens/game.png</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l726" name="l726">726</a></td><td><pre><span class="bold">new file mode 100644</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l727" name="l727">727</a></td><td><pre><span class="bold">index 0000000..e4d50fb</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l728" name="l728">728</a></td><td><pre>Binary files /dev/null and b/screens/game.png differ</pre></td></tr>
+</table></pre>

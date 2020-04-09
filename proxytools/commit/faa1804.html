@@ -1,0 +1,321 @@
+<!doctype html>
+<link rel="stylesheet" href="../../style.css">
+<title>proxytools :: faa1804</title>
+<h1><a href="../index.html" title="Back to Repository">&larr;&#xFE0E;</a> proxytools :: faa1804</h1>
+<hr>
+<table id="main" cellpadding="0" cellspacing="0">
+<tr class="item"><td class="linenumber"><a href="#l1" name="l1">1</a></td><td><pre><span class="commit">commit faa18045476416d1b0556820e4a940d5fd37553a</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l2" name="l2">2</a></td><td><pre>Author: acidvegas &lt;acid.vegas@acid.vegas&gt;</pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l3" name="l3">3</a></td><td><pre>Date:   Fri Jun 28 01:40:22 2019 -0400</pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l4" name="l4">4</a></td><td><pre></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l5" name="l5">5</a></td><td><pre>    Initial commit</pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l6" name="l6">6</a></td><td><pre>---</pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l7" name="l7">7</a></td><td><pre> LICENSE                  |  15 <span class="insertion">++++++</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l8" name="l8">8</a></td><td><pre> README.md                |   9 <span class="insertion">++++</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l9" name="l9">9</a></td><td><pre> proxytools/cleansocks.py |  70 <span class="insertion">+++++++++++++++++++++++++++</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l10" name="l10">10</a></td><td><pre> proxytools/floodbl.py    |  56 <span class="insertion">++++++++++++++++++++++</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l11" name="l11">11</a></td><td><pre> proxytools/sockspot.py   | 121 <span class="insertion">+++++++++++++++++++++++++++++++++++++++++++++++</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l12" name="l12">12</a></td><td><pre> 5 files changed, 271 insertions(+)</pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l13" name="l13">13</a></td><td><pre></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l14" name="l14">14</a></td><td><pre><span class="bold">diff --git a/LICENSE b/LICENSE</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l15" name="l15">15</a></td><td><pre><span class="bold">new file mode 100644</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l16" name="l16">16</a></td><td><pre><span class="bold">index 0000000..b63b809</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l17" name="l17">17</a></td><td><pre><span class="bold">--- /dev/null</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l18" name="l18">18</a></td><td><pre><span class="bold">+++ b/LICENSE</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l19" name="l19">19</a></td><td><pre><span class="hunk">@@ -0,0 +1,15 @@</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l20" name="l20">20</a></td><td><pre><span class="insertion">+</span><span class="insertion">ISC License</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l21" name="l21">21</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l22" name="l22">22</a></td><td><pre><span class="insertion">+</span><span class="insertion">Copyright (c) 2019, acidvegas &lt;acid.vegas@acid.vegas&gt;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l23" name="l23">23</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l24" name="l24">24</a></td><td><pre><span class="insertion">+</span><span class="insertion">Permission to use, copy, modify, and/or distribute this software for any</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l25" name="l25">25</a></td><td><pre><span class="insertion">+</span><span class="insertion">purpose with or without fee is hereby granted, provided that the above</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l26" name="l26">26</a></td><td><pre><span class="insertion">+</span><span class="insertion">copyright notice and this permission notice appear in all copies.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l27" name="l27">27</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l28" name="l28">28</a></td><td><pre><span class="insertion">+</span><span class="insertion">THE SOFTWARE IS PROVIDED &quot;AS IS&quot; AND THE AUTHOR DISCLAIMS ALL WARRANTIES</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l29" name="l29">29</a></td><td><pre><span class="insertion">+</span><span class="insertion">WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l30" name="l30">30</a></td><td><pre><span class="insertion">+</span><span class="insertion">MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l31" name="l31">31</a></td><td><pre><span class="insertion">+</span><span class="insertion">ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l32" name="l32">32</a></td><td><pre><span class="insertion">+</span><span class="insertion">WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l33" name="l33">33</a></td><td><pre><span class="insertion">+</span><span class="insertion">ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l34" name="l34">34</a></td><td><pre><span class="insertion">+</span><span class="insertion">OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l35" name="l35">35</a></td><td><pre><span class="bold">diff --git a/README.md b/README.md</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l36" name="l36">36</a></td><td><pre><span class="bold">new file mode 100644</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l37" name="l37">37</a></td><td><pre><span class="bold">index 0000000..67fc1ab</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l38" name="l38">38</a></td><td><pre><span class="bold">--- /dev/null</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l39" name="l39">39</a></td><td><pre><span class="bold">+++ b/README.md</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l40" name="l40">40</a></td><td><pre><span class="hunk">@@ -0,0 +1,9 @@</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l41" name="l41">41</a></td><td><pre><span class="insertion">+</span><span class="insertion">###### Requirements</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l42" name="l42">42</a></td><td><pre><span class="insertion">+</span><span class="insertion">* [Python](https://www.python.org/downloads/) *(**Note:** This script was developed to be used with the latest version of Python)*</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l43" name="l43">43</a></td><td><pre><span class="insertion">+</span><span class="insertion">* [PySocks](https://pypi.python.org/pypi/PySocks) *(Required for cleansocks.py)*</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l44" name="l44">44</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l45" name="l45">45</a></td><td><pre><span class="insertion">+</span><span class="insertion">###### Mirrors</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l46" name="l46">46</a></td><td><pre><span class="insertion">+</span><span class="insertion">- [acid.vegas](https://acid.vegas/proxytools) *(main)*</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l47" name="l47">47</a></td><td><pre><span class="insertion">+</span><span class="insertion">- [SuperNETs](https://git.supernets.org/acidvegas/proxytools)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l48" name="l48">48</a></td><td><pre><span class="insertion">+</span><span class="insertion">- [GitHub](https://github.com/acidvegas/proxytools)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l49" name="l49">49</a></td><td><pre><span class="insertion">+</span><span class="insertion">- [GitLab](https://gitlab.com/acidvegas/proxytools)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l50" name="l50">50</a></td><td><pre><span class="bold">diff --git a/proxytools/cleansocks.py b/proxytools/cleansocks.py</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l51" name="l51">51</a></td><td><pre><span class="bold">new file mode 100644</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l52" name="l52">52</a></td><td><pre><span class="bold">index 0000000..34fb5dd</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l53" name="l53">53</a></td><td><pre><span class="bold">--- /dev/null</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l54" name="l54">54</a></td><td><pre><span class="bold">+++ b/proxytools/cleansocks.py</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l55" name="l55">55</a></td><td><pre><span class="hunk">@@ -0,0 +1,70 @@</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l56" name="l56">56</a></td><td><pre><span class="insertion">+</span><span class="insertion">#!/usr/bin/env python</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l57" name="l57">57</a></td><td><pre><span class="insertion">+</span><span class="insertion"># CleanSocks - Developed by acidvegas in Python (https://acid.vegas/proxytools)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l58" name="l58">58</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l59" name="l59">59</a></td><td><pre><span class="insertion">+</span><span class="insertion">'''</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l60" name="l60">60</a></td><td><pre><span class="insertion">+</span><span class="insertion">Requirements:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l61" name="l61">61</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">PySocks (https://pypi.python.org/pypi/pysocks)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l62" name="l62">62</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l63" name="l63">63</a></td><td><pre><span class="insertion">+</span><span class="insertion">This script will clean a list of proxies by removing duplicates, checking for valid formats (IP:PORT), and testing if the proxies are working</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l64" name="l64">64</a></td><td><pre><span class="insertion">+</span><span class="insertion">'''</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l65" name="l65">65</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l66" name="l66">66</a></td><td><pre><span class="insertion">+</span><span class="insertion">import argparse</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l67" name="l67">67</a></td><td><pre><span class="insertion">+</span><span class="insertion">import concurrent.futures</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l68" name="l68">68</a></td><td><pre><span class="insertion">+</span><span class="insertion">import os</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l69" name="l69">69</a></td><td><pre><span class="insertion">+</span><span class="insertion">import re</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l70" name="l70">70</a></td><td><pre><span class="insertion">+</span><span class="insertion">import sys</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l71" name="l71">71</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l72" name="l72">72</a></td><td><pre><span class="insertion">+</span><span class="insertion">sys.dont_write_bytecode = True</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l73" name="l73">73</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l74" name="l74">74</a></td><td><pre><span class="insertion">+</span><span class="insertion">def is_proxy(proxy):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l75" name="l75">75</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">return re.match('^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]):(?:6553[0-5]|655[0-2][0-9]|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$', proxy)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l76" name="l76">76</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l77" name="l77">77</a></td><td><pre><span class="insertion">+</span><span class="insertion">def test_proxy(proxy):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l78" name="l78">78</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">global good</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l79" name="l79">79</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">ip, port = proxy.split(':')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l80" name="l80">80</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">try:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l81" name="l81">81</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">sock = socks.socksocket()</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l82" name="l82">82</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">sock.set_proxy(socks.SOCKS5, ip, int(port))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l83" name="l83">83</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">sock.settimeout(args.timeout)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l84" name="l84">84</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">sock.connect(('www.google.com', 80))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l85" name="l85">85</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">except:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l86" name="l86">86</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">print('BAD  | ' + proxy)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l87" name="l87">87</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">else:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l88" name="l88">88</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">print('GOOD | ' + proxy)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l89" name="l89">89</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">good.append(proxy)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l90" name="l90">90</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">finally:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l91" name="l91">91</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">sock.close()</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l92" name="l92">92</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l93" name="l93">93</a></td><td><pre><span class="insertion">+</span><span class="insertion">parser = argparse.ArgumentParser(usage='%(prog)s &lt;input&gt; &lt;output&gt; [options]')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l94" name="l94">94</a></td><td><pre><span class="insertion">+</span><span class="insertion">parser.add_argument('input',           help='file to scan')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l95" name="l95">95</a></td><td><pre><span class="insertion">+</span><span class="insertion">parser.add_argument('output',          help='file to output')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l96" name="l96">96</a></td><td><pre><span class="insertion">+</span><span class="insertion">parser.add_argument('-t', '--threads', help='number of threads      (default: 100)', default=100, type=int)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l97" name="l97">97</a></td><td><pre><span class="insertion">+</span><span class="insertion">parser.add_argument('-x', '--timeout', help='socket timeout seconds (default: 15)',  default=15,  type=int)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l98" name="l98">98</a></td><td><pre><span class="insertion">+</span><span class="insertion">args = parser.parse_args()</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l99" name="l99">99</a></td><td><pre><span class="insertion">+</span><span class="insertion">try:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l100" name="l100">100</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">import socks</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l101" name="l101">101</a></td><td><pre><span class="insertion">+</span><span class="insertion">except ImportError:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l102" name="l102">102</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">raise SystemExit('missing pysocks module (https://pypi.python.org/pypi/pysocks)')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l103" name="l103">103</a></td><td><pre><span class="insertion">+</span><span class="insertion">if not os.path.isfile(args.input):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l104" name="l104">104</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">raise SystemExit('no such input file')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l105" name="l105">105</a></td><td><pre><span class="insertion">+</span><span class="insertion">proxies = set([line.strip() for line in open(args.input).readlines() if is_proxy(line)])</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l106" name="l106">106</a></td><td><pre><span class="insertion">+</span><span class="insertion">if not proxies:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l107" name="l107">107</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">raise SystemExit('no proxies found from input file')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l108" name="l108">108</a></td><td><pre><span class="insertion">+</span><span class="insertion">deduped, ips = list(), list()</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l109" name="l109">109</a></td><td><pre><span class="insertion">+</span><span class="insertion">for proxy in proxies:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l110" name="l110">110</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">ip = proxy.split(':')[0]</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l111" name="l111">111</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">if ip not in ips:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l112" name="l112">112</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">ips.append(ip)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l113" name="l113">113</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">deduped.append(proxy)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l114" name="l114">114</a></td><td><pre><span class="insertion">+</span><span class="insertion">deduped.sort()</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l115" name="l115">115</a></td><td><pre><span class="insertion">+</span><span class="insertion">good = list()</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l116" name="l116">116</a></td><td><pre><span class="insertion">+</span><span class="insertion">with concurrent.futures.ThreadPoolExecutor(max_workers=args.threads) as executor:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l117" name="l117">117</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">checks = {executor.submit(test_proxy, proxy): proxy for proxy in deduped}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l118" name="l118">118</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">for future in concurrent.futures.as_completed(checks):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l119" name="l119">119</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">checks[future]</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l120" name="l120">120</a></td><td><pre><span class="insertion">+</span><span class="insertion">good.sort()</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l121" name="l121">121</a></td><td><pre><span class="insertion">+</span><span class="insertion">with open(args.output, 'w') as output_file:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l122" name="l122">122</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">output_file.write('\n'.join(good))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l123" name="l123">123</a></td><td><pre><span class="insertion">+</span><span class="insertion">print('Total : ' + format(len(proxies),           ',d'))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l124" name="l124">124</a></td><td><pre><span class="insertion">+</span><span class="insertion">print('Good  : ' + format(len(good),              ',d'))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l125" name="l125">125</a></td><td><pre><span class="insertion">+</span><span class="insertion">print('Bad   : ' + format(len(proxies)-len(good), ',d'))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l126" name="l126">126</a></td><td><pre><span class="bold">diff --git a/proxytools/floodbl.py b/proxytools/floodbl.py</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l127" name="l127">127</a></td><td><pre><span class="bold">new file mode 100644</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l128" name="l128">128</a></td><td><pre><span class="bold">index 0000000..5cf43b7</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l129" name="l129">129</a></td><td><pre><span class="bold">--- /dev/null</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l130" name="l130">130</a></td><td><pre><span class="bold">+++ b/proxytools/floodbl.py</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l131" name="l131">131</a></td><td><pre><span class="hunk">@@ -0,0 +1,56 @@</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l132" name="l132">132</a></td><td><pre><span class="insertion">+</span><span class="insertion">#!/usr/bin/env python</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l133" name="l133">133</a></td><td><pre><span class="insertion">+</span><span class="insertion"># FloodBL - Developed by acidvegas in Python (https://acid.vegas/proxytools)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l134" name="l134">134</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l135" name="l135">135</a></td><td><pre><span class="insertion">+</span><span class="insertion">'''</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l136" name="l136">136</a></td><td><pre><span class="insertion">+</span><span class="insertion">This script will test proxies against a set of Domain Name System-based Blackhole Lists (DNSBL) or Real-time Blackhole Lists (RBL)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l137" name="l137">137</a></td><td><pre><span class="insertion">+</span><span class="insertion">'''</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l138" name="l138">138</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l139" name="l139">139</a></td><td><pre><span class="insertion">+</span><span class="insertion">import argparse</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l140" name="l140">140</a></td><td><pre><span class="insertion">+</span><span class="insertion">import concurrent.futures</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l141" name="l141">141</a></td><td><pre><span class="insertion">+</span><span class="insertion">import os</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l142" name="l142">142</a></td><td><pre><span class="insertion">+</span><span class="insertion">import re</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l143" name="l143">143</a></td><td><pre><span class="insertion">+</span><span class="insertion">import socket</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l144" name="l144">144</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l145" name="l145">145</a></td><td><pre><span class="insertion">+</span><span class="insertion">dnsbls = ('dnsbl.dronebl.org','rbl.efnetrbl.org','torexit.dan.me.uk')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l146" name="l146">146</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l147" name="l147">147</a></td><td><pre><span class="insertion">+</span><span class="insertion">def dnsbl_check(proxy):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l148" name="l148">148</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">global good</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l149" name="l149">149</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">bad = False</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l150" name="l150">150</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">ip  = proxy.split(':')[0]</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l151" name="l151">151</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">formatted_ip = '.'.join(ip.split('.')[::-1])</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l152" name="l152">152</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">for dnsbl in dnsbls:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l153" name="l153">153</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">try:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l154" name="l154">154</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">socket.gethostbyname(f'{formatted_ip}.{dnsbl}')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l155" name="l155">155</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">except socket.gaierror:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l156" name="l156">156</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">pass</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l157" name="l157">157</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">else:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l158" name="l158">158</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">bad = True</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l159" name="l159">159</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">break</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l160" name="l160">160</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">if bad:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l161" name="l161">161</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">print('BAD  | ' + ip)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l162" name="l162">162</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">else:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l163" name="l163">163</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">good.append(proxy)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l164" name="l164">164</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">print('GOOD | ' + ip)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l165" name="l165">165</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l166" name="l166">166</a></td><td><pre><span class="insertion">+</span><span class="insertion"># Main</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l167" name="l167">167</a></td><td><pre><span class="insertion">+</span><span class="insertion">parser = argparse.ArgumentParser(usage='%(prog)s &lt;input&gt; &lt;output&gt; [options]')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l168" name="l168">168</a></td><td><pre><span class="insertion">+</span><span class="insertion">parser.add_argument('input',           help='file to scan')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l169" name="l169">169</a></td><td><pre><span class="insertion">+</span><span class="insertion">parser.add_argument('output',          help='file to output')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l170" name="l170">170</a></td><td><pre><span class="insertion">+</span><span class="insertion">parser.add_argument('-t', '--threads', help='number of threads (default: 100)', default=100, type=int)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l171" name="l171">171</a></td><td><pre><span class="insertion">+</span><span class="insertion">args = parser.parse_args()</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l172" name="l172">172</a></td><td><pre><span class="insertion">+</span><span class="insertion">if not os.path.isfile(args.input):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l173" name="l173">173</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">raise SystemExit('no such input file')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l174" name="l174">174</a></td><td><pre><span class="insertion">+</span><span class="insertion">proxies = re.findall('[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+:[0-9]+', open(args.input).read(), re.MULTILINE)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l175" name="l175">175</a></td><td><pre><span class="insertion">+</span><span class="insertion">if not proxies:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l176" name="l176">176</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">raise SystemExit('no proxies found from input file')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l177" name="l177">177</a></td><td><pre><span class="insertion">+</span><span class="insertion">good = list()</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l178" name="l178">178</a></td><td><pre><span class="insertion">+</span><span class="insertion">with concurrent.futures.ThreadPoolExecutor(max_workers=args.threads) as executor:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l179" name="l179">179</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">checks = {executor.submit(dnsbl_check, proxy): proxy for proxy in proxies}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l180" name="l180">180</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">for future in concurrent.futures.as_completed(checks):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l181" name="l181">181</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">checks[future]</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l182" name="l182">182</a></td><td><pre><span class="insertion">+</span><span class="insertion">good.sort()</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l183" name="l183">183</a></td><td><pre><span class="insertion">+</span><span class="insertion">with open(args.output, 'w') as output_file:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l184" name="l184">184</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">output_file.write('\n'.join(good))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l185" name="l185">185</a></td><td><pre><span class="insertion">+</span><span class="insertion">print('Total : ' + format(len(proxies),           ',d'))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l186" name="l186">186</a></td><td><pre><span class="insertion">+</span><span class="insertion">print('Good  : ' + format(len(good),              ',d'))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l187" name="l187">187</a></td><td><pre><span class="insertion">+</span><span class="insertion">print('Bad   : ' + format(len(proxies)-len(good), ',d'))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l188" name="l188">188</a></td><td><pre><span class="bold">diff --git a/proxytools/sockspot.py b/proxytools/sockspot.py</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l189" name="l189">189</a></td><td><pre><span class="bold">new file mode 100644</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l190" name="l190">190</a></td><td><pre><span class="bold">index 0000000..c87b132</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l191" name="l191">191</a></td><td><pre><span class="bold">--- /dev/null</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l192" name="l192">192</a></td><td><pre><span class="bold">+++ b/proxytools/sockspot.py</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l193" name="l193">193</a></td><td><pre><span class="hunk">@@ -0,0 +1,121 @@</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l194" name="l194">194</a></td><td><pre><span class="insertion">+</span><span class="insertion">#!/usr/bin/env python</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l195" name="l195">195</a></td><td><pre><span class="insertion">+</span><span class="insertion"># SockSpot - Developed by acidvegas in Python (https://acid.vegas/proxytools)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l196" name="l196">196</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l197" name="l197">197</a></td><td><pre><span class="insertion">+</span><span class="insertion">import datetime</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l198" name="l198">198</a></td><td><pre><span class="insertion">+</span><span class="insertion">import json</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l199" name="l199">199</a></td><td><pre><span class="insertion">+</span><span class="insertion">import base64</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l200" name="l200">200</a></td><td><pre><span class="insertion">+</span><span class="insertion">import os</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l201" name="l201">201</a></td><td><pre><span class="insertion">+</span><span class="insertion">import re</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l202" name="l202">202</a></td><td><pre><span class="insertion">+</span><span class="insertion">import threading</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l203" name="l203">203</a></td><td><pre><span class="insertion">+</span><span class="insertion">import time</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l204" name="l204">204</a></td><td><pre><span class="insertion">+</span><span class="insertion">import urllib.request</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l205" name="l205">205</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l206" name="l206">206</a></td><td><pre><span class="insertion">+</span><span class="insertion"># Blogspot URLs</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l207" name="l207">207</a></td><td><pre><span class="insertion">+</span><span class="insertion">blogspot_list = (</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l208" name="l208">208</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'live-socks.net',</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l209" name="l209">209</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'newfreshproxies-24.blogspot.sg',</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l210" name="l210">210</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'proxyserverlist-24.blogspot.sg',</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l211" name="l211">211</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'socks24.org',</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l212" name="l212">212</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'sock5us.blogspot.com',</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l213" name="l213">213</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'sockproxy.blogspot.com',</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l214" name="l214">214</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'socksproxylist24.blogspot.com',</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l215" name="l215">215</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'newsocks.info',</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l216" name="l216">216</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'socksecurelist.ca',</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l217" name="l217">217</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'canada-socks247.com',</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l218" name="l218">218</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'sock5us.blogspot.com',</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l219" name="l219">219</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'socks24.org',</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l220" name="l220">220</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'sslproxies24.blogspot.com',</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l221" name="l221">221</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'vip-socks24.blogspot.com'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l222" name="l222">222</a></td><td><pre><span class="insertion">+</span><span class="insertion">)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l223" name="l223">223</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l224" name="l224">224</a></td><td><pre><span class="insertion">+</span><span class="insertion"># Settings</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l225" name="l225">225</a></td><td><pre><span class="insertion">+</span><span class="insertion">max_results = 100 # Maximum number of results per-page.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l226" name="l226">226</a></td><td><pre><span class="insertion">+</span><span class="insertion">post_depth  = 1   # How many days back from the current date to pull posts from. (1 = Today Only)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l227" name="l227">227</a></td><td><pre><span class="insertion">+</span><span class="insertion">timeout     = 30  # Timeout for HTTP requests.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l228" name="l228">228</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l229" name="l229">229</a></td><td><pre><span class="insertion">+</span><span class="insertion"># Globals</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l230" name="l230">230</a></td><td><pre><span class="insertion">+</span><span class="insertion">proxy_file = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'proxies.txt')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l231" name="l231">231</a></td><td><pre><span class="insertion">+</span><span class="insertion">proxy_list = list()</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l232" name="l232">232</a></td><td><pre><span class="insertion">+</span><span class="insertion">threads    = dict()</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l233" name="l233">233</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l234" name="l234">234</a></td><td><pre><span class="insertion">+</span><span class="insertion">def debug(msg):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l235" name="l235">235</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">print(f'{get_time()} | [~] - {msg}')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l236" name="l236">236</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l237" name="l237">237</a></td><td><pre><span class="insertion">+</span><span class="insertion">def error(msg, reason):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l238" name="l238">238</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">print(f'{get_time()} | [!] - {msg} ({reason})')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l239" name="l239">239</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l240" name="l240">240</a></td><td><pre><span class="insertion">+</span><span class="insertion">def get_time():</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l241" name="l241">241</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">return time.strftime('%I:%M:%S')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l242" name="l242">242</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l243" name="l243">243</a></td><td><pre><span class="insertion">+</span><span class="insertion">def get_date():</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l244" name="l244">244</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">date = datetime.datetime.today()</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l245" name="l245">245</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">return '{0}-{1:02d}-{2:02d}'.format(date.year, date.month, date.day)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l246" name="l246">246</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l247" name="l247">247</a></td><td><pre><span class="insertion">+</span><span class="insertion">def get_date_range():</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l248" name="l248">248</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">date_range = datetime.datetime.today() - datetime.timedelta(days=post_depth)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l249" name="l249">249</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">return '{0}-{1:02d}-{2:02d}'.format(date_range.year, date_range.month, date_range.day)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l250" name="l250">250</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l251" name="l251">251</a></td><td><pre><span class="insertion">+</span><span class="insertion">def get_source(url):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l252" name="l252">252</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">req = urllib.request.Request(url)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l253" name="l253">253</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">req.add_header('User-Agent', 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l254" name="l254">254</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">source  = urllib.request.urlopen(req, timeout=timeout)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l255" name="l255">255</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">charset = source.headers.get_content_charset()</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l256" name="l256">256</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">if charset:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l257" name="l257">257</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">return source.read().decode(charset)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l258" name="l258">258</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">else:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l259" name="l259">259</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">return source.read().decode()</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l260" name="l260">260</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l261" name="l261">261</a></td><td><pre><span class="insertion">+</span><span class="insertion">def parse_blogspot(url):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l262" name="l262">262</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">global proxy_list</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l263" name="l263">263</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">try:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l264" name="l264">264</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">source = json.loads(get_source(f'http://{url}/feeds/posts/default?max-results={max_results}&amp;alt=json&amp;updated-min={get_date_range()}T00:00:00&amp;updated-max={get_date()}T23:59:59&amp;orderby=updated'))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l265" name="l265">265</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">found  = []</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l266" name="l266">266</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">if source['feed'].get('entry'):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l267" name="l267">267</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">for item in source['feed']['entry']:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l268" name="l268">268</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">data    = item['content']['$t']</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l269" name="l269">269</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">proxies = re.findall('[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+:[0-9]+', data, re.MULTILINE)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l270" name="l270">270</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">if proxies:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l271" name="l271">271</a></td><td><pre><span class="insertion">+</span>					<span class="insertion">found      += proxies</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l272" name="l272">272</a></td><td><pre><span class="insertion">+</span>					<span class="insertion">proxy_list += proxies</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l273" name="l273">273</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">debug('Found {0} proxies on {1}'.format(format(len(found), ',d'), url))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l274" name="l274">274</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">else:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l275" name="l275">275</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">error('No posts found on page!', url)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l276" name="l276">276</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">except Exception as ex:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l277" name="l277">277</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">proxy_value = ex</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l278" name="l278">278</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l279" name="l279">279</a></td><td><pre><span class="insertion">+</span><span class="insertion">def scan_blogspots():</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l280" name="l280">280</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">for url in blogspot_list:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l281" name="l281">281</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">threads[url] = threading.Thread(target=parse_blogspot, args=(url,))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l282" name="l282">282</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">for thread in threads:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l283" name="l283">283</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">threads[thread].start()</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l284" name="l284">284</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">time.sleep(10)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l285" name="l285">285</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">for thread in threads:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l286" name="l286">286</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">threads[thread].join()</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l287" name="l287">287</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">debug('Found {0} total proxies!'.format(format(len(proxy_list), ',d')))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l288" name="l288">288</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">with open (proxy_file, 'w') as proxy__file:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l289" name="l289">289</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">for proxy in proxy_list:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l290" name="l290">290</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">proxy__file.write(proxy + '\n')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l291" name="l291">291</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l292" name="l292">292</a></td><td><pre><span class="insertion">+</span><span class="insertion"># Main</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l293" name="l293">293</a></td><td><pre><span class="insertion">+</span><span class="insertion">print('#'*56)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l294" name="l294">294</a></td><td><pre><span class="insertion">+</span><span class="insertion">print('#{0}#'.format(''.center(54)))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l295" name="l295">295</a></td><td><pre><span class="insertion">+</span><span class="insertion">print('#{0}#'.format('SockSpot Proxy Scraper'.center(54)))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l296" name="l296">296</a></td><td><pre><span class="insertion">+</span><span class="insertion">print('#{0}#'.format('Developed by acidvegas in Python'.center(54)))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l297" name="l297">297</a></td><td><pre><span class="insertion">+</span><span class="insertion">print('#{0}#'.format('https://acid.vegas/proxytools'.center(54)))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l298" name="l298">298</a></td><td><pre><span class="insertion">+</span><span class="insertion">print('#{0}#'.format(''.center(54)))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l299" name="l299">299</a></td><td><pre><span class="insertion">+</span><span class="insertion">print('#'*56)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l300" name="l300">300</a></td><td><pre><span class="insertion">+</span><span class="insertion">debug(f'Scanning {len(blogspot_list)} URLs from list...')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l301" name="l301">301</a></td><td><pre><span class="insertion">+</span><span class="insertion">threading.Thread(target=scan_blogspots).start()</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l302" name="l302">302</a></td><td><pre><span class="insertion">+</span><span class="insertion">for url in blogspot_list:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l303" name="l303">303</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">threads[url] = threading.Thread(target=parse_blogspot, args=(url,))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l304" name="l304">304</a></td><td><pre><span class="insertion">+</span><span class="insertion">for thread in threads:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l305" name="l305">305</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">threads[thread].start()</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l306" name="l306">306</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">time.sleep(10)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l307" name="l307">307</a></td><td><pre><span class="insertion">+</span><span class="insertion">for thread in threads:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l308" name="l308">308</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">threads[thread].join()</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l309" name="l309">309</a></td><td><pre><span class="insertion">+</span><span class="insertion">if proxy_value = 0:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l310" name="l310">310</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">error('no socks found')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l311" name="l311">311</a></td><td><pre><span class="insertion">+</span><span class="insertion">debug('Found {0} total proxies!'.format(format(len(proxy_list), ',d')))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l312" name="l312">312</a></td><td><pre><span class="insertion">+</span><span class="insertion">with open (proxy_file, 'w') as proxy__file:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l313" name="l313">313</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">for proxy in proxy_list:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l314" name="l314">314</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">proxy__file.write(proxy + '\n')</span></pre></td></tr>
+</table></pre>

@@ -1,0 +1,139 @@
+<!doctype html>
+<link rel="stylesheet" href="../../style.css">
+<title>stagit :: f1d8d21</title>
+<h1><a href="../index.html" title="Back to Repository">&larr;&#xFE0E;</a> stagit :: f1d8d21</h1>
+<hr>
+<table id="main" cellpadding="0" cellspacing="0">
+<tr class="item"><td class="linenumber"><a href="#l1" name="l1">1</a></td><td><pre><span class="commit">commit f1d8d2127e46cb36dda9fe2098e753d21eefdacf</span><span class="commit"> (</span><span class="reference">HEAD -&gt; </span><span class="branch">master</span><span class="commit">, </span><span class="remote">origin/master</span><span class="commit">)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l2" name="l2">2</a></td><td><pre>Author: acidvegas &lt;acid.vegas@acid.vegas&gt;</pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l3" name="l3">3</a></td><td><pre>Date:   Mon Mar 30 07:40:32 2020 -0400</pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l4" name="l4">4</a></td><td><pre></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l5" name="l5">5</a></td><td><pre>    Added color to commit logs</pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l6" name="l6">6</a></td><td><pre>---</pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l7" name="l7">7</a></td><td><pre> README.md |  3 <span class="insertion">+</span><span class="deletion">--</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l8" name="l8">8</a></td><td><pre> stagit    | 45 <span class="insertion">+++++++++++++++++++++++++++++++++</span><span class="deletion">------------</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l9" name="l9">9</a></td><td><pre> 2 files changed, 34 insertions(+), 14 deletions(-)</pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l10" name="l10">10</a></td><td><pre></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l11" name="l11">11</a></td><td><pre><span class="bold">diff --git a/README.md b/README.md</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l12" name="l12">12</a></td><td><pre><span class="bold">index 4732ed1..3e77c08 100644</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l13" name="l13">13</a></td><td><pre><span class="bold">--- a/README.md</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l14" name="l14">14</a></td><td><pre><span class="bold">+++ b/README.md</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l15" name="l15">15</a></td><td><pre><span class="hunk">@@ -28,7 +28,7 @@</span> </span>The `CNAME` option is optional if you are planning on using a custom domain with</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l16" name="l16">16</a></td><td><pre> Lastly, stagit will ignore the `$REPO_DIR/mirrors` directory by default. To make stagit include this directory, remove `-path $REPO_DIR/mirrors -prune` from the `find` command in the source.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l17" name="l17">17</a></td><td><pre> </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l18" name="l18">18</a></td><td><pre> ## Todo</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l19" name="l19">19</a></td><td><pre><span class="deletion">-- Parse repository owner in a better way</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l20" name="l20">20</a></td><td><pre><span class="insertion">+</span><span class="insertion">- mailto links in commits and more</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l21" name="l21">21</a></td><td><pre> - Add support for detecting organization names *(possibly using the Github/Gitlab API &amp; curl)*.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l22" name="l22">22</a></td><td><pre> - Create an index per-user to view specific users repos &amp; key information.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l23" name="l23">23</a></td><td><pre> - Pagination support for repos exceeding `MAX_COMMITS`.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l24" name="l24">24</a></td><td><pre><span class="hunk">@@ -36,7 +36,6 @@</span> </span>Lastly, stagit will ignore the `$REPO_DIR/mirrors` directory by default. To make</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l25" name="l25">25</a></td><td><pre> - Hook git pushes to rebuild the repositories index.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l26" name="l26">26</a></td><td><pre> - Add support for displaying LICENSE/README files and convert markdown to HTML.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l27" name="l27">27</a></td><td><pre> - Add support to view file contents.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l28" name="l28">28</a></td><td><pre><span class="deletion">-- Colored commit logs.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l29" name="l29">29</a></td><td><pre> - Fix all possible bashisms identified in source by checkbashisms.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l30" name="l30">30</a></td><td><pre> </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l31" name="l31">31</a></td><td><pre> ## Mirrors</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l32" name="l32">32</a></td><td><pre><span class="bold">diff --git a/stagit b/stagit</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l33" name="l33">33</a></td><td><pre><span class="bold">index b000f0d..3600f78 100755</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l34" name="l34">34</a></td><td><pre><span class="bold">--- a/stagit</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l35" name="l35">35</a></td><td><pre><span class="bold">+++ b/stagit</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l36" name="l36">36</a></td><td><pre><span class="hunk">@@ -9,8 +9,8 @@</span> </span>CNAME=''             # create a CNAME file with a custom domain (empty = do not</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l37" name="l37">37</a></td><td><pre> MAX_COMMITS=100      # maximum number of commits to show (0 = all)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l38" name="l38">38</a></td><td><pre> MAX_COMMIT_MSG=100   # maximum characters in a commit message to display (0 = all)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l39" name="l39">39</a></td><td><pre> MAX_COMMIT_LINES=999 # maximum number of lines to show in a commit (0 = all)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l40" name="l40">40</a></td><td><pre><span class="deletion">-REPO_DIR=$HOME/git   # directory containing repositories</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l41" name="l41">41</a></td><td><pre><span class="deletion">-THEME='light'        # default style used ('light' or 'dark')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l42" name="l42">42</a></td><td><pre><span class="insertion">+</span><span class="insertion">REPO_DIR=$HOME//git  # directory containing repositories</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l43" name="l43">43</a></td><td><pre><span class="insertion">+</span><span class="insertion">THEME='dark'         # default style used ('light' or 'dark')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l44" name="l44">44</a></td><td><pre> TITLE='Repositories' # title used on homepage</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l45" name="l45">45</a></td><td><pre> WWW_DIR=$HOME/www    # directory to output to</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l46" name="l46">46</a></td><td><pre> #######################################################################################</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l47" name="l47">47</a></td><td><pre><span class="hunk">@@ -49,16 +49,24 @@</span> </span>generate_css() {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l48" name="l48">48</a></td><td><pre> 		{</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l49" name="l49">49</a></td><td><pre> 			echo &quot;a{color:blue}&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l50" name="l50">50</a></td><td><pre> 			echo &quot;body{background-color:#fff;color:#000;font-family:monospace;margin-top:0px}&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l51" name="l51">51</a></td><td><pre><span class="deletion">-			echo &quot;code{counter-increment:line}&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l52" name="l52">52</a></td><td><pre><span class="deletion">-			echo &quot;code::before{border-right:1px solid #000;color:#000;content:counter(line);display:inline-block;margin-right:.5em;padding:0 .5em;width:1.5em;-webkit-user-select:none}&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l53" name="l53">53</a></td><td><pre> 			echo &quot;h1{margin:0px}&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l54" name="l54">54</a></td><td><pre> 			echo &quot;h1 a{color:#000;text-decoration:none}&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l55" name="l55">55</a></td><td><pre> 			echo &quot;h4{color:#777;margin:0px}&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l56" name="l56">56</a></td><td><pre> 			echo &quot;h5{margin:0px;font-style:italic;font-weight:normal}&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l57" name="l57">57</a></td><td><pre> 			echo &quot;hr{border:none;border-bottom:1px solid #777}&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l58" name="l58">58</a></td><td><pre><span class="deletion">-			echo &quot;pre{counter-reset:line}&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l59" name="l59">59</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">echo &quot;pre{margin:0px}&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l60" name="l60">60</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">echo &quot;.bold{font-weight:bold}&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l61" name="l61">61</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">echo &quot;.branch{color:green;font-weight:bold}&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l62" name="l62">62</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">echo &quot;.commit{color:olive}&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l63" name="l63">63</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">echo &quot;.deletion{color:red}&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l64" name="l64">64</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">echo &quot;.hunk{color:teal}&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l65" name="l65">65</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">echo &quot;.insertion{color:green}&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l66" name="l66">66</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">echo &quot;.reference{color:teal;font-weight:bold}&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l67" name="l67">67</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">echo &quot;.remote{color:red;font-weight:bold}&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l68" name="l68">68</a></td><td><pre> 			echo &quot;.item:hover{background-color:#eee}&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l69" name="l69">69</a></td><td><pre> 			echo &quot;.item td{white-space:nowrap}&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l70" name="l70">70</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">echo &quot;.linenumber{text-align:right;-moz-user-select:-moz-none;-khtml-user-select: none;-webkit-user-select:none}&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l71" name="l71">71</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">echo &quot;.linenumber a{text-decoration:none}&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l72" name="l72">72</a></td><td><pre> 			echo &quot;#main{border-collapse:collapse;table-layout:fixed}&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l73" name="l73">73</a></td><td><pre> 			echo &quot;#main td,th{padding-left:5px;padding-right:5px}&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l74" name="l74">74</a></td><td><pre> 			echo &quot;#navigation{color:#000;font-weight:900;text-align:left}&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l75" name="l75">75</a></td><td><pre><span class="hunk">@@ -68,16 +76,24 @@</span> </span>generate_css() {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l76" name="l76">76</a></td><td><pre> 			echo &quot;a{color:#8dc}&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l77" name="l77">77</a></td><td><pre> 			echo &quot;a:hover{color:#8cd}&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l78" name="l78">78</a></td><td><pre> 			echo &quot;body{background-color:#111;color:#fff;font-family:monospace;margin-top:0px}&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l79" name="l79">79</a></td><td><pre><span class="deletion">-			echo &quot;code{counter-increment:line}&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l80" name="l80">80</a></td><td><pre><span class="deletion">-			echo &quot;code::before{border-right:1px solid #fff;color:#fff;content:counter(line);display:inline-block;margin-right:.5em;padding:0 .5em;width:1.5em;-webkit-user-select:none}&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l81" name="l81">81</a></td><td><pre> 			echo &quot;h1{margin:0px}&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l82" name="l82">82</a></td><td><pre> 			echo &quot;h1 a{color:#fff;text-decoration:none}&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l83" name="l83">83</a></td><td><pre> 			echo &quot;h4{color:#777;margin:0px}&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l84" name="l84">84</a></td><td><pre> 			echo &quot;h5{font-style:italic;font-weight:normal;margin:0px}&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l85" name="l85">85</a></td><td><pre> 			echo &quot;hr{border:none;border-bottom:1px dashed #fff}&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l86" name="l86">86</a></td><td><pre><span class="deletion">-			echo &quot;pre{counter-reset:line}&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l87" name="l87">87</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">echo &quot;pre{margin:0px}&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l88" name="l88">88</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">echo &quot;.bold{font-weight:bold}&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l89" name="l89">89</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">echo &quot;.branch{color:green;font-weight:bold}&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l90" name="l90">90</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">echo &quot;.commit{color:olive}&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l91" name="l91">91</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">echo &quot;.deletion{color:red}&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l92" name="l92">92</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">echo &quot;.hunk{color:teal}&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l93" name="l93">93</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">echo &quot;.insertion{color:green}&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l94" name="l94">94</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">echo &quot;.reference{color:teal;font-weight:bold}&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l95" name="l95">95</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">echo &quot;.remote{color:red;font-weight:bold}&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l96" name="l96">96</a></td><td><pre> 			echo &quot;.item:hover{background-color:#1a1a1a}&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l97" name="l97">97</a></td><td><pre> 			echo &quot;.item td{white-space:nowrap}&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l98" name="l98">98</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">echo &quot;.linenumber{text-align:right;-moz-user-select:-moz-none;-khtml-user-select: none;-webkit-user-select:none}&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l99" name="l99">99</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">echo &quot;.linenumber a{text-decoration:none}&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l100" name="l100">100</a></td><td><pre> 			echo &quot;#main{border-collapse:collapse;table-layout:fixed}&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l101" name="l101">101</a></td><td><pre> 			echo &quot;#main td,th{padding-left:5px;padding-right:5px}&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l102" name="l102">102</a></td><td><pre> 			echo &quot;#navigation{color:#fff;font-weight:900;text-align:left}&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l103" name="l103">103</a></td><td><pre><span class="hunk">@@ -126,7 +142,7 @@</span> </span>generate_commit_index() {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l104" name="l104">104</a></td><td><pre> 		echo &quot;&lt;title&gt;$REPO_NAME :: $COMMIT_HASH&lt;/title&gt;&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l105" name="l105">105</a></td><td><pre> 		echo &quot;&lt;h1&gt;&lt;a href=\&quot;../index.html\&quot; title=\&quot;Back to Repository\&quot;&gt;&amp;larr;&amp;#xFE0E;&lt;/a&gt; $REPO_NAME :: $COMMIT_HASH&lt;/h1&gt;&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l106" name="l106">106</a></td><td><pre> 		echo &quot;&lt;hr&gt;&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l107" name="l107">107</a></td><td><pre><span class="deletion">-		echo &quot;&lt;pre&gt;&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l108" name="l108">108</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">echo &quot;&lt;table id=\&quot;main\&quot; cellpadding=\&quot;0\&quot; cellspacing=\&quot;0\&quot;&gt;&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l109" name="l109">109</a></td><td><pre> 	} &gt; $WWW_DIR/$REPO_NAME/commit/$COMMIT_HASH.html</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l110" name="l110">110</a></td><td><pre> }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l111" name="l111">111</a></td><td><pre> </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l112" name="l112">112</a></td><td><pre><span class="hunk">@@ -187,14 +203,19 @@</span> </span>for d in $REPOS; do</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l113" name="l113">113</a></td><td><pre> 		COMMIT_DELETIONS=$(echo $COMMIT_SUMMARY | cut -d'|' -f3)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l114" name="l114">114</a></td><td><pre> 		echo &quot;&lt;tr class=\&quot;item\&quot;&gt;&lt;td&gt;$COMMIT_SIGNED&lt;/td&gt;&lt;td&gt;&lt;a href=\&quot;commit/$COMMIT_HASH.html\&quot; title=\&quot;View this commit\&quot;&gt;$COMMIT_HASH&lt;/a&gt;&lt;/td&gt;&lt;td&gt;$COMMIT_MESSAGE&lt;/td&gt;&lt;td&gt;$COMMIT_AUTHOR&lt;/td&gt;&lt;td&gt;$COMMIT_DATE&lt;/td&gt;&lt;td align=\&quot;right\&quot;&gt;$COMMIT_FILES&lt;/td&gt;&lt;td align=\&quot;right\&quot;&gt;$COMMIT_INSERTIONS&lt;/td&gt;&lt;td align=\&quot;right\&quot;&gt;$COMMIT_DELETIONS&lt;/td&gt;&lt;/tr&gt;&quot; &gt;&gt; $WWW_DIR/$REPO_NAME/index.html</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l115" name="l115">115</a></td><td><pre> 		generate_commit_index $REPO_NAME $COMMIT_HASH</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l116" name="l116">116</a></td><td><pre><span class="deletion">-		COMMIT_DIFF=$(git --git-dir $d show $COMMIT_HASH) # todo: convert terminal colors to html (script ; commmand ; exit)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l117" name="l117">117</a></td><td><pre> 		if [ $MAX_COMMIT_LINES -ne 0 -a $(echo &quot;$COMMIT_DIFF&quot; | wc -l) -gt $MAX_COMMIT_LINES ]; then</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l118" name="l118">118</a></td><td><pre> 			COMMIT_DIFF=$(echo &quot;$COMMIT_DIFF&quot; | head -n $MAX_COMMIT_LINES)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l119" name="l119">119</a></td><td><pre> 		fi</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l120" name="l120">120</a></td><td><pre> 		COMMIT_DIFF=$(echo &quot;$COMMIT_DIFF&quot; | sed 's/&amp;/\&amp;amp;/g;s/&lt;/\&amp;lt;/g;s/&gt;/\&amp;gt;/g;s/&quot;/\&amp;quot;/g;' | tr -d '\r')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l121" name="l121">121</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">COMMIT_DIFF=$(echo &quot;$COMMIT_DIFF&quot; | sed 's/\[31m/&lt;span class=&quot;deletion&quot;&gt;/g; s/\[1\;31m/&lt;span class=&quot;remote&quot;&gt;/g; s/\[32m/&lt;span class=&quot;insertion&quot;&gt;/g; s/\[1\;32m/&lt;span class=&quot;branch&quot;&gt;/g; s/\[33m/&lt;span class=&quot;commit&quot;&gt;/g; s/\[36m/&lt;span class=&quot;hunk&quot;&gt;/g; s/\[1\;36m/&lt;span class=&quot;reference&quot;&gt;/g; s/\[1m/&lt;span class=&quot;bold&quot;&gt;/g; s/\[m/&lt;\/span&gt;/g')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l122" name="l122">122</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">COUNT=1</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l123" name="l123">123</a></td><td><pre> 		echo &quot;$COMMIT_DIFF&quot; | while IFS= read -r line; do</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l124" name="l124">124</a></td><td><pre><span class="deletion">-			echo &quot;&lt;code&gt;$line&lt;/code&gt;&quot; &gt;&gt; $WWW_DIR/$REPO_NAME/commit/$COMMIT_HASH.html</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l125" name="l125">125</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">echo &quot;&lt;tr class=\&quot;item\&quot;&gt;&lt;td class=\&quot;linenumber\&quot;&gt;&lt;a href=\&quot;#l$COUNT\&quot; name=\&quot;l$COUNT\&quot;&gt;$COUNT&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$line&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&quot; &gt;&gt; $WWW_DIR/$REPO_NAME/commit/$COMMIT_HASH.html</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l126" name="l126">126</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">COUNT=`expr $COUNT + 1`</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l127" name="l127">127</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">fi</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l128" name="l128">128</a></td><td><pre> 		done</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l129" name="l129">129</a></td><td><pre><span class="deletion">-		echo &quot;&lt;/pre&gt;&quot; &gt;&gt; $WWW_DIR/$REPO_NAME/commit/$COMMIT_HASH.html</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l130" name="l130">130</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">echo &quot;&lt;/table&gt;&lt;/pre&gt;&quot; &gt;&gt; $WWW_DIR/$REPO_NAME/commit/$COMMIT_HASH.html</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l131" name="l131">131</a></td><td><pre> 	done</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l132" name="l132">132</a></td><td><pre> done</span></pre></td></tr>
+</table></pre>

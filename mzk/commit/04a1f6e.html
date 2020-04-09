@@ -1,0 +1,299 @@
+<!doctype html>
+<link rel="stylesheet" href="../../style.css">
+<title>mzk :: 04a1f6e</title>
+<h1><a href="../index.html" title="Back to Repository">&larr;&#xFE0E;</a> mzk :: 04a1f6e</h1>
+<hr>
+<table id="main" cellpadding="0" cellspacing="0">
+<tr class="item"><td class="linenumber"><a href="#l1" name="l1">1</a></td><td><pre><span class="commit">commit 04a1f6e01876eaee762033ca2f9ed372d8d99c2d</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l2" name="l2">2</a></td><td><pre>Author: acidvegas &lt;acid.vegas@acid.vegas&gt;</pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l3" name="l3">3</a></td><td><pre>Date:   Sat Jul 13 18:52:23 2019 -0400</pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l4" name="l4">4</a></td><td><pre></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l5" name="l5">5</a></td><td><pre>    Initial commit</pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l6" name="l6">6</a></td><td><pre>---</pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l7" name="l7">7</a></td><td><pre> LICENSE          |  15 <span class="insertion">++++++</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l8" name="l8">8</a></td><td><pre> README.md        |   0</pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l9" name="l9">9</a></td><td><pre> mzk/constants.py |  78 <span class="insertion">++++++++++++++++++++++++++++</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l10" name="l10">10</a></td><td><pre> mzk/functions.py | 153 <span class="insertion">+++++++++++++++++++++++++++++++++++++++++++++++++++++++</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l11" name="l11">11</a></td><td><pre> mzk/main.py      |   6 <span class="insertion">+++</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l12" name="l12">12</a></td><td><pre> 5 files changed, 252 insertions(+)</pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l13" name="l13">13</a></td><td><pre></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l14" name="l14">14</a></td><td><pre><span class="bold">diff --git a/LICENSE b/LICENSE</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l15" name="l15">15</a></td><td><pre><span class="bold">new file mode 100644</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l16" name="l16">16</a></td><td><pre><span class="bold">index 0000000..69997e8</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l17" name="l17">17</a></td><td><pre><span class="bold">--- /dev/null</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l18" name="l18">18</a></td><td><pre><span class="bold">+++ b/LICENSE</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l19" name="l19">19</a></td><td><pre><span class="hunk">@@ -0,0 +1,15 @@</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l20" name="l20">20</a></td><td><pre><span class="insertion">+</span><span class="insertion">ISC License</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l21" name="l21">21</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l22" name="l22">22</a></td><td><pre><span class="insertion">+</span><span class="insertion">Copyright (c) 2019, acidvegas &lt;acid.vegas@acid.vegas&gt;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l23" name="l23">23</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l24" name="l24">24</a></td><td><pre><span class="insertion">+</span><span class="insertion">Permission to use, copy, modify, and/or distribute this software for any</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l25" name="l25">25</a></td><td><pre><span class="insertion">+</span><span class="insertion">purpose with or without fee is hereby granted, provided that the above</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l26" name="l26">26</a></td><td><pre><span class="insertion">+</span><span class="insertion">copyright notice and this permission notice appear in all copies.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l27" name="l27">27</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l28" name="l28">28</a></td><td><pre><span class="insertion">+</span><span class="insertion">THE SOFTWARE IS PROVIDED &quot;AS IS&quot; AND THE AUTHOR DISCLAIMS ALL WARRANTIES</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l29" name="l29">29</a></td><td><pre><span class="insertion">+</span><span class="insertion">WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l30" name="l30">30</a></td><td><pre><span class="insertion">+</span><span class="insertion">MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l31" name="l31">31</a></td><td><pre><span class="insertion">+</span><span class="insertion">ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l32" name="l32">32</a></td><td><pre><span class="insertion">+</span><span class="insertion">WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l33" name="l33">33</a></td><td><pre><span class="insertion">+</span><span class="insertion">ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l34" name="l34">34</a></td><td><pre><span class="insertion">+</span><span class="insertion">OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l35" name="l35">35</a></td><td><pre><span class="bold">diff --git a/README.md b/README.md</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l36" name="l36">36</a></td><td><pre><span class="bold">new file mode 100644</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l37" name="l37">37</a></td><td><pre><span class="bold">index 0000000..e69de29</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l38" name="l38">38</a></td><td><pre><span class="bold">diff --git a/mzk/constants.py b/mzk/constants.py</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l39" name="l39">39</a></td><td><pre><span class="bold">new file mode 100644</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l40" name="l40">40</a></td><td><pre><span class="bold">index 0000000..670489d</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l41" name="l41">41</a></td><td><pre><span class="bold">--- /dev/null</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l42" name="l42">42</a></td><td><pre><span class="bold">+++ b/mzk/constants.py</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l43" name="l43">43</a></td><td><pre><span class="hunk">@@ -0,0 +1,78 @@</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l44" name="l44">44</a></td><td><pre><span class="insertion">+</span><span class="insertion">#!/usr/bin/env python</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l45" name="l45">45</a></td><td><pre><span class="insertion">+</span><span class="insertion"># mzk music theory helper - developed by acidvegas in python (https://acid.vegas/mzk)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l46" name="l46">46</a></td><td><pre><span class="insertion">+</span><span class="insertion"># constants.py</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l47" name="l47">47</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l48" name="l48">48</a></td><td><pre><span class="insertion">+</span><span class="insertion">circle = '''                        major</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l49" name="l49">49</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l50" name="l50">50</a></td><td><pre><span class="insertion">+</span><span class="insertion">                          C</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l51" name="l51">51</a></td><td><pre><span class="insertion">+</span><span class="insertion">               F                     G</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l52" name="l52">52</a></td><td><pre><span class="insertion">+</span><span class="insertion">                          ♮</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l53" name="l53">53</a></td><td><pre><span class="insertion">+</span><span class="insertion">                  1♭              1♯</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l54" name="l54">54</a></td><td><pre><span class="insertion">+</span><span class="insertion">                          a</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l55" name="l55">55</a></td><td><pre><span class="insertion">+</span><span class="insertion">      B♭             d         c               D</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l56" name="l56">56</a></td><td><pre><span class="insertion">+</span><span class="insertion">           2♭                           2♯</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l57" name="l57">57</a></td><td><pre><span class="insertion">+</span><span class="insertion">                g       minor       b</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l58" name="l58">58</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l59" name="l59">59</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l60" name="l60">60</a></td><td><pre><span class="insertion">+</span><span class="insertion">    E♭   3♭   c                       f♯   3♯   A</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l61" name="l61">61</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l62" name="l62">62</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l63" name="l63">63</a></td><td><pre><span class="insertion">+</span><span class="insertion">                f                   c♯</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l64" name="l64">64</a></td><td><pre><span class="insertion">+</span><span class="insertion">           4♭                            4</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l65" name="l65">65</a></td><td><pre><span class="insertion">+</span><span class="insertion">      A♭            b♭         g♯             E</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l66" name="l66">66</a></td><td><pre><span class="insertion">+</span><span class="insertion">                        e♭/d♯</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l67" name="l67">67</a></td><td><pre><span class="insertion">+</span><span class="insertion">              5♭/7♯               7♭/5♯</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l68" name="l68">68</a></td><td><pre><span class="insertion">+</span><span class="insertion">                        6♭/6♯</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l69" name="l69">69</a></td><td><pre><span class="insertion">+</span><span class="insertion">              D♭                     B</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l70" name="l70">70</a></td><td><pre><span class="insertion">+</span><span class="insertion">                        G♭/F♯</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l71" name="l71">71</a></td><td><pre><span class="insertion">+</span><span class="insertion">          C♯                           C♭'''</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l72" name="l72">72</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l73" name="l73">73</a></td><td><pre><span class="insertion">+</span><span class="insertion">colors = {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l74" name="l74">74</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'gray'  : '\033[0;90m',</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l75" name="l75">75</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'red'   : '\033[0;91m',</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l76" name="l76">76</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'green' : '\033[0;92m',</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l77" name="l77">77</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'reset' : '\033[0m'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l78" name="l78">78</a></td><td><pre><span class="insertion">+</span><span class="insertion">}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l79" name="l79">79</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l80" name="l80">80</a></td><td><pre><span class="insertion">+</span><span class="insertion">intervals = {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l81" name="l81">81</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'unison'           : {'semitones':0,  'short_name':'P1' },</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l82" name="l82">82</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'minor_second'     : {'semitones':1,  'short_name':'m2' },</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l83" name="l83">83</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'major_second'     : {'semitones':2,  'short_name':'M2' },</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l84" name="l84">84</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'minor_third'      : {'semitones':3,  'short_name':'m3' },</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l85" name="l85">85</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'major_third'      : {'semitones':4,  'short_name':'M3' },</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l86" name="l86">86</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'perfect_fourth'   : {'semitones':5,  'short_name':'P4' },</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l87" name="l87">87</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'augmented_fourth' : {'semitones':6,  'short_name':'+4' },</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l88" name="l88">88</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'diminished_fifth' : {'semitones':6,  'short_name':'d5' },</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l89" name="l89">89</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'perfect_fifth'    : {'semitones':7,  'short_name':'P5' },</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l90" name="l90">90</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'minor_sixth'      : {'semitones':8,  'short_name':'m6' },</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l91" name="l91">91</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'major_sixth'      : {'semitones':9,  'short_name':'M6' },</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l92" name="l92">92</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'minor_seventh'    : {'semitones':10, 'short_name':'m7' },</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l93" name="l93">93</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'major_seventh'    : {'semitones':11, 'short_name':'M7' },</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l94" name="l94">94</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'perfect_octave'   : {'semitones':12, 'short_name':'8va'}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l95" name="l95">95</a></td><td><pre><span class="insertion">+</span><span class="insertion">}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l96" name="l96">96</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l97" name="l97">97</a></td><td><pre><span class="insertion">+</span><span class="insertion">notes         = ('A', 'A#', 'B',   'C',  'C#', 'D',  'D#',  'E',    'F',  'F#', 'G',  'G#'     )</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l98" name="l98">98</a></td><td><pre><span class="insertion">+</span><span class="insertion">numerals      = ('I', 'II', 'III', 'IV', 'V',  'VI', 'VII', 'VIII', 'IX', 'X',  'XI', 'XII'    )</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l99" name="l99">99</a></td><td><pre><span class="insertion">+</span><span class="insertion">scale_degrees = ('tonic','supertonic','mediant','subdominant','dominant''submediant','subtonic')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l100" name="l100">100</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l101" name="l101">101</a></td><td><pre><span class="insertion">+</span><span class="insertion">scales = {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l102" name="l102">102</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'algerian'              :  '2131131',</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l103" name="l103">103</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'aeolian'               :  '2122122',</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l104" name="l104">104</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'blues'                 :   '321132',</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l105" name="l105">105</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'chromatic'             :  '1111111',</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l106" name="l106">106</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'dorian'                :  '2122212',</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l107" name="l107">107</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'half_whole_diminished' : '12121212',</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l108" name="l108">108</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'harmonic_minor'        :  '2122131',</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l109" name="l109">109</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'ionian'                :  '2212221',</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l110" name="l110">110</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'locrian'               :  '1221222',</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l111" name="l111">111</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'lydian'                :  '2221221',</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l112" name="l112">112</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'major'                 :  '2212221',</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l113" name="l113">113</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'major_pentatonic'      :    '22323',</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l114" name="l114">114</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'melodic_minor'         :  '2122221',</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l115" name="l115">115</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'mixolydian'            :  '2212212',</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l116" name="l116">116</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'natural_minor'         :  '2122122',</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l117" name="l117">117</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'persian'               :  '1311231',</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l118" name="l118">118</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'phrygian'              :  '1222122',</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l119" name="l119">119</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'whole_half_diminished' : '21212121',</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l120" name="l120">120</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'whole_tone'            :  '2222222'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l121" name="l121">121</a></td><td><pre><span class="insertion">+</span><span class="insertion">}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l122" name="l122">122</a></td><td><pre><span class="bold">diff --git a/mzk/functions.py b/mzk/functions.py</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l123" name="l123">123</a></td><td><pre><span class="bold">new file mode 100644</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l124" name="l124">124</a></td><td><pre><span class="bold">index 0000000..b3cf09a</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l125" name="l125">125</a></td><td><pre><span class="bold">--- /dev/null</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l126" name="l126">126</a></td><td><pre><span class="bold">+++ b/mzk/functions.py</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l127" name="l127">127</a></td><td><pre><span class="hunk">@@ -0,0 +1,153 @@</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l128" name="l128">128</a></td><td><pre><span class="insertion">+</span><span class="insertion">#!/usr/bin/env python</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l129" name="l129">129</a></td><td><pre><span class="insertion">+</span><span class="insertion"># mzk music theory helper - developed by acidvegas in python (https://acid.vegas/mzk)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l130" name="l130">130</a></td><td><pre><span class="insertion">+</span><span class="insertion"># functions.py</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l131" name="l131">131</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l132" name="l132">132</a></td><td><pre><span class="insertion">+</span><span class="insertion">import constants</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l133" name="l133">133</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l134" name="l134">134</a></td><td><pre><span class="insertion">+</span><span class="insertion">def generate_notes(key):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l135" name="l135">135</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">notes = ['A','A#','B','C','C#','D','D#','E','F','F#','G','G#']</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l136" name="l136">136</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">while notes[0] != key:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l137" name="l137">137</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">notes.append(notes.pop(0))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l138" name="l138">138</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">return notes</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l139" name="l139">139</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l140" name="l140">140</a></td><td><pre><span class="insertion">+</span><span class="insertion">def generate_scale(string, scale_notes, full=False):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l141" name="l141">141</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">notes = generate_notes(string.upper())*2 if full else generate_notes(string.upper())</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l142" name="l142">142</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">notes.append(notes[0]) # add root note to the end</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l143" name="l143">143</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">for index,note in enumerate(notes):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l144" name="l144">144</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">if note in scale_notes:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l145" name="l145">145</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">notes[index] = notes[index].center(5, '-')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l146" name="l146">146</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">else:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l147" name="l147">147</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">notes[index] = '-'*5</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l148" name="l148">148</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">return notes</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l149" name="l149">149</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l150" name="l150">150</a></td><td><pre><span class="insertion">+</span><span class="insertion">def get_pattern(pattern):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l151" name="l151">151</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">new_pattern = list()</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l152" name="l152">152</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">for step in pattern:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l153" name="l153">153</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">if   step == '1' : new_pattern.append('H')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l154" name="l154">154</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">elif step == '2' : new_pattern.append('W')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l155" name="l155">155</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">elif step == '3' : new_pattern.append('WH')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l156" name="l156">156</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">return ' '.join(new_pattern)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l157" name="l157">157</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l158" name="l158">158</a></td><td><pre><span class="insertion">+</span><span class="insertion">def scale(type, key):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l159" name="l159">159</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">last = 0</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l160" name="l160">160</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">notes = generate_notes(key)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l161" name="l161">161</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">scale_notes = [notes[0],]</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l162" name="l162">162</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">for step in scales[type]:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l163" name="l163">163</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">last += int(step)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l164" name="l164">164</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">if last &gt;= len(notes):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l165" name="l165">165</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">last -= len(notes)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l166" name="l166">166</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">scale_notes.append(notes[last])</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l167" name="l167">167</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">return scale_notes</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l168" name="l168">168</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l169" name="l169">169</a></td><td><pre><span class="insertion">+</span><span class="insertion">def print_chord():</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l170" name="l170">170</a></td><td><pre><span class="insertion">+</span>	<span class="insertion"># todo: finish this</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l171" name="l171">171</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">print('◯  ⬤ ')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l172" name="l172">172</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">print('''╳   ╳   ╳   ╳   ╳   ╳</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l173" name="l173">173</a></td><td><pre><span class="insertion">+</span><span class="insertion">┌───┬───┬───┬───┬───┐</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l174" name="l174">174</a></td><td><pre><span class="insertion">+</span><span class="insertion">│   │   │   │   │   │</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l175" name="l175">175</a></td><td><pre><span class="insertion">+</span><span class="insertion">├───┼───┼───┼───┼───┤</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l176" name="l176">176</a></td><td><pre><span class="insertion">+</span><span class="insertion">│   │   │   │   │   │</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l177" name="l177">177</a></td><td><pre><span class="insertion">+</span><span class="insertion">├───┼───┼───┼───┼───┤</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l178" name="l178">178</a></td><td><pre><span class="insertion">+</span><span class="insertion">│   │   │   │   │   │</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l179" name="l179">179</a></td><td><pre><span class="insertion">+</span><span class="insertion">├───┼───┼───┼───┼───┤</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l180" name="l180">180</a></td><td><pre><span class="insertion">+</span><span class="insertion">│   │   │   │   │   │</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l181" name="l181">181</a></td><td><pre><span class="insertion">+</span><span class="insertion">├───┼───┼───┼───┼───┤</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l182" name="l182">182</a></td><td><pre><span class="insertion">+</span><span class="insertion">│   │   │   │   │   │</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l183" name="l183">183</a></td><td><pre><span class="insertion">+</span><span class="insertion">└───┴───┴───┴───┴───┘</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l184" name="l184">184</a></td><td><pre><span class="insertion">+</span><span class="insertion">E   A   D   G   B   e''')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l185" name="l185">185</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l186" name="l186">186</a></td><td><pre><span class="insertion">+</span><span class="insertion">def print_circle_of_fifths():</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l187" name="l187">187</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'''</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l188" name="l188">188</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">definition:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l189" name="l189">189</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">the relationship among the 12 tones of the chromatic scale, their corresponding key signatures, &amp; the associated major/minor keys</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l190" name="l190">190</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l191" name="l191">191</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">accidentals:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l192" name="l192">192</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">sharps - F, C, G, D, A, E, B</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l193" name="l193">193</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">flats  - B, E, A, D, G, C, F</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l194" name="l194">194</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l195" name="l195">195</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">intervals:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l196" name="l196">196</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">unison</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l197" name="l197">197</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">perfect   fifth</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l198" name="l198">198</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">major     sencond</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l199" name="l199">199</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">major     sixth</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l200" name="l200">200</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">major     third</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l201" name="l201">201</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">major     seventh</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l202" name="l202">202</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">augmented fourth</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l203" name="l203">203</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">minor     second</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l204" name="l204">204</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">minor     sixth</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l205" name="l205">205</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">minor     third</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l206" name="l206">206</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">minor     seventh</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l207" name="l207">207</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">perfect   fourth</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l208" name="l208">208</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'''</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l209" name="l209">209</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">circle = constants.circle.replace('\n',' \n') + ' ' # todo: fix this</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l210" name="l210">210</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">for note in ('major','C','F','B♭','E♭','A♭','D♭','C♯','G♭/F♯','B','C♭','E','A','D','G'): # todo: reverse</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l211" name="l211">211</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">circle = circle.replace(f' {note} ', f' \033[91m{note}\033[0m ')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l212" name="l212">212</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">for item in ('♮','1♭','2♭','3♭','4♭','5♭/7♯','6♭/6♯','7♭/5♯','4','3♯','2♯','1♯'):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l213" name="l213">213</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">circle = circle.replace(f' {item} ', f' \033[90m{item}\033[0m ')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l214" name="l214">214</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">for note in ('minor','a','d','g','c','f','b♭','e♭/d♯','g♯','c♯','f♯','b','c'):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l215" name="l215">215</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">circle = circle.replace(f' {note} ', f' \033[92m{note}\033[0m ')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l216" name="l216">216</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">print(circle)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l217" name="l217">217</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">#print(print_circle_of_fifths.__doc__)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l218" name="l218">218</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l219" name="l219">219</a></td><td><pre><span class="insertion">+</span><span class="insertion">def print_intervals():</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l220" name="l220">220</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'''</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l221" name="l221">221</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">definition:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l222" name="l222">222</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">the distance between two notes or pitches</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l223" name="l223">223</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l224" name="l224">224</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">note:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l225" name="l225">225</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">semitone - half step</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l226" name="l226">226</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">tone     - whole step (b to c &amp; e to f is a tone)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l227" name="l227">227</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l228" name="l228">228</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">types:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l229" name="l229">229</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">harmonic interval - notes played simultaneously</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l230" name="l230">230</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">melodic  interval - notes played successively</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l231" name="l231">231</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l232" name="l232">232</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">makeup:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l233" name="l233">233</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">quantity - distance between two notes</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l234" name="l234">234</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">quality  - number of semitones between notes</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l235" name="l235">235</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l236" name="l236">236</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">qualities:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l237" name="l237">237</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">major/minor - 2nds, 3rds, 6ths, 7ths</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l238" name="l238">238</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">perfect     - 4ths, 5ths, octaves</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l239" name="l239">239</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">diminished  - minor/perfect - 1 semitone</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l240" name="l240">240</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">augmented   - major/perfect + 1 semitone</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l241" name="l241">241</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'''</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l242" name="l242">242</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">print('            I N T E R V A L S           ')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l243" name="l243">243</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">print('┌───────────┬──────────────────┬───────┐')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l244" name="l244">244</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">print('│ semitones │ quality          │ short │')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l245" name="l245">245</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">print('├───────────┼──────────────────┼───────┤')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l246" name="l246">246</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">for interval, info in constants.intervals.items():</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l247" name="l247">247</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">print('│ {0} │ {1} │ {2} │'.format(str(info['semitones']).rjust(9), interval.ljust(16), info['short_name'].ljust(5)))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l248" name="l248">248</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">print('└───────────┴──────────────────┴───────┘')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l249" name="l249">249</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">#print(print_intervals.__doc__)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l250" name="l250">250</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l251" name="l251">251</a></td><td><pre><span class="insertion">+</span><span class="insertion">def print_scale(root, type, full=False):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l252" name="l252">252</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">frets = (24,147) if full else (12,75)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l253" name="l253">253</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">print(f'{root.upper()} {type.upper()} SCALE'.center(frets[1]))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l254" name="l254">254</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">print('  ┌' + '┬'.join('─'*5 for x in range(frets[0])) + '┐')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l255" name="l255">255</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">print('0 │' + '│'.join(str(x).center(5) for x in range(1,frets[0]+1)) + '│')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l256" name="l256">256</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">print('  ├' + '┼'.join('─'*5 for x in range(frets[0])) + '┤')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l257" name="l257">257</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">scale_notes = scale(type, root)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l258" name="l258">258</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">for string in ('eBGDAE'):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l259" name="l259">259</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">string_notes = generate_scale(string, scale_notes, full)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l260" name="l260">260</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">print(string + ' │' + '│'.join(note.center(5, '-') for note in string_notes[1:]) + '│')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l261" name="l261">261</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">print('  └' + '┴'.join('─'*5 for x in range(frets[0])) + '┘')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l262" name="l262">262</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">print((', '.join(scale_notes) + ' / ' + get_pattern(scales[type])).rjust(frets[1]))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l263" name="l263">263</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l264" name="l264">264</a></td><td><pre><span class="insertion">+</span><span class="insertion">def print_scales():</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l265" name="l265">265</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">'''</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l266" name="l266">266</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">definition:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l267" name="l267">267</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">any set of musical notes ordered by fundamental frequency or pitch</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l268" name="l268">268</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l269" name="l269">269</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">note:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l270" name="l270">270</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">1 - half step</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l271" name="l271">271</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">2 - whole step</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l272" name="l272">272</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">3 - whole step half step'''</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l273" name="l273">273</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">print('               S C A L E S               ')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l274" name="l274">274</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">print('┌───────────────────────┬─────────────────┐')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l275" name="l275">275</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">print('│ name                  │ intervals       │')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l276" name="l276">276</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">print('├───────────────────────┼─────────────────┤')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l277" name="l277">277</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">for name, pattern in constants.scales.items():</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l278" name="l278">278</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">print(f'│ {name.ljust(21)} │ {get_pattern(pattern).rjust(15)} │')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l279" name="l279">279</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">print('└───────────────────────┴─────────────────┘')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l280" name="l280">280</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">#print(print_scales.__doc__)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l281" name="l281">281</a></td><td><pre><span class="bold">diff --git a/mzk/main.py b/mzk/main.py</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l282" name="l282">282</a></td><td><pre><span class="bold">new file mode 100644</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l283" name="l283">283</a></td><td><pre><span class="bold">index 0000000..ab013d2</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l284" name="l284">284</a></td><td><pre><span class="bold">--- /dev/null</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l285" name="l285">285</a></td><td><pre><span class="bold">+++ b/mzk/main.py</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l286" name="l286">286</a></td><td><pre><span class="hunk">@@ -0,0 +1,6 @@</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l287" name="l287">287</a></td><td><pre><span class="insertion">+</span><span class="insertion">#!/usr/bin/env python</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l288" name="l288">288</a></td><td><pre><span class="insertion">+</span><span class="insertion"># mzk music theory helper - developed by acidvegas in python (https://acid.vegas/mzk)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l289" name="l289">289</a></td><td><pre><span class="insertion">+</span><span class="insertion"># main.py</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l290" name="l290">290</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l291" name="l291">291</a></td><td><pre><span class="insertion">+</span><span class="insertion">import argparser</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l292" name="l292">292</a></td><td><pre><span class="insertion">+</span><span class="insertion">import sys</span></pre></td></tr>
+</table></pre>

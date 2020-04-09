@@ -1,0 +1,97 @@
+<!doctype html>
+<link rel="stylesheet" href="../../style.css">
+<title>weechat :: 9b3b83a</title>
+<h1><a href="../index.html" title="Back to Repository">&larr;&#xFE0E;</a> weechat :: 9b3b83a</h1>
+<hr>
+<table id="main" cellpadding="0" cellspacing="0">
+<tr class="item"><td class="linenumber"><a href="#l1" name="l1">1</a></td><td><pre><span class="commit">commit 9b3b83a665b87d8e9a5ef2be4053eb91a4da5e4b</span><span class="commit"> (</span><span class="reference">HEAD -&gt; </span><span class="branch">master</span><span class="commit">, </span><span class="remote">origin/master</span><span class="commit">)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l2" name="l2">2</a></td><td><pre>Author: acidvegas &lt;acid.vegas@acid.vegas&gt;</pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l3" name="l3">3</a></td><td><pre>Date:   Tue Apr 7 14:49:31 2020 -0400</pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l4" name="l4">4</a></td><td><pre></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l5" name="l5">5</a></td><td><pre>    updated</pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l6" name="l6">6</a></td><td><pre>---</pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l7" name="l7">7</a></td><td><pre> README.md                | 21 <span class="insertion">+++++++++++</span><span class="deletion">----------</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l8" name="l8">8</a></td><td><pre> scripts/python/masshl.py |  2 <span class="insertion">+</span><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l9" name="l9">9</a></td><td><pre> 2 files changed, 12 insertions(+), 11 deletions(-)</pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l10" name="l10">10</a></td><td><pre></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l11" name="l11">11</a></td><td><pre><span class="bold">diff --git a/README.md b/README.md</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l12" name="l12">12</a></td><td><pre><span class="bold">index 48aab81..328ebec 100644</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l13" name="l13">13</a></td><td><pre><span class="bold">--- a/README.md</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l14" name="l14">14</a></td><td><pre><span class="bold">+++ b/README.md</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l15" name="l15">15</a></td><td><pre><span class="hunk">@@ -60,8 +60,8 @@</span> </span>chmod +x /home/acidvegas/.weechat/renew</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l16" name="l16">16</a></td><td><pre> /set irc.ctcp.time								&quot;&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l17" name="l17">17</a></td><td><pre> /set irc.ctcp.userinfo							&quot;&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l18" name="l18">18</a></td><td><pre> /set irc.ctcp.version							&quot;&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l19" name="l19">19</a></td><td><pre><span class="deletion">-/set irc.look.buffer_switch_autojoin            off</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l20" name="l20">20</a></td><td><pre><span class="deletion">-/set irc.look.buffer_switch_join                off</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l21" name="l21">21</a></td><td><pre><span class="insertion">+</span><span class="insertion">/set irc.look.buffer_switch_autojoin			off</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l22" name="l22">22</a></td><td><pre><span class="insertion">+</span><span class="insertion">/set irc.look.buffer_switch_join				off</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l23" name="l23">23</a></td><td><pre> /set irc.look.ctcp_time_format					&quot;&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l24" name="l24">24</a></td><td><pre> /set irc.look.display_ctcp_blocked				off</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l25" name="l25">25</a></td><td><pre> /set irc.look.display_ctcp_reply				off</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l26" name="l26">26</a></td><td><pre><span class="hunk">@@ -72,6 +72,7 @@</span> </span>chmod +x /home/acidvegas/.weechat/renew</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l27" name="l27">27</a></td><td><pre> /set irc.look.join_auto_add_chantype			on</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l28" name="l28">28</a></td><td><pre> /set irc.look.server_buffer						independent</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l29" name="l29">29</a></td><td><pre> /set irc.look.smart_filter						off</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l30" name="l30">30</a></td><td><pre><span class="insertion">+</span><span class="insertion">/set irc.look.temporary_servers					on</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l31" name="l31">31</a></td><td><pre> /set irc.network.ban_mask_default				&quot;*!*@$host&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l32" name="l32">32</a></td><td><pre> /set irc.server_default.anti_flood_prio_high	0</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l33" name="l33">33</a></td><td><pre> /set irc.server_default.anti_flood_prio_low		0 </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l34" name="l34">34</a></td><td><pre><span class="hunk">@@ -128,9 +129,9 @@</span> </span>chmod +x /home/acidvegas/.weechat/renew</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l35" name="l35">35</a></td><td><pre> /set weechat.look.buffer_time_format			&quot; %H:%M&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l36" name="l36">36</a></td><td><pre> /set weechat.look.confirm_quit					on</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l37" name="l37">37</a></td><td><pre> /set weechat.look.day_change					off</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l38" name="l38">38</a></td><td><pre><span class="deletion">-/set weechat.look.highlight						acidvegas,supernets</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l39" name="l39">39</a></td><td><pre><span class="insertion">+</span><span class="insertion">/set weechat.look.highlight						&quot;acidvegas,supernets,super nets&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l40" name="l40">40</a></td><td><pre> /set weechat.look.item_buffer_filter			&quot;•&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l41" name="l41">41</a></td><td><pre><span class="deletion">-/set weechat.look.mouse							off</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l42" name="l42">42</a></td><td><pre><span class="insertion">+</span><span class="insertion">/set weechat.look.mouse							on</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l43" name="l43">43</a></td><td><pre> /set weechat.look.prefix_align_max				15</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l44" name="l44">44</a></td><td><pre> /set weechat.look.prefix_join					&quot;▬▬▶&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l45" name="l45">45</a></td><td><pre> /set weechat.look.prefix_quit					&quot;◀▬▬&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l46" name="l46">46</a></td><td><pre><span class="hunk">@@ -154,7 +155,7 @@</span> </span>chmod +x /home/acidvegas/.weechat/renew</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l47" name="l47">47</a></td><td><pre> </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l48" name="l48">48</a></td><td><pre> ### Servers</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l49" name="l49">49</a></td><td><pre> ```</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l50" name="l50">50</a></td><td><pre><span class="deletion">-/server add 2f30        irc.2f30.org/6697 -ssl</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l51" name="l51">51</a></td><td><pre><span class="insertion">+</span><span class="insertion">/server add 2f30		irc.2f30.org/6697 -ssl</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l52" name="l52">52</a></td><td><pre> /server add blackhat	breaking.technology/6697 -ssl</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l53" name="l53">53</a></td><td><pre> /server add efnet		irc.choopa.net/6697 -ssl</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l54" name="l54">54</a></td><td><pre> /server add freenode	irc.freenode.com/6697 -ssl</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l55" name="l55">55</a></td><td><pre><span class="hunk">@@ -164,17 +165,17 @@</span> </span>chmod +x /home/acidvegas/.weechat/renew</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l56" name="l56">56</a></td><td><pre> /server add silph		irc.silph.co/6697 -ssl</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l57" name="l57">57</a></td><td><pre> /server add supernets	irc.supernets.org/6697 -ssl</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l58" name="l58">58</a></td><td><pre> /server add unreal		irc.unrealircd.org/6697 -ssl</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l59" name="l59">59</a></td><td><pre><span class="deletion">-/server add wormnet     wormnet1.team17.com</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l60" name="l60">60</a></td><td><pre><span class="insertion">+</span><span class="insertion">/server add wormnet		wormnet1.team17.com</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l61" name="l61">61</a></td><td><pre> /server add wtfux		irc.wtfux.org/6697 -ssl</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l62" name="l62">62</a></td><td><pre> </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l63" name="l63">63</a></td><td><pre><span class="deletion">-/set irc.server.2f30.autojoin       #2f30</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l64" name="l64">64</a></td><td><pre><span class="insertion">+</span><span class="insertion">/set irc.server.2f30.autojoin		#2f30</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l65" name="l65">65</a></td><td><pre> /set irc.server.efnet.autojoin		#2600,#efnetnews,#exchange,#irc30,#lrh</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l66" name="l66">66</a></td><td><pre> /set irc.server.freenode.autojoin	#archlinux,#ircv3,#music-theory,#python,#raspberrypi,#weechat</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l67" name="l67">67</a></td><td><pre> /set irc.server.sandnet.autojoin	#arab</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l68" name="l68">68</a></td><td><pre> /set irc.server.silph.autojoin		#ramen</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l69" name="l69">69</a></td><td><pre><span class="deletion">-/set irc.server.wormnet.autojoin    #anythinggoes</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l70" name="l70">70</a></td><td><pre><span class="deletion">-/set irc.server.wormnet.password    ELSILRACLIHP</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l71" name="l71">71</a></td><td><pre><span class="deletion">-/set irc.server.wormnet.realname    &quot;48 0 US 3.7.2.1&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l72" name="l72">72</a></td><td><pre><span class="insertion">+</span><span class="insertion">/set irc.server.wormnet.autojoin	#anythinggoes</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l73" name="l73">73</a></td><td><pre><span class="insertion">+</span><span class="insertion">/set irc.server.wormnet.password	ELSILRACLIHP</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l74" name="l74">74</a></td><td><pre><span class="insertion">+</span><span class="insertion">/set irc.server.wormnet.realname	&quot;48 0 US 3.7.2.1&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l75" name="l75">75</a></td><td><pre> ```</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l76" name="l76">76</a></td><td><pre> </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l77" name="l77">77</a></td><td><pre> ### Services</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l78" name="l78">78</a></td><td><pre><span class="bold">diff --git a/scripts/python/masshl.py b/scripts/python/masshl.py</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l79" name="l79">79</a></td><td><pre><span class="bold">index f3c728a..086cce7 100644</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l80" name="l80">80</a></td><td><pre><span class="bold">--- a/scripts/python/masshl.py</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l81" name="l81">81</a></td><td><pre><span class="bold">+++ b/scripts/python/masshl.py</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l82" name="l82">82</a></td><td><pre><span class="hunk">@@ -7,7 +7,7 @@</span> </span>nicks = list()</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l83" name="l83">83</a></td><td><pre> </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l84" name="l84">84</a></td><td><pre> def timer_cb(data, remaining_calls):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l85" name="l85">85</a></td><td><pre> 	split = data.split('[split]')</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l86" name="l86">86</a></td><td><pre><span class="deletion">-	weechat.command(split[0], nicks[0] + ': ' + split[1])</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l87" name="l87">87</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">weechat.command(split[0], split[1].replace('%n',nicks[0]))</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l88" name="l88">88</a></td><td><pre> 	nicks.pop(0)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l89" name="l89">89</a></td><td><pre> 	return weechat.WEECHAT_RC_OK</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l90" name="l90">90</a></td><td><pre> </span></pre></td></tr>
+</table></pre>

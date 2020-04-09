@@ -1,0 +1,24 @@
+a{color:#8dc}
+a:hover{color:#8cd}
+body{background-color:#111;color:#fff;font-family:monospace;margin-top:0px}
+h1{margin:0px}
+h1 a{color:#fff;text-decoration:none}
+h4{color:#777;margin:0px}
+h5{font-style:italic;font-weight:normal;margin:0px}
+hr{border:none;border-bottom:1px dashed #fff}
+pre{margin:0px}
+.bold{font-weight:bold}
+.branch{color:green;font-weight:bold}
+.commit{color:olive}
+.deletion{color:red}
+.hunk{color:teal}
+.insertion{color:green}
+.reference{color:teal;font-weight:bold}
+.remote{color:red;font-weight:bold}
+.item:hover{background-color:#1a1a1a}
+.item td{white-space:nowrap}
+.linenumber{text-align:right;-moz-user-select:-moz-none;-khtml-user-select: none;-webkit-user-select:none}
+.linenumber a{text-decoration:none}
+#main{border-collapse:collapse;table-layout:fixed}
+#main td,th{padding-left:5px;padding-right:5px}
+#navigation{color:#fff;font-weight:900;text-align:left}

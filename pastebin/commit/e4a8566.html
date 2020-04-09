@@ -1,0 +1,29 @@
+<!doctype html>
+<link rel="stylesheet" href="../../style.css">
+<title>pastebin :: e4a8566</title>
+<h1><a href="../index.html" title="Back to Repository">&larr;&#xFE0E;</a> pastebin :: e4a8566</h1>
+<hr>
+<table id="main" cellpadding="0" cellspacing="0">
+<tr class="item"><td class="linenumber"><a href="#l1" name="l1">1</a></td><td><pre><span class="commit">commit e4a85660770ee40d362c2c90a682e5884e4d2347</span><span class="commit"> (</span><span class="reference">HEAD -&gt; </span><span class="branch">master</span><span class="commit">)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l2" name="l2">2</a></td><td><pre>Author: acidvegas &lt;acid.vegas@acid.vegas&gt;</pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l3" name="l3">3</a></td><td><pre>Date:   Fri Jun 28 05:55:43 2019 -0400</pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l4" name="l4">4</a></td><td><pre></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l5" name="l5">5</a></td><td><pre>    Added missing self</pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l6" name="l6">6</a></td><td><pre>---</pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l7" name="l7">7</a></td><td><pre> pastebin/pastebin.py | 2 <span class="insertion">+</span><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l8" name="l8">8</a></td><td><pre> 1 file changed, 1 insertion(+), 1 deletion(-)</pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l9" name="l9">9</a></td><td><pre></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l10" name="l10">10</a></td><td><pre><span class="bold">diff --git a/pastebin/pastebin.py b/pastebin/pastebin.py</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l11" name="l11">11</a></td><td><pre><span class="bold">index 15bb26a..cb0575f 100644</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l12" name="l12">12</a></td><td><pre><span class="bold">--- a/pastebin/pastebin.py</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l13" name="l13">13</a></td><td><pre><span class="bold">+++ b/pastebin/pastebin.py</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l14" name="l14">14</a></td><td><pre><span class="hunk">@@ -294,7 +294,7 @@</span> </span>class PasteBin:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l15" name="l15">15</a></td><td><pre> </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l16" name="l16">16</a></td><td><pre> 	def create_user_key(self, username, password):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l17" name="l17">17</a></td><td><pre> 		params = {'api_dev_key':self.api_dev_key, 'api_user_name':username, 'api_user_password':password}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l18" name="l18">18</a></td><td><pre><span class="deletion">-		return api_call('api_login.php', params)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l19" name="l19">19</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">return self.api_call('api_login.php', params)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l20" name="l20">20</a></td><td><pre> </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l21" name="l21">21</a></td><td><pre> 	def paste(self, data, guest=False, name=None, format=None, private=None, expire=None):</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l22" name="l22">22</a></td><td><pre> 		params = {'api_dev_key':self.api_dev_key, 'api_option':'paste', 'api_paste_code':data}</span></pre></td></tr>
+</table></pre>
