@@ -1,0 +1,80 @@
+<!doctype html>
+<link rel="stylesheet" href="../../style.css">
+<title>stagit :: aa76b14</title>
+<h1><a href="../index.html" title="Back to Repository">&larr;&#xFE0E;</a> stagit :: aa76b14</h1>
+<hr>
+<table id="main" cellpadding="0" cellspacing="0">
+<tr class="item"><td class="linenumber"><a href="#l1" name="l1">1</a></td><td><pre><span class="commit">commit aa76b142f712e355b422d3ea157b60437dba4bb3</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l2" name="l2">2</a></td><td><pre>Author: acidvegas &lt;acid.vegas@acid.vegas&gt;</pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l3" name="l3">3</a></td><td><pre>Date:   Sun May 3 05:12:04 2020 -0400</pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l4" name="l4">4</a></td><td><pre></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l5" name="l5">5</a></td><td><pre>    Removed local variables that arent posix compliant</pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l6" name="l6">6</a></td><td><pre>---</pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l7" name="l7">7</a></td><td><pre> stagit | 32 <span class="insertion">++++++++++++++++</span><span class="deletion">----------------</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l8" name="l8">8</a></td><td><pre> 1 file changed, 16 insertions(+), 16 deletions(-)</pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l9" name="l9">9</a></td><td><pre></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l10" name="l10">10</a></td><td><pre><span class="bold">diff --git a/stagit b/stagit</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l11" name="l11">11</a></td><td><pre><span class="bold">index f882935..a6d1690 100755</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l12" name="l12">12</a></td><td><pre><span class="bold">--- a/stagit</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l13" name="l13">13</a></td><td><pre><span class="bold">+++ b/stagit</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l14" name="l14">14</a></td><td><pre><span class="hunk">@@ -67,42 +67,42 @@</span> </span>generate_index() {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l15" name="l15">15</a></td><td><pre> }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l16" name="l16">16</a></td><td><pre> </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l17" name="l17">17</a></td><td><pre> generate_repository_index() {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l18" name="l18">18</a></td><td><pre><span class="deletion">-	local REPO_NAME=$1</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l19" name="l19">19</a></td><td><pre><span class="deletion">-	local REPO_URL=$2</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l20" name="l20">20</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">_REPO_NAME=$1</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l21" name="l21">21</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">_REPO_URL=$2</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l22" name="l22">22</a></td><td><pre> 	shift 2</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l23" name="l23">23</a></td><td><pre><span class="deletion">-	local REPO_DESC=&quot;${@}&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l24" name="l24">24</a></td><td><pre><span class="deletion">-	mkdir -p $WWW_DIR/$REPO_NAME/commit</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l25" name="l25">25</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">_REPO_DESC=&quot;${@}&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l26" name="l26">26</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">mkdir -p $WWW_DIR/$_REPO_NAME/commit</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l27" name="l27">27</a></td><td><pre> 	{</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l28" name="l28">28</a></td><td><pre> 		echo &quot;&lt;!doctype html&gt;&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l29" name="l29">29</a></td><td><pre> 		echo &quot;&lt;link rel=\&quot;stylesheet\&quot; href=\&quot;../style.css\&quot;&gt;&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l30" name="l30">30</a></td><td><pre><span class="deletion">-		echo &quot;&lt;title&gt;$REPO_NAME&lt;/title&gt;&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l31" name="l31">31</a></td><td><pre><span class="deletion">-		echo &quot;&lt;h1&gt;&lt;a href=\&quot;../index.html\&quot; title=\&quot;Home\&quot;&gt;&amp;#8962;&amp;#xFE0E;&lt;/a&gt; $REPO_NAME&lt;/h1&gt;&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l32" name="l32">32</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">echo &quot;&lt;title&gt;$_REPO_NAME&lt;/title&gt;&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l33" name="l33">33</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">echo &quot;&lt;h1&gt;&lt;a href=\&quot;../index.html\&quot; title=\&quot;Home\&quot;&gt;&amp;#8962;&amp;#xFE0E;&lt;/a&gt; $_REPO_NAME&lt;/h1&gt;&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l34" name="l34">34</a></td><td><pre> 		echo &quot;&lt;div style=\&quot;padding-left:30px\&quot;&gt;&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l35" name="l35">35</a></td><td><pre><span class="deletion">-		echo &quot;&lt;h4&gt;$REPO_DESC&lt;/h4&gt;&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l36" name="l36">36</a></td><td><pre><span class="deletion">-		echo &quot;&lt;h5&gt;git clone &lt;a href=\&quot;$REPO_URL\&quot; title=\&quot;$REPO_NAME clone URL\&quot;&gt;$REPO_URL&lt;/a&gt;&lt;/h5&gt;&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l37" name="l37">37</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">echo &quot;&lt;h4&gt;$_REPO_DESC&lt;/h4&gt;&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l38" name="l38">38</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">echo &quot;&lt;h5&gt;git clone &lt;a href=\&quot;$_REPO_URL\&quot; title=\&quot;$_REPO_NAME clone URL\&quot;&gt;$_REPO_URL&lt;/a&gt;&lt;/h5&gt;&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l39" name="l39">39</a></td><td><pre> 		echo &quot;&lt;/div&gt;&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l40" name="l40">40</a></td><td><pre> 		echo &quot;&lt;hr&gt;&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l41" name="l41">41</a></td><td><pre> 		echo &quot;&lt;table id=\&quot;main\&quot; cellpadding=\&quot;0\&quot; cellspacing=\&quot;0\&quot;&gt;&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l42" name="l42">42</a></td><td><pre> 		echo &quot;&lt;tr id=\&quot;navigation\&quot;&gt;&lt;th&gt;&lt;/th&gt;&lt;th&gt;Hash&lt;/th&gt;&lt;th&gt;Commit message&lt;/th&gt;&lt;th&gt;Author&lt;/th&gt;&lt;th&gt;Date&lt;/th&gt;&lt;th align=\&quot;right\&quot;&gt;Files&lt;/th&gt;&lt;th align=\&quot;right\&quot;&gt;+&lt;/th&gt;&lt;th align=\&quot;right\&quot;&gt;-&lt;/th&gt;&lt;/tr&gt;&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l43" name="l43">43</a></td><td><pre><span class="deletion">-	} &gt; $WWW_DIR/$REPO_NAME/index.html</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l44" name="l44">44</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">} &gt; $WWW_DIR/$_REPO_NAME/index.html</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l45" name="l45">45</a></td><td><pre> }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l46" name="l46">46</a></td><td><pre> </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l47" name="l47">47</a></td><td><pre> generate_commit_index() {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l48" name="l48">48</a></td><td><pre><span class="deletion">-	local REPO_NAME=$1</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l49" name="l49">49</a></td><td><pre><span class="deletion">-	local COMMIT_HASH=$2</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l50" name="l50">50</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">_REPO_NAME=$1</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l51" name="l51">51</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">_COMMIT_HASH=$2</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l52" name="l52">52</a></td><td><pre> 	{</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l53" name="l53">53</a></td><td><pre> 		echo &quot;&lt;!doctype html&gt;&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l54" name="l54">54</a></td><td><pre> 		echo &quot;&lt;link rel=\&quot;stylesheet\&quot; href=\&quot;../../style.css\&quot;&gt;&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l55" name="l55">55</a></td><td><pre><span class="deletion">-		echo &quot;&lt;title&gt;$REPO_NAME :: $COMMIT_HASH&lt;/title&gt;&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l56" name="l56">56</a></td><td><pre><span class="deletion">-		echo &quot;&lt;h1&gt;&lt;a href=\&quot;../index.html\&quot; title=\&quot;Back to Repository\&quot;&gt;&amp;larr;&amp;#xFE0E;&lt;/a&gt; $REPO_NAME :: $COMMIT_HASH&lt;/h1&gt;&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l57" name="l57">57</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">echo &quot;&lt;title&gt;$_REPO_NAME :: $_COMMIT_HASH&lt;/title&gt;&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l58" name="l58">58</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">echo &quot;&lt;h1&gt;&lt;a href=\&quot;../index.html\&quot; title=\&quot;Back to Repository\&quot;&gt;&amp;larr;&amp;#xFE0E;&lt;/a&gt; $_REPO_NAME :: $_COMMIT_HASH&lt;/h1&gt;&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l59" name="l59">59</a></td><td><pre> 		echo &quot;&lt;hr&gt;&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l60" name="l60">60</a></td><td><pre> 		echo &quot;&lt;table id=\&quot;main\&quot; cellpadding=\&quot;0\&quot; cellspacing=\&quot;0\&quot;&gt;&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l61" name="l61">61</a></td><td><pre><span class="deletion">-	} &gt; $WWW_DIR/$REPO_NAME/commit/$COMMIT_HASH.html</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l62" name="l62">62</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">} &gt; $WWW_DIR/$_REPO_NAME/commit/$_COMMIT_HASH.html</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l63" name="l63">63</a></td><td><pre> }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l64" name="l64">64</a></td><td><pre> </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l65" name="l65">65</a></td><td><pre> generate_footer() {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l66" name="l66">66</a></td><td><pre><span class="deletion">-	local DATE=$(date +&quot;%m/%d/%y&quot;)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l67" name="l67">67</a></td><td><pre><span class="deletion">-	echo &quot;&lt;div id=\&quot;footer\&quot;&gt;site generated by &lt;a href=\&quot;https://github.com/acidvegas/stagit\&quot; target=\&quot;_blank\&quot;&gt;stagit&lt;/a&gt; on &lt;a href=\&quot;#\&quot;&gt;$DATE&lt;/a&gt;&lt;/div&gt;&quot; &gt;&gt; $1</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l68" name="l68">68</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">_DATE=$(date +&quot;%m/%d/%y&quot;)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l69" name="l69">69</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">echo &quot;&lt;div id=\&quot;footer\&quot;&gt;site generated by &lt;a href=\&quot;https://github.com/acidvegas/stagit\&quot; target=\&quot;_blank\&quot;&gt;stagit&lt;/a&gt; on &lt;a href=\&quot;#\&quot;&gt;$_DATE&lt;/a&gt;&lt;/div&gt;&quot; &gt;&gt; $1</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l70" name="l70">70</a></td><td><pre> }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l71" name="l71">71</a></td><td><pre> </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l72" name="l72">72</a></td><td><pre> [ ! -d $REPO_DIR ] &amp;&amp; echo &quot;'$REPO_DIR' directory does not exist&quot; &amp;&amp; exit 1</span></pre></td></tr>
+</table>
+<div id="footer">site generated by <a href="https://github.com/acidvegas/stagit" target="_blank">stagit</a> on <a href="#">05/03/20</a></div>

@@ -1,0 +1,1007 @@
+<!doctype html>
+<link rel="stylesheet" href="../../style.css">
+<title>unrealircd :: eec3fa0</title>
+<h1><a href="../index.html" title="Back to Repository">&larr;&#xFE0E;</a> unrealircd :: eec3fa0</h1>
+<hr>
+<table id="main" cellpadding="0" cellspacing="0">
+<tr class="item"><td class="linenumber"><a href="#l1" name="l1">1</a></td><td><pre><span class="commit">commit eec3fa048615fda07497ea59fb4c83df9282f2f0</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l2" name="l2">2</a></td><td><pre>Author: acidvegas &lt;acid.vegas@acid.vegas&gt;</pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l3" name="l3">3</a></td><td><pre>Date:   Mon Apr 20 15:12:33 2020 -0400</pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l4" name="l4">4</a></td><td><pre></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l5" name="l5">5</a></td><td><pre>    updated to 5.0.4</pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l6" name="l6">6</a></td><td><pre>---</pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l7" name="l7">7</a></td><td><pre> Config                                             | 140 <span class="insertion">++++++</span><span class="deletion">------</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l8" name="l8">8</a></td><td><pre> autoconf/m4/unreal.m4                              |  20 <span class="insertion">++</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l9" name="l9">9</a></td><td><pre> configure                                          | 247 <span class="insertion">+++++++++++++</span><span class="deletion">--------</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l10" name="l10">10</a></td><td><pre> configure.ac                                       |  26 <span class="insertion">++</span><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l11" name="l11">11</a></td><td><pre> doc/Config.header                                  |   3 <span class="insertion">+</span><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l12" name="l12">12</a></td><td><pre> doc/RELEASE-NOTES.md                               |  45 <span class="insertion">+++</span><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l13" name="l13">13</a></td><td><pre> doc/conf/except.conf                               |   1 <span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l14" name="l14">14</a></td><td><pre> doc/conf/ircd.motd                                 |  11 <span class="insertion">+</span><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l15" name="l15">15</a></td><td><pre> doc/conf/unrealircd.remote.conf                    | 185 <span class="deletion">---------------</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l16" name="l16">16</a></td><td><pre> extras/doxygen/Doxyfile                            |   2 <span class="insertion">+</span><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l17" name="l17">17</a></td><td><pre> .../cipherscan_profiles/openssl-102-ubuntu16.txt   |  27 <span class="insertion">+++</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l18" name="l18">18</a></td><td><pre> extras/tls.cnf                                     |   2 <span class="insertion">+</span><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l19" name="l19">19</a></td><td><pre> include/dynconf.h                                  |   7 <span class="insertion">+</span><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l20" name="l20">20</a></td><td><pre> include/h.h                                        |   5 <span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l21" name="l21">21</a></td><td><pre> include/modules.h                                  |   3 <span class="insertion">+</span><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l22" name="l22">22</a></td><td><pre> include/setup.h.in                                 |   3 <span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l23" name="l23">23</a></td><td><pre> include/windows/setup.h                            |   4 <span class="insertion">+</span><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l24" name="l24">24</a></td><td><pre> src/api-event.c                                    |  90 <span class="insertion">+++++</span><span class="deletion">---</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l25" name="l25">25</a></td><td><pre> src/api-usermode.c                                 |  20 <span class="insertion">+</span><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l26" name="l26">26</a></td><td><pre> src/conf.c                                         |  94 <span class="insertion">++++++</span><span class="deletion">--</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l27" name="l27">27</a></td><td><pre> src/dns.c                                          |   2 <span class="insertion">+</span><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l28" name="l28">28</a></td><td><pre> src/ircd.c                                         |   7 <span class="insertion">+</span><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l29" name="l29">29</a></td><td><pre> src/modules/channeldb.c                            |  12 <span class="insertion">+</span><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l30" name="l30">30</a></td><td><pre> src/modules/connect.c                              |   2 <span class="insertion">+</span><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l31" name="l31">31</a></td><td><pre> src/modules/ident_lookup.c                         |  16 <span class="insertion">+</span><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l32" name="l32">32</a></td><td><pre> src/modules/join.c                                 |   2 <span class="insertion">+</span><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l33" name="l33">33</a></td><td><pre> src/modules/nick.c                                 |   4 <span class="insertion">+</span><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l34" name="l34">34</a></td><td><pre> src/modules/oper.c                                 |   4 <span class="insertion">+</span><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l35" name="l35">35</a></td><td><pre> src/modules/sajoin.c                               |  21 <span class="insertion">+</span><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l36" name="l36">36</a></td><td><pre> src/modules/sapart.c                               |  16 <span class="insertion">++</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l37" name="l37">37</a></td><td><pre> src/modules/server.c                               |   1 <span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l38" name="l38">38</a></td><td><pre> src/modules/svsmode.c                              |   7 <span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l39" name="l39">39</a></td><td><pre> src/modules/tkl.c                                  |  18 <span class="insertion">+</span><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l40" name="l40">40</a></td><td><pre> src/modules/whois.c                                |   8 <span class="insertion">+</span><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l41" name="l41">41</a></td><td><pre> src/modules/whox.c                                 |  87 <span class="insertion">++++++</span><span class="deletion">--</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l42" name="l42">42</a></td><td><pre> src/random.c                                       |   6 <span class="insertion">+</span><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l43" name="l43">43</a></td><td><pre> src/serv.c                                         |  40 <span class="insertion">+++</span><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l44" name="l44">44</a></td><td><pre> src/socket.c                                       |   7 <span class="insertion">+</span><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l45" name="l45">45</a></td><td><pre> src/tls.c                                          |  35 <span class="insertion">++</span><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l46" name="l46">46</a></td><td><pre> src/user.c                                         |  26 <span class="insertion">+++</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l47" name="l47">47</a></td><td><pre> src/version.c.SH                                   |   2 <span class="insertion">+</span><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l48" name="l48">48</a></td><td><pre> src/windows/UnrealIRCd.exe.manifest                |   2 <span class="insertion">+</span><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l49" name="l49">49</a></td><td><pre> src/windows/unrealinst.iss                         |   2 <span class="insertion">+</span><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l50" name="l50">50</a></td><td><pre> unrealircd.in                                      |   7 <span class="insertion">+</span><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l51" name="l51">51</a></td><td><pre> 44 files changed, 748 insertions(+), 521 deletions(-)</pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l52" name="l52">52</a></td><td><pre></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l53" name="l53">53</a></td><td><pre><span class="bold">diff --git a/Config b/Config</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l54" name="l54">54</a></td><td><pre><span class="bold">index 28ccb7f..7ddfe86 100755</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l55" name="l55">55</a></td><td><pre><span class="bold">--- a/Config</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l56" name="l56">56</a></td><td><pre><span class="bold">+++ b/Config</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l57" name="l57">57</a></td><td><pre><span class="hunk">@@ -255,25 +255,19 @@</span> </span>fi</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l58" name="l58">58</a></td><td><pre> </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l59" name="l59">59</a></td><td><pre> </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l60" name="l60">60</a></td><td><pre> #parse arguments</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l61" name="l61">61</a></td><td><pre><span class="deletion">-NOCACHE=&quot;&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l62" name="l62">62</a></td><td><pre> IMPORTEDSETTINGS=&quot;&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l63" name="l63">63</a></td><td><pre> NOINTRO=&quot;&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l64" name="l64">64</a></td><td><pre> QUICK=&quot;&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l65" name="l65">65</a></td><td><pre><span class="deletion">-CLEAN=&quot;&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l66" name="l66">66</a></td><td><pre> ADVANCED=&quot;&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l67" name="l67">67</a></td><td><pre> while [ $# -ge 1 ] ; do</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l68" name="l68">68</a></td><td><pre> 	if [ $1 = &quot;--help&quot; ] ; then</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l69" name="l69">69</a></td><td><pre> 		echo &quot;Config utility for UnrealIRCd&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l70" name="l70">70</a></td><td><pre> 		echo &quot;-----------------------------&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l71" name="l71">71</a></td><td><pre> 		echo &quot;Syntax: ./Config [options]&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l72" name="l72">72</a></td><td><pre><span class="deletion">-		echo &quot;-nocache     Ignore settings saved in config.settings&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l73" name="l73">73</a></td><td><pre> 		echo &quot;-nointro     Skip intro (release notes, etc)&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l74" name="l74">74</a></td><td><pre> 		echo &quot;-quick       Skip questions, go straight to configure&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l75" name="l75">75</a></td><td><pre> 		echo &quot;-advanced    Include additional advanced questions&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l76" name="l76">76</a></td><td><pre><span class="deletion">-		echo &quot;-clean       Clean ./configure cache&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l77" name="l77">77</a></td><td><pre> 		exit 0</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l78" name="l78">78</a></td><td><pre><span class="deletion">-	elif [ $1 = &quot;-nocache&quot; ] ; then</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l79" name="l79">79</a></td><td><pre><span class="deletion">-		NOCACHE=&quot;1&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l80" name="l80">80</a></td><td><pre> 	elif [ $1 = &quot;-nointro&quot; ] ; then</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l81" name="l81">81</a></td><td><pre> 		NOINTRO=&quot;1&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l82" name="l82">82</a></td><td><pre> 	elif [ $1 = &quot;-quick&quot; -o $1 = &quot;-q&quot; ] ; then</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l83" name="l83">83</a></td><td><pre><span class="hunk">@@ -285,8 +279,6 @@</span> </span>while [ $# -ge 1 ] ; do</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l84" name="l84">84</a></td><td><pre> 		RUN_CONFIGURE</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l85" name="l85">85</a></td><td><pre> 		cd &quot;$UNREALCWD&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l86" name="l86">86</a></td><td><pre> 		exit 0</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l87" name="l87">87</a></td><td><pre><span class="deletion">-	elif [ $1 = &quot;-clean&quot; -o $1 = &quot;-C&quot; ] ; then</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l88" name="l88">88</a></td><td><pre><span class="deletion">-		CLEAN=&quot;1&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l89" name="l89">89</a></td><td><pre> 	elif [ $1 = &quot;-advanced&quot; ] ; then</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l90" name="l90">90</a></td><td><pre> 		PREADVANCED=&quot;1&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l91" name="l91">91</a></td><td><pre> 	fi</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l92" name="l92">92</a></td><td><pre><span class="hunk">@@ -299,10 +291,6 @@</span> </span>elif [ &quot;$ADVANCED&quot; = &quot;1&quot; ]; then</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l93" name="l93">93</a></td><td><pre> 	ADVANCED=&quot;&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l94" name="l94">94</a></td><td><pre> fi</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l95" name="l95">95</a></td><td><pre> </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l96" name="l96">96</a></td><td><pre><span class="deletion">-if [ -n &quot;$CLEAN&quot; ] ; then</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l97" name="l97">97</a></td><td><pre><span class="deletion">-	rm -f config.cache</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l98" name="l98">98</a></td><td><pre><span class="deletion">-fi</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l99" name="l99">99</a></td><td><pre><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l100" name="l100">100</a></td><td><pre> if [ &quot;`id -u`&quot; = &quot;0&quot; ]; then</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l101" name="l101">101</a></td><td><pre> 	echo &quot;ERROR: You cannot build or run UnrealIRCd as root&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l102" name="l102">102</a></td><td><pre> 	echo &quot;&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l103" name="l103">103</a></td><td><pre><span class="hunk">@@ -324,79 +312,77 @@</span> </span>clear</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l104" name="l104">104</a></td><td><pre> echo &quot;We will now ask you a number of questions. You can just press ENTER to accept the defaults!&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l105" name="l105">105</a></td><td><pre> echo &quot;&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l106" name="l106">106</a></td><td><pre> </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l107" name="l107">107</a></td><td><pre><span class="deletion">-if [ -z &quot;$NOCACHE&quot; ] ; then</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l108" name="l108">108</a></td><td><pre><span class="deletion">-	# This needs to be updated each release so auto-upgrading works for settings, modules, etc!!:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l109" name="l109">109</a></td><td><pre><span class="deletion">-	UNREALRELEASES=&quot;unrealircd-5.0.2 unrealircd-5.0.1 unrealircd-5.0.0 unrealircd-5.0.0-rc2 unrealircd-5.0.0-rc1&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l110" name="l110">110</a></td><td><pre><span class="deletion">-	if [ -f &quot;config.settings&quot; ]; then</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l111" name="l111">111</a></td><td><pre><span class="deletion">-		. ./config.settings</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l112" name="l112">112</a></td><td><pre><span class="deletion">-	else</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l113" name="l113">113</a></td><td><pre><span class="deletion">-		# Try to load a previous config.settings</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l114" name="l114">114</a></td><td><pre><span class="deletion">-		for x in $UNREALRELEASES</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l115" name="l115">115</a></td><td><pre><span class="deletion">-		do</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l116" name="l116">116</a></td><td><pre><span class="deletion">-			if [ -f ../$x/config.settings ]; then</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l117" name="l117">117</a></td><td><pre><span class="deletion">-				IMPORTEDSETTINGS=&quot;../$x&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l118" name="l118">118</a></td><td><pre><span class="deletion">-				break</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l119" name="l119">119</a></td><td><pre><span class="deletion">-			fi</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l120" name="l120">120</a></td><td><pre><span class="deletion">-		done</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l121" name="l121">121</a></td><td><pre><span class="deletion">-		echo &quot;If you have previously installed UnrealIRCd on this shell then you can specify a&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l122" name="l122">122</a></td><td><pre><span class="deletion">-		echo &quot;directory here so I can import the build settings and third party modules&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l123" name="l123">123</a></td><td><pre><span class="deletion">-		echo &quot;to make your life a little easier.&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l124" name="l124">124</a></td><td><pre><span class="deletion">-		if [ ! -z &quot;$IMPORTEDSETTINGS&quot; ]; then</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l125" name="l125">125</a></td><td><pre><span class="deletion">-			echo &quot;Found previous installation in: $IMPORTEDSETTINGS.&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l126" name="l126">126</a></td><td><pre><span class="deletion">-			echo &quot;You can enter a different path or type 'none' if you don't want to use it.&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l127" name="l127">127</a></td><td><pre><span class="deletion">-			echo &quot;Just press Enter to accept the default settings.&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l128" name="l128">128</a></td><td><pre><span class="deletion">-		else</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l129" name="l129">129</a></td><td><pre><span class="deletion">-			echo &quot;If you install UnrealIRCd for the first time on this shell, then just hit Enter&quot;;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l130" name="l130">130</a></td><td><pre><span class="insertion">+</span><span class="insertion"># This needs to be updated each release so auto-upgrading works for settings, modules, etc!!:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l131" name="l131">131</a></td><td><pre><span class="insertion">+</span><span class="insertion">UNREALRELEASES=&quot;unrealircd-5.0.3.1 unrealircd-5.0.3 unrealircd-5.0.2 unrealircd-5.0.1 unrealircd-5.0.0 unrealircd-5.0.0-rc2 unrealircd-5.0.0-rc1&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l132" name="l132">132</a></td><td><pre><span class="insertion">+</span><span class="insertion">if [ -f &quot;config.settings&quot; ]; then</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l133" name="l133">133</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">. ./config.settings</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l134" name="l134">134</a></td><td><pre><span class="insertion">+</span><span class="insertion">else</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l135" name="l135">135</a></td><td><pre><span class="insertion">+</span>	<span class="insertion"># Try to load a previous config.settings</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l136" name="l136">136</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">for x in $UNREALRELEASES</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l137" name="l137">137</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">do</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l138" name="l138">138</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">if [ -f ../$x/config.settings ]; then</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l139" name="l139">139</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">IMPORTEDSETTINGS=&quot;../$x&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l140" name="l140">140</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">break</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l141" name="l141">141</a></td><td><pre> 		fi</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l142" name="l142">142</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">done</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l143" name="l143">143</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">echo &quot;If you have previously installed UnrealIRCd on this shell then you can specify a&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l144" name="l144">144</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">echo &quot;directory here so I can import the build settings and third party modules&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l145" name="l145">145</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">echo &quot;to make your life a little easier.&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l146" name="l146">146</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">if [ ! -z &quot;$IMPORTEDSETTINGS&quot; ]; then</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l147" name="l147">147</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">echo &quot;Found previous installation in: $IMPORTEDSETTINGS.&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l148" name="l148">148</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">echo &quot;You can enter a different path or type 'none' if you don't want to use it.&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l149" name="l149">149</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">echo &quot;Just press Enter to accept the default settings.&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l150" name="l150">150</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">else</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l151" name="l151">151</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">echo &quot;If you install UnrealIRCd for the first time on this shell, then just hit Enter&quot;;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l152" name="l152">152</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">fi</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l153" name="l153">153</a></td><td><pre> </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l154" name="l154">154</a></td><td><pre><span class="deletion">-		TEST=&quot;$IMPORTEDSETTINGS&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l155" name="l155">155</a></td><td><pre><span class="deletion">-		echo $n &quot;[$TEST] -&gt; $c&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l156" name="l156">156</a></td><td><pre><span class="deletion">-		read cc</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l157" name="l157">157</a></td><td><pre><span class="deletion">-		if [ -z &quot;$cc&quot; ]; then</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l158" name="l158">158</a></td><td><pre><span class="deletion">-			IMPORTEDSETTINGS=&quot;$TEST&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l159" name="l159">159</a></td><td><pre><span class="deletion">-		else</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l160" name="l160">160</a></td><td><pre><span class="deletion">-			IMPORTEDSETTINGS=&quot;$cc&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l161" name="l161">161</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">TEST=&quot;$IMPORTEDSETTINGS&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l162" name="l162">162</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">echo $n &quot;[$TEST] -&gt; $c&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l163" name="l163">163</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">read cc</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l164" name="l164">164</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">if [ -z &quot;$cc&quot; ]; then</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l165" name="l165">165</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">IMPORTEDSETTINGS=&quot;$TEST&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l166" name="l166">166</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">else</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l167" name="l167">167</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">IMPORTEDSETTINGS=&quot;$cc&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l168" name="l168">168</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">fi</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l169" name="l169">169</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">if [ &quot;$IMPORTEDSETTINGS&quot; = &quot;none&quot; ]; then</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l170" name="l170">170</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">IMPORTEDSETTINGS=&quot;&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l171" name="l171">171</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">fi</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l172" name="l172">172</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">if [ &quot;$IMPORTEDSETTINGS&quot; != &quot;&quot; ]; then</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l173" name="l173">173</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">if [ -d $IMPORTEDSETTINGS/conf ]; then</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l174" name="l174">174</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">echo &quot;ERROR: Directory $IMPORTEDSETTINGS is an INSTALLATION directory (eg /home/irc/unrealircd).&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l175" name="l175">175</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">echo &quot;This question was about a SOURCE directory (eg /home/irc/unrealircd-5.0.0).&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l176" name="l176">176</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">exit</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l177" name="l177">177</a></td><td><pre> 		fi</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l178" name="l178">178</a></td><td><pre><span class="deletion">-		if [ &quot;$IMPORTEDSETTINGS&quot; = &quot;none&quot; ]; then</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l179" name="l179">179</a></td><td><pre><span class="deletion">-			IMPORTEDSETTINGS=&quot;&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l180" name="l180">180</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">if [ ! -f $IMPORTEDSETTINGS/config.settings ]; then</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l181" name="l181">181</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">echo &quot;Directory $IMPORTEDSETTINGS does not exist or does not contain a config.settings file&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l182" name="l182">182</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">exit</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l183" name="l183">183</a></td><td><pre> 		fi</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l184" name="l184">184</a></td><td><pre><span class="deletion">-		if [ &quot;$IMPORTEDSETTINGS&quot; != &quot;&quot; ]; then</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l185" name="l185">185</a></td><td><pre><span class="deletion">-			if [ -d $IMPORTEDSETTINGS/conf ]; then</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l186" name="l186">186</a></td><td><pre><span class="deletion">-				echo &quot;ERROR: Directory $IMPORTEDSETTINGS is an INSTALLATION directory (eg /home/irc/unrealircd).&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l187" name="l187">187</a></td><td><pre><span class="deletion">-				echo &quot;This question was about a SOURCE directory (eg /home/irc/unrealircd-5.0.0).&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l188" name="l188">188</a></td><td><pre><span class="deletion">-				exit</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l189" name="l189">189</a></td><td><pre><span class="deletion">-			fi</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l190" name="l190">190</a></td><td><pre><span class="deletion">-			if [ ! -f $IMPORTEDSETTINGS/config.settings ]; then</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l191" name="l191">191</a></td><td><pre><span class="deletion">-				echo &quot;Directory $IMPORTEDSETTINGS does not exist or does not contain a config.settings file&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l192" name="l192">192</a></td><td><pre><span class="deletion">-				exit</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l193" name="l193">193</a></td><td><pre><span class="deletion">-			fi</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l194" name="l194">194</a></td><td><pre><span class="deletion">-			COPYMODULES=&quot;1&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l195" name="l195">195</a></td><td><pre><span class="deletion">-			if grep -q TOPICNICKISNUH $IMPORTEDSETTINGS/config.settings; then</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l196" name="l196">196</a></td><td><pre><span class="deletion">-				echo &quot;Directory $IMPORTEDSETTINGS seems to be UnrealIRCd 4.x (or older).&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l197" name="l197">197</a></td><td><pre><span class="deletion">-				echo &quot;I will copy the settings but not any 3rd party modules, as they are incompatible with 5.x.&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l198" name="l198">198</a></td><td><pre><span class="deletion">-				COPYMODULES=&quot;0&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l199" name="l199">199</a></td><td><pre><span class="deletion">-			fi</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l200" name="l200">200</a></td><td><pre><span class="deletion">-			# Actually load the settings</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l201" name="l201">201</a></td><td><pre><span class="deletion">-			. $IMPORTEDSETTINGS/config.settings</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l202" name="l202">202</a></td><td><pre><span class="deletion">-			if [ &quot;$COPYMODULES&quot; = &quot;1&quot; ]; then</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l203" name="l203">203</a></td><td><pre><span class="deletion">-				# Copy over 3rd party modules (also deals with 0 file cases, hence the silly looking code)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l204" name="l204">204</a></td><td><pre><span class="deletion">-				for f in $IMPORTEDSETTINGS/src/modules/third/*.c</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l205" name="l205">205</a></td><td><pre><span class="deletion">-				do</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l206" name="l206">206</a></td><td><pre><span class="deletion">-					[ -e &quot;$f&quot; ] &amp;&amp; cp $f src/modules/third/</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l207" name="l207">207</a></td><td><pre><span class="deletion">-				done</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l208" name="l208">208</a></td><td><pre><span class="deletion">-			fi</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l209" name="l209">209</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">COPYMODULES=&quot;1&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l210" name="l210">210</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">if grep -q TOPICNICKISNUH $IMPORTEDSETTINGS/config.settings; then</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l211" name="l211">211</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">echo &quot;Directory $IMPORTEDSETTINGS seems to be UnrealIRCd 4.x (or older).&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l212" name="l212">212</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">echo &quot;I will copy the settings but not any 3rd party modules, as they are incompatible with 5.x.&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l213" name="l213">213</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">COPYMODULES=&quot;0&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l214" name="l214">214</a></td><td><pre> 		fi</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l215" name="l215">215</a></td><td><pre><span class="deletion">-	fi</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l216" name="l216">216</a></td><td><pre><span class="deletion">-	# If we just imported settings and the curl dir is set to</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l217" name="l217">217</a></td><td><pre><span class="deletion">-	# something like /home/xxx/unrealircd-5.x.y/extras/curl/</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l218" name="l218">218</a></td><td><pre><span class="deletion">-	# (what we call 'local-curl') then remove this setting as</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l219" name="l219">219</a></td><td><pre><span class="deletion">-	# it would refer to the old UnrealIRCd installation.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l220" name="l220">220</a></td><td><pre><span class="deletion">-	if [ ! -z &quot;$IMPORTEDSETTINGS&quot; ]; then</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l221" name="l221">221</a></td><td><pre><span class="deletion">-		if echo &quot;$CURLDIR&quot;|grep -qi unrealircd; then</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l222" name="l222">222</a></td><td><pre><span class="deletion">-			CURLDIR=&quot;&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l223" name="l223">223</a></td><td><pre><span class="insertion">+</span>		<span class="insertion"># Actually load the settings</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l224" name="l224">224</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">. $IMPORTEDSETTINGS/config.settings</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l225" name="l225">225</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">if [ &quot;$COPYMODULES&quot; = &quot;1&quot; ]; then</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l226" name="l226">226</a></td><td><pre><span class="insertion">+</span>			<span class="insertion"># Copy over 3rd party modules (also deals with 0 file cases, hence the silly looking code)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l227" name="l227">227</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">for f in $IMPORTEDSETTINGS/src/modules/third/*.c</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l228" name="l228">228</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">do</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l229" name="l229">229</a></td><td><pre><span class="insertion">+</span>				<span class="insertion">[ -e &quot;$f&quot; ] &amp;&amp; cp $f src/modules/third/</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l230" name="l230">230</a></td><td><pre><span class="insertion">+</span>			<span class="insertion">done</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l231" name="l231">231</a></td><td><pre> 		fi</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l232" name="l232">232</a></td><td><pre> 	fi</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l233" name="l233">233</a></td><td><pre> fi</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l234" name="l234">234</a></td><td><pre><span class="insertion">+</span><span class="insertion"># If we just imported settings and the curl dir is set to</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l235" name="l235">235</a></td><td><pre><span class="insertion">+</span><span class="insertion"># something like /home/xxx/unrealircd-5.x.y/extras/curl/</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l236" name="l236">236</a></td><td><pre><span class="insertion">+</span><span class="insertion"># (what we call 'local-curl') then remove this setting as</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l237" name="l237">237</a></td><td><pre><span class="insertion">+</span><span class="insertion"># it would refer to the old UnrealIRCd installation.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l238" name="l238">238</a></td><td><pre><span class="insertion">+</span><span class="insertion">if [ ! -z &quot;$IMPORTEDSETTINGS&quot; ]; then</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l239" name="l239">239</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">if echo &quot;$CURLDIR&quot;|grep -qi unrealircd; then</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l240" name="l240">240</a></td><td><pre><span class="insertion">+</span>		<span class="insertion">CURLDIR=&quot;&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l241" name="l241">241</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">fi</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l242" name="l242">242</a></td><td><pre><span class="insertion">+</span><span class="insertion">fi</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l243" name="l243">243</a></td><td><pre> </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l244" name="l244">244</a></td><td><pre> TEST=&quot;$BASEPATH&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l245" name="l245">245</a></td><td><pre> echo &quot;&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l246" name="l246">246</a></td><td><pre><span class="bold">diff --git a/autoconf/m4/unreal.m4 b/autoconf/m4/unreal.m4</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l247" name="l247">247</a></td><td><pre><span class="bold">index a77b095..ec2c85d 100644</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l248" name="l248">248</a></td><td><pre><span class="bold">--- a/autoconf/m4/unreal.m4</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l249" name="l249">249</a></td><td><pre><span class="bold">+++ b/autoconf/m4/unreal.m4</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l250" name="l250">250</a></td><td><pre><span class="hunk">@@ -252,3 +252,23 @@</span> </span>else</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l251" name="l251">251</a></td><td><pre> 	AC_MSG_RESULT([no])</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l252" name="l252">252</a></td><td><pre> fi</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l253" name="l253">253</a></td><td><pre> ])</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l254" name="l254">254</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l255" name="l255">255</a></td><td><pre><span class="insertion">+</span><span class="insertion">AC_DEFUN([CHECK_SSL_CTX_SET_SECURITY_LEVEL],</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l256" name="l256">256</a></td><td><pre><span class="insertion">+</span><span class="insertion">[</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l257" name="l257">257</a></td><td><pre><span class="insertion">+</span><span class="insertion">AC_MSG_CHECKING([for SSL_CTX_set_security_level in SSL library])</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l258" name="l258">258</a></td><td><pre><span class="insertion">+</span><span class="insertion">AC_LANG_PUSH(C)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l259" name="l259">259</a></td><td><pre><span class="insertion">+</span><span class="insertion">SAVE_LIBS=&quot;$LIBS&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l260" name="l260">260</a></td><td><pre><span class="insertion">+</span><span class="insertion">LIBS=&quot;$LIBS $CRYPTOLIB&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l261" name="l261">261</a></td><td><pre><span class="insertion">+</span><span class="insertion">AC_TRY_LINK([#include &lt;openssl/ssl.h&gt;],</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l262" name="l262">262</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">[SSL_CTX *ctx = NULL; SSL_CTX_set_security_level(ctx, 1);],</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l263" name="l263">263</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">has_function=1,</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l264" name="l264">264</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">has_function=0)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l265" name="l265">265</a></td><td><pre><span class="insertion">+</span><span class="insertion">LIBS=&quot;$SAVE_LIBS&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l266" name="l266">266</a></td><td><pre><span class="insertion">+</span><span class="insertion">AC_LANG_POP(C)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l267" name="l267">267</a></td><td><pre><span class="insertion">+</span><span class="insertion">if test $has_function = 1; then</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l268" name="l268">268</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">AC_MSG_RESULT([yes])</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l269" name="l269">269</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">AC_DEFINE([HAS_SSL_CTX_SET_SECURITY_LEVEL], [], [Define if ssl library has SSL_CTX_set_security_level])</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l270" name="l270">270</a></td><td><pre><span class="insertion">+</span><span class="insertion">else</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l271" name="l271">271</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">AC_MSG_RESULT([no])</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l272" name="l272">272</a></td><td><pre><span class="insertion">+</span><span class="insertion">fi</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l273" name="l273">273</a></td><td><pre><span class="insertion">+</span><span class="insertion">])</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l274" name="l274">274</a></td><td><pre><span class="bold">diff --git a/configure b/configure</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l275" name="l275">275</a></td><td><pre><span class="bold">index 125017a..4936473 100755</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l276" name="l276">276</a></td><td><pre><span class="bold">--- a/configure</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l277" name="l277">277</a></td><td><pre><span class="bold">+++ b/configure</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l278" name="l278">278</a></td><td><pre><span class="hunk">@@ -1,6 +1,6 @@</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l279" name="l279">279</a></td><td><pre> #! /bin/sh</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l280" name="l280">280</a></td><td><pre> # Guess values for system-dependent variables and create Makefiles.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l281" name="l281">281</a></td><td><pre><span class="deletion">-# Generated by GNU Autoconf 2.69 for unrealircd 5.0.3.1.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l282" name="l282">282</a></td><td><pre><span class="insertion">+</span><span class="insertion"># Generated by GNU Autoconf 2.69 for unrealircd 5.0.4.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l283" name="l283">283</a></td><td><pre> #</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l284" name="l284">284</a></td><td><pre> # Report bugs to &lt;https://bugs.unrealircd.org/&gt;.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l285" name="l285">285</a></td><td><pre> #</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l286" name="l286">286</a></td><td><pre><span class="hunk">@@ -580,8 +580,8 @@</span> </span>MAKEFLAGS=</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l287" name="l287">287</a></td><td><pre> # Identity of this package.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l288" name="l288">288</a></td><td><pre> PACKAGE_NAME='unrealircd'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l289" name="l289">289</a></td><td><pre> PACKAGE_TARNAME='unrealircd'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l290" name="l290">290</a></td><td><pre><span class="deletion">-PACKAGE_VERSION='5.0.3.1'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l291" name="l291">291</a></td><td><pre><span class="deletion">-PACKAGE_STRING='unrealircd 5.0.3.1'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l292" name="l292">292</a></td><td><pre><span class="insertion">+</span><span class="insertion">PACKAGE_VERSION='5.0.4'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l293" name="l293">293</a></td><td><pre><span class="insertion">+</span><span class="insertion">PACKAGE_STRING='unrealircd 5.0.4'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l294" name="l294">294</a></td><td><pre> PACKAGE_BUGREPORT='https://bugs.unrealircd.org/'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l295" name="l295">295</a></td><td><pre> PACKAGE_URL='https://unrealircd.org/'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l296" name="l296">296</a></td><td><pre> </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l297" name="l297">297</a></td><td><pre><span class="hunk">@@ -670,6 +670,8 @@</span> </span>HARDEN_BINLDFLAGS</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l298" name="l298">298</a></td><td><pre> HARDEN_BINCFLAGS</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l299" name="l299">299</a></td><td><pre> HARDEN_LDFLAGS</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l300" name="l300">300</a></td><td><pre> HARDEN_CFLAGS</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l301" name="l301">301</a></td><td><pre><span class="insertion">+</span><span class="insertion">GMAKE</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l302" name="l302">302</a></td><td><pre><span class="insertion">+</span><span class="insertion">MAKER</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l303" name="l303">303</a></td><td><pre> OBJEXT</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l304" name="l304">304</a></td><td><pre> EXEEXT</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l305" name="l305">305</a></td><td><pre> ac_ct_CC</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l306" name="l306">306</a></td><td><pre><span class="hunk">@@ -679,8 +681,6 @@</span> </span>CFLAGS</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l307" name="l307">307</a></td><td><pre> CC</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l308" name="l308">308</a></td><td><pre> PKGCONFIG</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l309" name="l309">309</a></td><td><pre> GUNZIP</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l310" name="l310">310</a></td><td><pre><span class="deletion">-GMAKE</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l311" name="l311">311</a></td><td><pre><span class="deletion">-MAKER</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l312" name="l312">312</a></td><td><pre> INSTALL</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l313" name="l313">313</a></td><td><pre> OPENSSLPATH</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l314" name="l314">314</a></td><td><pre> TOUCH</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l315" name="l315">315</a></td><td><pre><span class="hunk">@@ -1325,7 +1325,7 @@</span> </span>if test &quot;$ac_init_help&quot; = &quot;long&quot;; then</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l316" name="l316">316</a></td><td><pre>   # Omit some internal or obsolete options to make the list less imposing.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l317" name="l317">317</a></td><td><pre>   # This message is too long to be a string in the A/UX 3.1 sh.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l318" name="l318">318</a></td><td><pre>   cat &lt;&lt;_ACEOF</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l319" name="l319">319</a></td><td><pre><span class="deletion">-\`configure' configures unrealircd 5.0.3.1 to adapt to many kinds of systems.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l320" name="l320">320</a></td><td><pre><span class="insertion">+</span><span class="insertion">\`configure' configures unrealircd 5.0.4 to adapt to many kinds of systems.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l321" name="l321">321</a></td><td><pre> </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l322" name="l322">322</a></td><td><pre> Usage: $0 [OPTION]... [VAR=VALUE]...</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l323" name="l323">323</a></td><td><pre> </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l324" name="l324">324</a></td><td><pre><span class="hunk">@@ -1391,7 +1391,7 @@</span> </span>fi</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l325" name="l325">325</a></td><td><pre> </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l326" name="l326">326</a></td><td><pre> if test -n &quot;$ac_init_help&quot;; then</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l327" name="l327">327</a></td><td><pre>   case $ac_init_help in</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l328" name="l328">328</a></td><td><pre><span class="deletion">-     short | recursive ) echo &quot;Configuration of unrealircd 5.0.3.1:&quot;;;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l329" name="l329">329</a></td><td><pre><span class="insertion">+</span><span class="insertion">     short | recursive ) echo &quot;Configuration of unrealircd 5.0.4:&quot;;;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l330" name="l330">330</a></td><td><pre>    esac</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l331" name="l331">331</a></td><td><pre>   cat &lt;&lt;\_ACEOF</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l332" name="l332">332</a></td><td><pre> </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l333" name="l333">333</a></td><td><pre><span class="hunk">@@ -1544,7 +1544,7 @@</span> </span>fi</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l334" name="l334">334</a></td><td><pre> test -n &quot;$ac_init_help&quot; &amp;&amp; exit $ac_status</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l335" name="l335">335</a></td><td><pre> if $ac_init_version; then</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l336" name="l336">336</a></td><td><pre>   cat &lt;&lt;\_ACEOF</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l337" name="l337">337</a></td><td><pre><span class="deletion">-unrealircd configure 5.0.3.1</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l338" name="l338">338</a></td><td><pre><span class="insertion">+</span><span class="insertion">unrealircd configure 5.0.4</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l339" name="l339">339</a></td><td><pre> generated by GNU Autoconf 2.69</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l340" name="l340">340</a></td><td><pre> </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l341" name="l341">341</a></td><td><pre> Copyright (C) 2012 Free Software Foundation, Inc.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l342" name="l342">342</a></td><td><pre><span class="hunk">@@ -1913,7 +1913,7 @@</span> </span>cat &gt;config.log &lt;&lt;_ACEOF</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l343" name="l343">343</a></td><td><pre> This file contains any messages produced by compilers while</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l344" name="l344">344</a></td><td><pre> running configure, to aid debugging if configure makes a mistake.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l345" name="l345">345</a></td><td><pre> </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l346" name="l346">346</a></td><td><pre><span class="deletion">-It was created by unrealircd $as_me 5.0.3.1, which was</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l347" name="l347">347</a></td><td><pre><span class="insertion">+</span><span class="insertion">It was created by unrealircd $as_me 5.0.4, which was</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l348" name="l348">348</a></td><td><pre> generated by GNU Autoconf 2.69.  Invocation command line was</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l349" name="l349">349</a></td><td><pre> </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l350" name="l350">350</a></td><td><pre>   $ $0 $@</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l351" name="l351">351</a></td><td><pre><span class="hunk">@@ -2321,7 +2321,7 @@</span> </span>_ACEOF</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l352" name="l352">352</a></td><td><pre> </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l353" name="l353">353</a></td><td><pre> </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l354" name="l354">354</a></td><td><pre> # Minor version number (e.g.: Z in X.Y.Z)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l355" name="l355">355</a></td><td><pre><span class="deletion">-UNREAL_VERSION_MINOR=&quot;3&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l356" name="l356">356</a></td><td><pre><span class="insertion">+</span><span class="insertion">UNREAL_VERSION_MINOR=&quot;4&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l357" name="l357">357</a></td><td><pre> </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l358" name="l358">358</a></td><td><pre> cat &gt;&gt;confdefs.h &lt;&lt;_ACEOF</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l359" name="l359">359</a></td><td><pre> #define UNREAL_VERSION_MINOR $UNREAL_VERSION_MINOR</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l360" name="l360">360</a></td><td><pre><span class="hunk">@@ -2331,7 +2331,7 @@</span> </span>_ACEOF</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l361" name="l361">361</a></td><td><pre> # The version suffix such as a beta marker or release candidate</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l362" name="l362">362</a></td><td><pre> # marker. (e.g.: -rcX for unrealircd-3.2.9-rcX). This macro is a</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l363" name="l363">363</a></td><td><pre> # string instead of an integer because it contains arbitrary data.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l364" name="l364">364</a></td><td><pre><span class="deletion">-UNREAL_VERSION_SUFFIX=&quot;.1&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l365" name="l365">365</a></td><td><pre><span class="insertion">+</span><span class="insertion">UNREAL_VERSION_SUFFIX=&quot;&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l366" name="l366">366</a></td><td><pre> </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l367" name="l367">367</a></td><td><pre> cat &gt;&gt;confdefs.h &lt;&lt;_ACEOF</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l368" name="l368">368</a></td><td><pre> #define UNREAL_VERSION_SUFFIX &quot;$UNREAL_VERSION_SUFFIX&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l369" name="l369">369</a></td><td><pre><span class="hunk">@@ -2551,91 +2551,6 @@</span> </span>$as_echo &quot;no&quot; &gt;&amp;6; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l370" name="l370">370</a></td><td><pre> fi</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l371" name="l371">371</a></td><td><pre> </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l372" name="l372">372</a></td><td><pre> </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l373" name="l373">373</a></td><td><pre><span class="deletion">-# Extract the first word of &quot;gmake&quot;, so it can be a program name with args.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l374" name="l374">374</a></td><td><pre><span class="deletion">-set dummy gmake; ac_word=$2</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l375" name="l375">375</a></td><td><pre><span class="deletion">-{ $as_echo &quot;$as_me:${as_lineno-$LINENO}: checking for $ac_word&quot; &gt;&amp;5</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l376" name="l376">376</a></td><td><pre><span class="deletion">-$as_echo_n &quot;checking for $ac_word... &quot; &gt;&amp;6; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l377" name="l377">377</a></td><td><pre><span class="deletion">-if ${ac_cv_prog_MAKER+:} false; then :</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l378" name="l378">378</a></td><td><pre><span class="deletion">-  $as_echo_n &quot;(cached) &quot; &gt;&amp;6</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l379" name="l379">379</a></td><td><pre><span class="deletion">-else</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l380" name="l380">380</a></td><td><pre><span class="deletion">-  if test -n &quot;$MAKER&quot;; then</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l381" name="l381">381</a></td><td><pre><span class="deletion">-  ac_cv_prog_MAKER=&quot;$MAKER&quot; # Let the user override the test.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l382" name="l382">382</a></td><td><pre><span class="deletion">-else</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l383" name="l383">383</a></td><td><pre><span class="deletion">-as_save_IFS=$IFS; IFS=$PATH_SEPARATOR</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l384" name="l384">384</a></td><td><pre><span class="deletion">-for as_dir in $PATH</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l385" name="l385">385</a></td><td><pre><span class="deletion">-do</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l386" name="l386">386</a></td><td><pre><span class="deletion">-  IFS=$as_save_IFS</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l387" name="l387">387</a></td><td><pre><span class="deletion">-  test -z &quot;$as_dir&quot; &amp;&amp; as_dir=.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l388" name="l388">388</a></td><td><pre><span class="deletion">-    for ac_exec_ext in '' $ac_executable_extensions; do</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l389" name="l389">389</a></td><td><pre><span class="deletion">-  if as_fn_executable_p &quot;$as_dir/$ac_word$ac_exec_ext&quot;; then</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l390" name="l390">390</a></td><td><pre><span class="deletion">-    ac_cv_prog_MAKER=&quot;gmake&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l391" name="l391">391</a></td><td><pre><span class="deletion">-    $as_echo &quot;$as_me:${as_lineno-$LINENO}: found $as_dir/$ac_word$ac_exec_ext&quot; &gt;&amp;5</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l392" name="l392">392</a></td><td><pre><span class="deletion">-    break 2</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l393" name="l393">393</a></td><td><pre><span class="deletion">-  fi</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l394" name="l394">394</a></td><td><pre><span class="deletion">-done</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l395" name="l395">395</a></td><td><pre><span class="deletion">-  done</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l396" name="l396">396</a></td><td><pre><span class="deletion">-IFS=$as_save_IFS</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l397" name="l397">397</a></td><td><pre><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l398" name="l398">398</a></td><td><pre><span class="deletion">-  test -z &quot;$ac_cv_prog_MAKER&quot; &amp;&amp; ac_cv_prog_MAKER=&quot;make&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l399" name="l399">399</a></td><td><pre><span class="deletion">-fi</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l400" name="l400">400</a></td><td><pre><span class="deletion">-fi</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l401" name="l401">401</a></td><td><pre><span class="deletion">-MAKER=$ac_cv_prog_MAKER</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l402" name="l402">402</a></td><td><pre><span class="deletion">-if test -n &quot;$MAKER&quot;; then</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l403" name="l403">403</a></td><td><pre><span class="deletion">-  { $as_echo &quot;$as_me:${as_lineno-$LINENO}: result: $MAKER&quot; &gt;&amp;5</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l404" name="l404">404</a></td><td><pre><span class="deletion">-$as_echo &quot;$MAKER&quot; &gt;&amp;6; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l405" name="l405">405</a></td><td><pre><span class="deletion">-else</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l406" name="l406">406</a></td><td><pre><span class="deletion">-  { $as_echo &quot;$as_me:${as_lineno-$LINENO}: result: no&quot; &gt;&amp;5</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l407" name="l407">407</a></td><td><pre><span class="deletion">-$as_echo &quot;no&quot; &gt;&amp;6; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l408" name="l408">408</a></td><td><pre><span class="deletion">-fi</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l409" name="l409">409</a></td><td><pre><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l410" name="l410">410</a></td><td><pre><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l411" name="l411">411</a></td><td><pre><span class="deletion">-# Extract the first word of &quot;gmake&quot;, so it can be a program name with args.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l412" name="l412">412</a></td><td><pre><span class="deletion">-set dummy gmake; ac_word=$2</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l413" name="l413">413</a></td><td><pre><span class="deletion">-{ $as_echo &quot;$as_me:${as_lineno-$LINENO}: checking for $ac_word&quot; &gt;&amp;5</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l414" name="l414">414</a></td><td><pre><span class="deletion">-$as_echo_n &quot;checking for $ac_word... &quot; &gt;&amp;6; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l415" name="l415">415</a></td><td><pre><span class="deletion">-if ${ac_cv_path_GMAKE+:} false; then :</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l416" name="l416">416</a></td><td><pre><span class="deletion">-  $as_echo_n &quot;(cached) &quot; &gt;&amp;6</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l417" name="l417">417</a></td><td><pre><span class="deletion">-else</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l418" name="l418">418</a></td><td><pre><span class="deletion">-  case $GMAKE in</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l419" name="l419">419</a></td><td><pre><span class="deletion">-  [\\/]* | ?:[\\/]*)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l420" name="l420">420</a></td><td><pre><span class="deletion">-  ac_cv_path_GMAKE=&quot;$GMAKE&quot; # Let the user override the test with a path.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l421" name="l421">421</a></td><td><pre><span class="deletion">-  ;;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l422" name="l422">422</a></td><td><pre><span class="deletion">-  *)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l423" name="l423">423</a></td><td><pre><span class="deletion">-  as_save_IFS=$IFS; IFS=$PATH_SEPARATOR</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l424" name="l424">424</a></td><td><pre><span class="deletion">-for as_dir in $PATH</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l425" name="l425">425</a></td><td><pre><span class="deletion">-do</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l426" name="l426">426</a></td><td><pre><span class="deletion">-  IFS=$as_save_IFS</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l427" name="l427">427</a></td><td><pre><span class="deletion">-  test -z &quot;$as_dir&quot; &amp;&amp; as_dir=.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l428" name="l428">428</a></td><td><pre><span class="deletion">-    for ac_exec_ext in '' $ac_executable_extensions; do</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l429" name="l429">429</a></td><td><pre><span class="deletion">-  if as_fn_executable_p &quot;$as_dir/$ac_word$ac_exec_ext&quot;; then</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l430" name="l430">430</a></td><td><pre><span class="deletion">-    ac_cv_path_GMAKE=&quot;$as_dir/$ac_word$ac_exec_ext&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l431" name="l431">431</a></td><td><pre><span class="deletion">-    $as_echo &quot;$as_me:${as_lineno-$LINENO}: found $as_dir/$ac_word$ac_exec_ext&quot; &gt;&amp;5</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l432" name="l432">432</a></td><td><pre><span class="deletion">-    break 2</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l433" name="l433">433</a></td><td><pre><span class="deletion">-  fi</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l434" name="l434">434</a></td><td><pre><span class="deletion">-done</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l435" name="l435">435</a></td><td><pre><span class="deletion">-  done</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l436" name="l436">436</a></td><td><pre><span class="deletion">-IFS=$as_save_IFS</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l437" name="l437">437</a></td><td><pre><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l438" name="l438">438</a></td><td><pre><span class="deletion">-  ;;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l439" name="l439">439</a></td><td><pre><span class="deletion">-esac</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l440" name="l440">440</a></td><td><pre><span class="deletion">-fi</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l441" name="l441">441</a></td><td><pre><span class="deletion">-GMAKE=$ac_cv_path_GMAKE</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l442" name="l442">442</a></td><td><pre><span class="deletion">-if test -n &quot;$GMAKE&quot;; then</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l443" name="l443">443</a></td><td><pre><span class="deletion">-  { $as_echo &quot;$as_me:${as_lineno-$LINENO}: result: $GMAKE&quot; &gt;&amp;5</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l444" name="l444">444</a></td><td><pre><span class="deletion">-$as_echo &quot;$GMAKE&quot; &gt;&amp;6; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l445" name="l445">445</a></td><td><pre><span class="deletion">-else</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l446" name="l446">446</a></td><td><pre><span class="deletion">-  { $as_echo &quot;$as_me:${as_lineno-$LINENO}: result: no&quot; &gt;&amp;5</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l447" name="l447">447</a></td><td><pre><span class="deletion">-$as_echo &quot;no&quot; &gt;&amp;6; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l448" name="l448">448</a></td><td><pre><span class="deletion">-fi</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l449" name="l449">449</a></td><td><pre><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l450" name="l450">450</a></td><td><pre><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l451" name="l451">451</a></td><td><pre><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l452" name="l452">452</a></td><td><pre><span class="deletion">-if $MAKER --version | grep -q &quot;GNU Make&quot;; then :</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l453" name="l453">453</a></td><td><pre><span class="deletion">-  GNUMAKE=&quot;0&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l454" name="l454">454</a></td><td><pre><span class="deletion">-else</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l455" name="l455">455</a></td><td><pre><span class="deletion">-  as_fn_error $? &quot;It seems your system does not have gmake installed. Please install gmake.&quot; &quot;$LINENO&quot; 5</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l456" name="l456">456</a></td><td><pre><span class="deletion">-fi</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l457" name="l457">457</a></td><td><pre><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l458" name="l458">458</a></td><td><pre> # Extract the first word of &quot;gunzip&quot;, so it can be a program name with args.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l459" name="l459">459</a></td><td><pre> set dummy gunzip; ac_word=$2</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l460" name="l460">460</a></td><td><pre> { $as_echo &quot;$as_me:${as_lineno-$LINENO}: checking for $ac_word&quot; &gt;&amp;5</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l461" name="l461">461</a></td><td><pre><span class="hunk">@@ -3687,6 +3602,90 @@</span> </span>if test &quot;$ac_cv_prog_cc_c99&quot; = &quot;no&quot;; then :</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l462" name="l462">462</a></td><td><pre>   as_fn_error $? &quot;No C99 compiler was found. Please install gcc or clang and other build tools. Eg, on Debian/Ubuntu you probably want to run the following as root: apt-get install build-essential &quot; &quot;$LINENO&quot; 5</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l463" name="l463">463</a></td><td><pre> fi</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l464" name="l464">464</a></td><td><pre> </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l465" name="l465">465</a></td><td><pre><span class="insertion">+</span><span class="insertion"># Extract the first word of &quot;gmake&quot;, so it can be a program name with args.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l466" name="l466">466</a></td><td><pre><span class="insertion">+</span><span class="insertion">set dummy gmake; ac_word=$2</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l467" name="l467">467</a></td><td><pre><span class="insertion">+</span><span class="insertion">{ $as_echo &quot;$as_me:${as_lineno-$LINENO}: checking for $ac_word&quot; &gt;&amp;5</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l468" name="l468">468</a></td><td><pre><span class="insertion">+</span><span class="insertion">$as_echo_n &quot;checking for $ac_word... &quot; &gt;&amp;6; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l469" name="l469">469</a></td><td><pre><span class="insertion">+</span><span class="insertion">if ${ac_cv_prog_MAKER+:} false; then :</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l470" name="l470">470</a></td><td><pre><span class="insertion">+</span><span class="insertion">  $as_echo_n &quot;(cached) &quot; &gt;&amp;6</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l471" name="l471">471</a></td><td><pre><span class="insertion">+</span><span class="insertion">else</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l472" name="l472">472</a></td><td><pre><span class="insertion">+</span><span class="insertion">  if test -n &quot;$MAKER&quot;; then</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l473" name="l473">473</a></td><td><pre><span class="insertion">+</span><span class="insertion">  ac_cv_prog_MAKER=&quot;$MAKER&quot; # Let the user override the test.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l474" name="l474">474</a></td><td><pre><span class="insertion">+</span><span class="insertion">else</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l475" name="l475">475</a></td><td><pre><span class="insertion">+</span><span class="insertion">as_save_IFS=$IFS; IFS=$PATH_SEPARATOR</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l476" name="l476">476</a></td><td><pre><span class="insertion">+</span><span class="insertion">for as_dir in $PATH</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l477" name="l477">477</a></td><td><pre><span class="insertion">+</span><span class="insertion">do</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l478" name="l478">478</a></td><td><pre><span class="insertion">+</span><span class="insertion">  IFS=$as_save_IFS</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l479" name="l479">479</a></td><td><pre><span class="insertion">+</span><span class="insertion">  test -z &quot;$as_dir&quot; &amp;&amp; as_dir=.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l480" name="l480">480</a></td><td><pre><span class="insertion">+</span><span class="insertion">    for ac_exec_ext in '' $ac_executable_extensions; do</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l481" name="l481">481</a></td><td><pre><span class="insertion">+</span><span class="insertion">  if as_fn_executable_p &quot;$as_dir/$ac_word$ac_exec_ext&quot;; then</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l482" name="l482">482</a></td><td><pre><span class="insertion">+</span><span class="insertion">    ac_cv_prog_MAKER=&quot;gmake&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l483" name="l483">483</a></td><td><pre><span class="insertion">+</span><span class="insertion">    $as_echo &quot;$as_me:${as_lineno-$LINENO}: found $as_dir/$ac_word$ac_exec_ext&quot; &gt;&amp;5</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l484" name="l484">484</a></td><td><pre><span class="insertion">+</span><span class="insertion">    break 2</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l485" name="l485">485</a></td><td><pre><span class="insertion">+</span><span class="insertion">  fi</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l486" name="l486">486</a></td><td><pre><span class="insertion">+</span><span class="insertion">done</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l487" name="l487">487</a></td><td><pre><span class="insertion">+</span><span class="insertion">  done</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l488" name="l488">488</a></td><td><pre><span class="insertion">+</span><span class="insertion">IFS=$as_save_IFS</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l489" name="l489">489</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l490" name="l490">490</a></td><td><pre><span class="insertion">+</span><span class="insertion">  test -z &quot;$ac_cv_prog_MAKER&quot; &amp;&amp; ac_cv_prog_MAKER=&quot;make&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l491" name="l491">491</a></td><td><pre><span class="insertion">+</span><span class="insertion">fi</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l492" name="l492">492</a></td><td><pre><span class="insertion">+</span><span class="insertion">fi</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l493" name="l493">493</a></td><td><pre><span class="insertion">+</span><span class="insertion">MAKER=$ac_cv_prog_MAKER</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l494" name="l494">494</a></td><td><pre><span class="insertion">+</span><span class="insertion">if test -n &quot;$MAKER&quot;; then</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l495" name="l495">495</a></td><td><pre><span class="insertion">+</span><span class="insertion">  { $as_echo &quot;$as_me:${as_lineno-$LINENO}: result: $MAKER&quot; &gt;&amp;5</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l496" name="l496">496</a></td><td><pre><span class="insertion">+</span><span class="insertion">$as_echo &quot;$MAKER&quot; &gt;&amp;6; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l497" name="l497">497</a></td><td><pre><span class="insertion">+</span><span class="insertion">else</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l498" name="l498">498</a></td><td><pre><span class="insertion">+</span><span class="insertion">  { $as_echo &quot;$as_me:${as_lineno-$LINENO}: result: no&quot; &gt;&amp;5</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l499" name="l499">499</a></td><td><pre><span class="insertion">+</span><span class="insertion">$as_echo &quot;no&quot; &gt;&amp;6; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l500" name="l500">500</a></td><td><pre><span class="insertion">+</span><span class="insertion">fi</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l501" name="l501">501</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l502" name="l502">502</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l503" name="l503">503</a></td><td><pre><span class="insertion">+</span><span class="insertion"># Extract the first word of &quot;gmake&quot;, so it can be a program name with args.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l504" name="l504">504</a></td><td><pre><span class="insertion">+</span><span class="insertion">set dummy gmake; ac_word=$2</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l505" name="l505">505</a></td><td><pre><span class="insertion">+</span><span class="insertion">{ $as_echo &quot;$as_me:${as_lineno-$LINENO}: checking for $ac_word&quot; &gt;&amp;5</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l506" name="l506">506</a></td><td><pre><span class="insertion">+</span><span class="insertion">$as_echo_n &quot;checking for $ac_word... &quot; &gt;&amp;6; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l507" name="l507">507</a></td><td><pre><span class="insertion">+</span><span class="insertion">if ${ac_cv_path_GMAKE+:} false; then :</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l508" name="l508">508</a></td><td><pre><span class="insertion">+</span><span class="insertion">  $as_echo_n &quot;(cached) &quot; &gt;&amp;6</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l509" name="l509">509</a></td><td><pre><span class="insertion">+</span><span class="insertion">else</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l510" name="l510">510</a></td><td><pre><span class="insertion">+</span><span class="insertion">  case $GMAKE in</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l511" name="l511">511</a></td><td><pre><span class="insertion">+</span><span class="insertion">  [\\/]* | ?:[\\/]*)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l512" name="l512">512</a></td><td><pre><span class="insertion">+</span><span class="insertion">  ac_cv_path_GMAKE=&quot;$GMAKE&quot; # Let the user override the test with a path.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l513" name="l513">513</a></td><td><pre><span class="insertion">+</span><span class="insertion">  ;;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l514" name="l514">514</a></td><td><pre><span class="insertion">+</span><span class="insertion">  *)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l515" name="l515">515</a></td><td><pre><span class="insertion">+</span><span class="insertion">  as_save_IFS=$IFS; IFS=$PATH_SEPARATOR</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l516" name="l516">516</a></td><td><pre><span class="insertion">+</span><span class="insertion">for as_dir in $PATH</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l517" name="l517">517</a></td><td><pre><span class="insertion">+</span><span class="insertion">do</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l518" name="l518">518</a></td><td><pre><span class="insertion">+</span><span class="insertion">  IFS=$as_save_IFS</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l519" name="l519">519</a></td><td><pre><span class="insertion">+</span><span class="insertion">  test -z &quot;$as_dir&quot; &amp;&amp; as_dir=.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l520" name="l520">520</a></td><td><pre><span class="insertion">+</span><span class="insertion">    for ac_exec_ext in '' $ac_executable_extensions; do</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l521" name="l521">521</a></td><td><pre><span class="insertion">+</span><span class="insertion">  if as_fn_executable_p &quot;$as_dir/$ac_word$ac_exec_ext&quot;; then</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l522" name="l522">522</a></td><td><pre><span class="insertion">+</span><span class="insertion">    ac_cv_path_GMAKE=&quot;$as_dir/$ac_word$ac_exec_ext&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l523" name="l523">523</a></td><td><pre><span class="insertion">+</span><span class="insertion">    $as_echo &quot;$as_me:${as_lineno-$LINENO}: found $as_dir/$ac_word$ac_exec_ext&quot; &gt;&amp;5</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l524" name="l524">524</a></td><td><pre><span class="insertion">+</span><span class="insertion">    break 2</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l525" name="l525">525</a></td><td><pre><span class="insertion">+</span><span class="insertion">  fi</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l526" name="l526">526</a></td><td><pre><span class="insertion">+</span><span class="insertion">done</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l527" name="l527">527</a></td><td><pre><span class="insertion">+</span><span class="insertion">  done</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l528" name="l528">528</a></td><td><pre><span class="insertion">+</span><span class="insertion">IFS=$as_save_IFS</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l529" name="l529">529</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l530" name="l530">530</a></td><td><pre><span class="insertion">+</span><span class="insertion">  ;;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l531" name="l531">531</a></td><td><pre><span class="insertion">+</span><span class="insertion">esac</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l532" name="l532">532</a></td><td><pre><span class="insertion">+</span><span class="insertion">fi</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l533" name="l533">533</a></td><td><pre><span class="insertion">+</span><span class="insertion">GMAKE=$ac_cv_path_GMAKE</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l534" name="l534">534</a></td><td><pre><span class="insertion">+</span><span class="insertion">if test -n &quot;$GMAKE&quot;; then</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l535" name="l535">535</a></td><td><pre><span class="insertion">+</span><span class="insertion">  { $as_echo &quot;$as_me:${as_lineno-$LINENO}: result: $GMAKE&quot; &gt;&amp;5</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l536" name="l536">536</a></td><td><pre><span class="insertion">+</span><span class="insertion">$as_echo &quot;$GMAKE&quot; &gt;&amp;6; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l537" name="l537">537</a></td><td><pre><span class="insertion">+</span><span class="insertion">else</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l538" name="l538">538</a></td><td><pre><span class="insertion">+</span><span class="insertion">  { $as_echo &quot;$as_me:${as_lineno-$LINENO}: result: no&quot; &gt;&amp;5</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l539" name="l539">539</a></td><td><pre><span class="insertion">+</span><span class="insertion">$as_echo &quot;no&quot; &gt;&amp;6; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l540" name="l540">540</a></td><td><pre><span class="insertion">+</span><span class="insertion">fi</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l541" name="l541">541</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l542" name="l542">542</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l543" name="l543">543</a></td><td><pre><span class="insertion">+</span><span class="insertion">if $MAKER --version | grep -q &quot;GNU Make&quot;; then :</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l544" name="l544">544</a></td><td><pre><span class="insertion">+</span><span class="insertion">  GNUMAKE=&quot;0&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l545" name="l545">545</a></td><td><pre><span class="insertion">+</span><span class="insertion">else</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l546" name="l546">546</a></td><td><pre><span class="insertion">+</span><span class="insertion">  as_fn_error $? &quot;It seems your system does not have make/gmake installed. If you are on Linux then install make, otherwise install gmake.&quot; &quot;$LINENO&quot; 5</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l547" name="l547">547</a></td><td><pre><span class="insertion">+</span><span class="insertion">fi</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l548" name="l548">548</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l549" name="l549">549</a></td><td><pre> </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l550" name="l550">550</a></td><td><pre> { $as_echo &quot;$as_me:${as_lineno-$LINENO}: checking for crypt in -ldescrypt&quot; &gt;&amp;5</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l551" name="l551">551</a></td><td><pre> $as_echo_n &quot;checking for crypt in -ldescrypt... &quot; &gt;&amp;6; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l552" name="l552">552</a></td><td><pre><span class="hunk">@@ -6384,6 +6383,53 @@</span> </span>else</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l553" name="l553">553</a></td><td><pre> $as_echo &quot;no&quot; &gt;&amp;6; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l554" name="l554">554</a></td><td><pre> fi</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l555" name="l555">555</a></td><td><pre> </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l556" name="l556">556</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l557" name="l557">557</a></td><td><pre><span class="insertion">+</span><span class="insertion">{ $as_echo &quot;$as_me:${as_lineno-$LINENO}: checking for SSL_CTX_set_security_level in SSL library&quot; &gt;&amp;5</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l558" name="l558">558</a></td><td><pre><span class="insertion">+</span><span class="insertion">$as_echo_n &quot;checking for SSL_CTX_set_security_level in SSL library... &quot; &gt;&amp;6; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l559" name="l559">559</a></td><td><pre><span class="insertion">+</span><span class="insertion">ac_ext=c</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l560" name="l560">560</a></td><td><pre><span class="insertion">+</span><span class="insertion">ac_cpp='$CPP $CPPFLAGS'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l561" name="l561">561</a></td><td><pre><span class="insertion">+</span><span class="insertion">ac_compile='$CC -c $CFLAGS $CPPFLAGS conftest.$ac_ext &gt;&amp;5'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l562" name="l562">562</a></td><td><pre><span class="insertion">+</span><span class="insertion">ac_link='$CC -o conftest$ac_exeext $CFLAGS $CPPFLAGS $LDFLAGS conftest.$ac_ext $LIBS &gt;&amp;5'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l563" name="l563">563</a></td><td><pre><span class="insertion">+</span><span class="insertion">ac_compiler_gnu=$ac_cv_c_compiler_gnu</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l564" name="l564">564</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l565" name="l565">565</a></td><td><pre><span class="insertion">+</span><span class="insertion">SAVE_LIBS=&quot;$LIBS&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l566" name="l566">566</a></td><td><pre><span class="insertion">+</span><span class="insertion">LIBS=&quot;$LIBS $CRYPTOLIB&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l567" name="l567">567</a></td><td><pre><span class="insertion">+</span><span class="insertion">cat confdefs.h - &lt;&lt;_ACEOF &gt;conftest.$ac_ext</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l568" name="l568">568</a></td><td><pre><span class="insertion">+</span><span class="insertion">/* end confdefs.h.  */</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l569" name="l569">569</a></td><td><pre><span class="insertion">+</span><span class="insertion">#include &lt;openssl/ssl.h&gt;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l570" name="l570">570</a></td><td><pre><span class="insertion">+</span><span class="insertion">int</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l571" name="l571">571</a></td><td><pre><span class="insertion">+</span><span class="insertion">main ()</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l572" name="l572">572</a></td><td><pre><span class="insertion">+</span><span class="insertion">{</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l573" name="l573">573</a></td><td><pre><span class="insertion">+</span><span class="insertion">SSL_CTX *ctx = NULL; SSL_CTX_set_security_level(ctx, 1);</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l574" name="l574">574</a></td><td><pre><span class="insertion">+</span><span class="insertion">  ;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l575" name="l575">575</a></td><td><pre><span class="insertion">+</span><span class="insertion">  return 0;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l576" name="l576">576</a></td><td><pre><span class="insertion">+</span><span class="insertion">}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l577" name="l577">577</a></td><td><pre><span class="insertion">+</span><span class="insertion">_ACEOF</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l578" name="l578">578</a></td><td><pre><span class="insertion">+</span><span class="insertion">if ac_fn_c_try_link &quot;$LINENO&quot;; then :</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l579" name="l579">579</a></td><td><pre><span class="insertion">+</span><span class="insertion">  has_function=1</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l580" name="l580">580</a></td><td><pre><span class="insertion">+</span><span class="insertion">else</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l581" name="l581">581</a></td><td><pre><span class="insertion">+</span><span class="insertion">  has_function=0</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l582" name="l582">582</a></td><td><pre><span class="insertion">+</span><span class="insertion">fi</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l583" name="l583">583</a></td><td><pre><span class="insertion">+</span><span class="insertion">rm -f core conftest.err conftest.$ac_objext \</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l584" name="l584">584</a></td><td><pre><span class="insertion">+</span><span class="insertion">    conftest$ac_exeext conftest.$ac_ext</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l585" name="l585">585</a></td><td><pre><span class="insertion">+</span><span class="insertion">LIBS=&quot;$SAVE_LIBS&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l586" name="l586">586</a></td><td><pre><span class="insertion">+</span><span class="insertion">ac_ext=c</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l587" name="l587">587</a></td><td><pre><span class="insertion">+</span><span class="insertion">ac_cpp='$CPP $CPPFLAGS'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l588" name="l588">588</a></td><td><pre><span class="insertion">+</span><span class="insertion">ac_compile='$CC -c $CFLAGS $CPPFLAGS conftest.$ac_ext &gt;&amp;5'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l589" name="l589">589</a></td><td><pre><span class="insertion">+</span><span class="insertion">ac_link='$CC -o conftest$ac_exeext $CFLAGS $CPPFLAGS $LDFLAGS conftest.$ac_ext $LIBS &gt;&amp;5'</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l590" name="l590">590</a></td><td><pre><span class="insertion">+</span><span class="insertion">ac_compiler_gnu=$ac_cv_c_compiler_gnu</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l591" name="l591">591</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l592" name="l592">592</a></td><td><pre><span class="insertion">+</span><span class="insertion">if test $has_function = 1; then</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l593" name="l593">593</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">{ $as_echo &quot;$as_me:${as_lineno-$LINENO}: result: yes&quot; &gt;&amp;5</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l594" name="l594">594</a></td><td><pre><span class="insertion">+</span><span class="insertion">$as_echo &quot;yes&quot; &gt;&amp;6; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l595" name="l595">595</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l596" name="l596">596</a></td><td><pre><span class="insertion">+</span><span class="insertion">$as_echo &quot;#define HAS_SSL_CTX_SET_SECURITY_LEVEL /**/&quot; &gt;&gt;confdefs.h</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l597" name="l597">597</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l598" name="l598">598</a></td><td><pre><span class="insertion">+</span><span class="insertion">else</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l599" name="l599">599</a></td><td><pre><span class="insertion">+</span>	<span class="insertion">{ $as_echo &quot;$as_me:${as_lineno-$LINENO}: result: no&quot; &gt;&amp;5</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l600" name="l600">600</a></td><td><pre><span class="insertion">+</span><span class="insertion">$as_echo &quot;no&quot; &gt;&amp;6; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l601" name="l601">601</a></td><td><pre><span class="insertion">+</span><span class="insertion">fi</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l602" name="l602">602</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l603" name="l603">603</a></td><td><pre> # Check whether --enable-dynamic-linking was given.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l604" name="l604">604</a></td><td><pre> if test &quot;${enable_dynamic_linking+set}&quot; = set; then :</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l605" name="l605">605</a></td><td><pre>   enableval=$enable_dynamic_linking; enable_dynamic_linking=$enableval</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l606" name="l606">606</a></td><td><pre><span class="hunk">@@ -6948,6 +6994,11 @@</span> </span>$as_echo &quot;installing Argon2 library&quot; &gt;&amp;6; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l607" name="l607">607</a></td><td><pre> $ac_cv_prog_MAKER install PREFIX=$cur_dir/extras/argon2 || exit 1</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l608" name="l608">608</a></td><td><pre> # We need to manually copy the libs to PRIVATELIBDIR because</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l609" name="l609">609</a></td><td><pre> # there is no way to tell make install in libargon2 to do so.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l610" name="l610">610</a></td><td><pre><span class="insertion">+</span><span class="insertion"># BUT FIRST, delete the old library so it becomes an unlink+create</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l611" name="l611">611</a></td><td><pre><span class="insertion">+</span><span class="insertion"># operation rather than overwriting the existing file which would</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l612" name="l612">612</a></td><td><pre><span class="insertion">+</span><span class="insertion"># lead to a crash of the currently running IRCd.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l613" name="l613">613</a></td><td><pre><span class="insertion">+</span><span class="insertion">rm -f &quot;$PRIVATELIBDIR/&quot;libargon2*</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l614" name="l614">614</a></td><td><pre><span class="insertion">+</span><span class="insertion"># Now copy the new library files:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l615" name="l615">615</a></td><td><pre> cp -av $cur_dir/extras/argon2/lib/* $PRIVATELIBDIR/</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l616" name="l616">616</a></td><td><pre> ARGON2_CFLAGS=&quot;-I$cur_dir/extras/argon2/include&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l617" name="l617">617</a></td><td><pre> </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l618" name="l618">618</a></td><td><pre><span class="hunk">@@ -8249,7 +8300,7 @@</span> </span>cat &gt;&gt;$CONFIG_STATUS &lt;&lt;\_ACEOF || ac_write_fail=1</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l619" name="l619">619</a></td><td><pre> # report actual input values of CONFIG_FILES etc. instead of their</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l620" name="l620">620</a></td><td><pre> # values after options handling.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l621" name="l621">621</a></td><td><pre> ac_log=&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l622" name="l622">622</a></td><td><pre><span class="deletion">-This file was extended by unrealircd $as_me 5.0.3.1, which was</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l623" name="l623">623</a></td><td><pre><span class="insertion">+</span><span class="insertion">This file was extended by unrealircd $as_me 5.0.4, which was</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l624" name="l624">624</a></td><td><pre> generated by GNU Autoconf 2.69.  Invocation command line was</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l625" name="l625">625</a></td><td><pre> </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l626" name="l626">626</a></td><td><pre>   CONFIG_FILES    = $CONFIG_FILES</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l627" name="l627">627</a></td><td><pre><span class="hunk">@@ -8312,7 +8363,7 @@</span> </span>_ACEOF</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l628" name="l628">628</a></td><td><pre> cat &gt;&gt;$CONFIG_STATUS &lt;&lt;_ACEOF || ac_write_fail=1</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l629" name="l629">629</a></td><td><pre> ac_cs_config=&quot;`$as_echo &quot;$ac_configure_args&quot; | sed 's/^ //; s/[\\&quot;&quot;\`\$]/\\\\&amp;/g'`&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l630" name="l630">630</a></td><td><pre> ac_cs_version=&quot;\\</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l631" name="l631">631</a></td><td><pre><span class="deletion">-unrealircd config.status 5.0.3.1</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l632" name="l632">632</a></td><td><pre><span class="insertion">+</span><span class="insertion">unrealircd config.status 5.0.4</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l633" name="l633">633</a></td><td><pre> configured by $0, generated by GNU Autoconf 2.69,</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l634" name="l634">634</a></td><td><pre>   with options \\&quot;\$ac_cs_config\\&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l635" name="l635">635</a></td><td><pre> </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l636" name="l636">636</a></td><td><pre><span class="bold">diff --git a/configure.ac b/configure.ac</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l637" name="l637">637</a></td><td><pre><span class="bold">index 983b6dd..92720c8 100644</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l638" name="l638">638</a></td><td><pre><span class="bold">--- a/configure.ac</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l639" name="l639">639</a></td><td><pre><span class="bold">+++ b/configure.ac</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l640" name="l640">640</a></td><td><pre><span class="hunk">@@ -7,7 +7,7 @@</span> </span>dnl src/windows/unrealinst.iss</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l641" name="l641">641</a></td><td><pre> dnl doc/Config.header</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l642" name="l642">642</a></td><td><pre> dnl src/version.c.SH</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l643" name="l643">643</a></td><td><pre> </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l644" name="l644">644</a></td><td><pre><span class="deletion">-AC_INIT([unrealircd], [5.0.3.1], [https://bugs.unrealircd.org/], [], [https://unrealircd.org/])</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l645" name="l645">645</a></td><td><pre><span class="insertion">+</span><span class="insertion">AC_INIT([unrealircd], [5.0.4], [https://bugs.unrealircd.org/], [], [https://unrealircd.org/])</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l646" name="l646">646</a></td><td><pre> AC_CONFIG_SRCDIR([src/ircd.c])</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l647" name="l647">647</a></td><td><pre> AC_CONFIG_HEADER([include/setup.h])</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l648" name="l648">648</a></td><td><pre> AC_CONFIG_AUX_DIR([autoconf])</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l649" name="l649">649</a></td><td><pre><span class="hunk">@@ -34,13 +34,13 @@</span> </span>UNREAL_VERSION_MAJOR=[&quot;0&quot;]</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l650" name="l650">650</a></td><td><pre> AC_DEFINE_UNQUOTED([UNREAL_VERSION_MAJOR], [$UNREAL_VERSION_MAJOR], [Major version number (e.g.: Y for X.Y.Z)])</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l651" name="l651">651</a></td><td><pre> </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l652" name="l652">652</a></td><td><pre> # Minor version number (e.g.: Z in X.Y.Z)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l653" name="l653">653</a></td><td><pre><span class="deletion">-UNREAL_VERSION_MINOR=[&quot;3&quot;]</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l654" name="l654">654</a></td><td><pre><span class="insertion">+</span><span class="insertion">UNREAL_VERSION_MINOR=[&quot;4&quot;]</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l655" name="l655">655</a></td><td><pre> AC_DEFINE_UNQUOTED([UNREAL_VERSION_MINOR], [$UNREAL_VERSION_MINOR], [Minor version number (e.g.: Z for X.Y.Z)])</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l656" name="l656">656</a></td><td><pre> </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l657" name="l657">657</a></td><td><pre> # The version suffix such as a beta marker or release candidate</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l658" name="l658">658</a></td><td><pre> # marker. (e.g.: -rcX for unrealircd-3.2.9-rcX). This macro is a</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l659" name="l659">659</a></td><td><pre> # string instead of an integer because it contains arbitrary data.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l660" name="l660">660</a></td><td><pre><span class="deletion">-UNREAL_VERSION_SUFFIX=[&quot;.1&quot;]</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l661" name="l661">661</a></td><td><pre><span class="insertion">+</span><span class="insertion">UNREAL_VERSION_SUFFIX=[&quot;&quot;]</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l662" name="l662">662</a></td><td><pre> AC_DEFINE_UNQUOTED([UNREAL_VERSION_SUFFIX], [&quot;$UNREAL_VERSION_SUFFIX&quot;], [Version suffix such as a beta marker or release candidate marker. (e.g.: -rcX for unrealircd-3.2.9-rcX)])</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l663" name="l663">663</a></td><td><pre> </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l664" name="l664">664</a></td><td><pre> AC_PATH_PROG(RM,rm)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l665" name="l665">665</a></td><td><pre><span class="hunk">@@ -60,13 +60,6 @@</span> </span>exit 1</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l666" name="l666">666</a></td><td><pre> ])</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l667" name="l667">667</a></td><td><pre> </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l668" name="l668">668</a></td><td><pre> AC_PATH_PROG(INSTALL,install)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l669" name="l669">669</a></td><td><pre><span class="deletion">-AC_CHECK_PROG(MAKER, gmake, gmake, make)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l670" name="l670">670</a></td><td><pre><span class="deletion">-AC_PATH_PROG(GMAKE,gmake)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l671" name="l671">671</a></td><td><pre><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l672" name="l672">672</a></td><td><pre><span class="deletion">-AS_IF([$MAKER --version | grep -q &quot;GNU Make&quot;],</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l673" name="l673">673</a></td><td><pre><span class="deletion">-        [GNUMAKE=&quot;0&quot;],</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l674" name="l674">674</a></td><td><pre><span class="deletion">-        [AC_MSG_ERROR([It seems your system does not have gmake installed. Please install gmake.])])</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l675" name="l675">675</a></td><td><pre><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l676" name="l676">676</a></td><td><pre> AC_PATH_PROG(GUNZIP, gunzip)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l677" name="l677">677</a></td><td><pre> AC_PATH_PROG(PKGCONFIG, pkg-config)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l678" name="l678">678</a></td><td><pre> </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l679" name="l679">679</a></td><td><pre><span class="hunk">@@ -75,6 +68,13 @@</span> </span>AC_PROG_CC_C99</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l680" name="l680">680</a></td><td><pre> AS_IF([test &quot;$ac_cv_prog_cc_c99&quot; = &quot;no&quot;],</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l681" name="l681">681</a></td><td><pre> 	[AC_MSG_ERROR([No C99 compiler was found. Please install gcc or clang and other build tools. Eg, on Debian/Ubuntu you probably want to run the following as root: apt-get install build-essential ])])</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l682" name="l682">682</a></td><td><pre> </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l683" name="l683">683</a></td><td><pre><span class="insertion">+</span><span class="insertion">dnl Check for make moved down, so the above compiler check takes precedence.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l684" name="l684">684</a></td><td><pre><span class="insertion">+</span><span class="insertion">AC_CHECK_PROG(MAKER, gmake, gmake, make)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l685" name="l685">685</a></td><td><pre><span class="insertion">+</span><span class="insertion">AC_PATH_PROG(GMAKE,gmake)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l686" name="l686">686</a></td><td><pre><span class="insertion">+</span><span class="insertion">AS_IF([$MAKER --version | grep -q &quot;GNU Make&quot;],</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l687" name="l687">687</a></td><td><pre><span class="insertion">+</span><span class="insertion">        [GNUMAKE=&quot;0&quot;],</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l688" name="l688">688</a></td><td><pre><span class="insertion">+</span><span class="insertion">        [AC_MSG_ERROR([It seems your system does not have make/gmake installed. If you are on Linux then install make, otherwise install gmake.])])</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l689" name="l689">689</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l690" name="l690">690</a></td><td><pre> dnl Checks for libraries.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l691" name="l691">691</a></td><td><pre> AC_CHECK_LIB(descrypt, crypt,</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l692" name="l692">692</a></td><td><pre> 	[AC_DEFINE([HAVE_CRYPT], [], [Define if you have crypt])</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l693" name="l693">693</a></td><td><pre><span class="hunk">@@ -497,6 +497,7 @@</span> </span>AC_ARG_WITH(system-cares, [AS_HELP_STRING([--without-system-cares], [Use bundled</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l694" name="l694">694</a></td><td><pre> CHECK_SSL</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l695" name="l695">695</a></td><td><pre> CHECK_SSL_CTX_SET1_CURVES_LIST</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l696" name="l696">696</a></td><td><pre> CHECK_SSL_CTX_SET_MIN_PROTO_VERSION</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l697" name="l697">697</a></td><td><pre><span class="insertion">+</span><span class="insertion">CHECK_SSL_CTX_SET_SECURITY_LEVEL</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l698" name="l698">698</a></td><td><pre> AC_ARG_ENABLE(dynamic-linking, [AS_HELP_STRING([--disable-dynamic-linking], [Make the IRCd statically link with shared objects rather than dynamically (noone knows if disabling dynamic linking actually does anything or not)])],</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l699" name="l699">699</a></td><td><pre> 	[enable_dynamic_linking=$enableval], [enable_dynamic_linking=&quot;yes&quot;])</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l700" name="l700">700</a></td><td><pre> AS_IF([test $enable_dynamic_linking = &quot;yes&quot;],</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l701" name="l701">701</a></td><td><pre><span class="hunk">@@ -603,6 +604,11 @@</span> </span>AC_MSG_RESULT(installing Argon2 library)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l702" name="l702">702</a></td><td><pre> $ac_cv_prog_MAKER install PREFIX=$cur_dir/extras/argon2 || exit 1</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l703" name="l703">703</a></td><td><pre> # We need to manually copy the libs to PRIVATELIBDIR because</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l704" name="l704">704</a></td><td><pre> # there is no way to tell make install in libargon2 to do so.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l705" name="l705">705</a></td><td><pre><span class="insertion">+</span><span class="insertion"># BUT FIRST, delete the old library so it becomes an unlink+create</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l706" name="l706">706</a></td><td><pre><span class="insertion">+</span><span class="insertion"># operation rather than overwriting the existing file which would</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l707" name="l707">707</a></td><td><pre><span class="insertion">+</span><span class="insertion"># lead to a crash of the currently running IRCd.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l708" name="l708">708</a></td><td><pre><span class="insertion">+</span><span class="insertion">rm -f &quot;$PRIVATELIBDIR/&quot;libargon2*</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l709" name="l709">709</a></td><td><pre><span class="insertion">+</span><span class="insertion"># Now copy the new library files:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l710" name="l710">710</a></td><td><pre> cp -av $cur_dir/extras/argon2/lib/* $PRIVATELIBDIR/</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l711" name="l711">711</a></td><td><pre> ARGON2_CFLAGS=&quot;-I$cur_dir/extras/argon2/include&quot;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l712" name="l712">712</a></td><td><pre> AC_SUBST(ARGON2_CFLAGS)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l713" name="l713">713</a></td><td><pre><span class="bold">diff --git a/doc/Config.header b/doc/Config.header</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l714" name="l714">714</a></td><td><pre><span class="bold">index caeeb18..dcddc86 100644</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l715" name="l715">715</a></td><td><pre><span class="bold">--- a/doc/Config.header</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l716" name="l716">716</a></td><td><pre><span class="bold">+++ b/doc/Config.header</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l717" name="l717">717</a></td><td><pre><span class="hunk">@@ -7,11 +7,10 @@</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l718" name="l718">718</a></td><td><pre>  \___/|_| |_|_|  \___|\__,_|_|\___/\_| \_| \____/\__,_|</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l719" name="l719">719</a></td><td><pre> </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l720" name="l720">720</a></td><td><pre>                                Configuration Program</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l721" name="l721">721</a></td><td><pre><span class="deletion">-                                for UnrealIRCd 5.0.3.1</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l722" name="l722">722</a></td><td><pre><span class="insertion">+</span><span class="insertion">                                for UnrealIRCd 5.0.4</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l723" name="l723">723</a></td><td><pre>                                     </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l724" name="l724">724</a></td><td><pre> This program will help you to compile your IRC server, and ask you</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l725" name="l725">725</a></td><td><pre> questions regarding the compile-time settings of it during the process. </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l726" name="l726">726</a></td><td><pre><span class="deletion">-regarding the setup of it, during the process.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l727" name="l727">727</a></td><td><pre> </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l728" name="l728">728</a></td><td><pre> A short installation guide is available online at:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l729" name="l729">729</a></td><td><pre> https://www.unrealircd.org/docs/Installing_from_source</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l730" name="l730">730</a></td><td><pre><span class="bold">diff --git a/doc/RELEASE-NOTES.md b/doc/RELEASE-NOTES.md</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l731" name="l731">731</a></td><td><pre><span class="bold">index b7625dc..d030e13 100644</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l732" name="l732">732</a></td><td><pre><span class="bold">--- a/doc/RELEASE-NOTES.md</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l733" name="l733">733</a></td><td><pre><span class="bold">+++ b/doc/RELEASE-NOTES.md</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l734" name="l734">734</a></td><td><pre><span class="hunk">@@ -1,5 +1,46 @@</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l735" name="l735">735</a></td><td><pre><span class="deletion">-UnrealIRCd 5.0.3.1 Release Notes</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l736" name="l736">736</a></td><td><pre><span class="deletion">-=================================</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l737" name="l737">737</a></td><td><pre><span class="insertion">+</span><span class="insertion">UnrealIRCd 5.0.4 Release Notes</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l738" name="l738">738</a></td><td><pre><span class="insertion">+</span><span class="insertion">===============================</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l739" name="l739">739</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l740" name="l740">740</a></td><td><pre><span class="insertion">+</span><span class="insertion">This new 5.0.4 version fixes quite a number of bugs. It contains only two small feature improvements.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l741" name="l741">741</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l742" name="l742">742</a></td><td><pre><span class="insertion">+</span><span class="insertion">Fixes:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l743" name="l743">743</a></td><td><pre><span class="insertion">+</span><span class="insertion">* When placing a SHUN on an online user it was not always effective.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l744" name="l744">744</a></td><td><pre><span class="insertion">+</span><span class="insertion">* Channeldb was not properly restoring all channel modes, such as +P.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l745" name="l745">745</a></td><td><pre><span class="insertion">+</span><span class="insertion">* When upgrading UnrealIRCd it could sometimes crash the currently</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l746" name="l746">746</a></td><td><pre><span class="insertion">+</span><span class="insertion">  running IRC server (rare), or trigger a crash report on</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l747" name="l747">747</a></td><td><pre><span class="insertion">+</span><span class="insertion">  ```./unrealircd restart``` (quite common).</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l748" name="l748">748</a></td><td><pre><span class="insertion">+</span><span class="insertion">* UnrealIRCd was giving up too easily on ident lookups.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l749" name="l749">749</a></td><td><pre><span class="insertion">+</span><span class="insertion">* Crash when unloading a module with moddata.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l750" name="l750">750</a></td><td><pre><span class="insertion">+</span><span class="insertion">* Crash if an authenticated server sends wrong information (rare).</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l751" name="l751">751</a></td><td><pre><span class="insertion">+</span><span class="insertion">* Removing a TEMPSHUN did not work if the user was on another server.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l752" name="l752">752</a></td><td><pre><span class="insertion">+</span><span class="insertion">* SAJOIN to 0 (part all channels) resulted in a desync when used on remote users.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l753" name="l753">753</a></td><td><pre><span class="insertion">+</span><span class="insertion">* Forced nick change from services was not showing up if the user</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l754" name="l754">754</a></td><td><pre><span class="insertion">+</span><span class="insertion">  was not in any channels.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l755" name="l755">755</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l756" name="l756">756</a></td><td><pre><span class="insertion">+</span><span class="insertion">Enhancements:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l757" name="l757">757</a></td><td><pre><span class="insertion">+</span><span class="insertion">* New option [set::hide-idle-time::policy](https://www.unrealircd.org/docs/Set_block#set%3A%3Ahide-idle-time)</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l758" name="l758">758</a></td><td><pre><span class="insertion">+</span><span class="insertion">  by which you can change usermode +I (hide idle time in WHOIS) from</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l759" name="l759">759</a></td><td><pre><span class="insertion">+</span><span class="insertion">  oper-only to settable by users. More options will follow in a future</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l760" name="l760">760</a></td><td><pre><span class="insertion">+</span><span class="insertion">  release.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l761" name="l761">761</a></td><td><pre><span class="insertion">+</span><span class="insertion">* In WHOIS you can now see if a user is currently (temp)shunned.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l762" name="l762">762</a></td><td><pre><span class="insertion">+</span><span class="insertion">  This only works for locally connected users for technical reasons,</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l763" name="l763">763</a></td><td><pre><span class="insertion">+</span><span class="insertion">  so use ```/WHOIS Nick Nick``` to see it for remote users.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l764" name="l764">764</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l765" name="l765">765</a></td><td><pre><span class="insertion">+</span><span class="insertion">Changes:</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l766" name="l766">766</a></td><td><pre><span class="insertion">+</span><span class="insertion">* The oper notices and logging with regards to server linking have changed</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l767" name="l767">767</a></td><td><pre><span class="insertion">+</span><span class="insertion">  a little. They are more consistent and log more now.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l768" name="l768">768</a></td><td><pre><span class="insertion">+</span><span class="insertion">* When an IRCOp tries to oper up from an insecure connection we will now</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l769" name="l769">769</a></td><td><pre><span class="insertion">+</span><span class="insertion">  mention the https://www.unrealircd.org/docs/FAQ#oper-requires-tls page.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l770" name="l770">770</a></td><td><pre><span class="insertion">+</span><span class="insertion">  This message is customizable through</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l771" name="l771">771</a></td><td><pre><span class="insertion">+</span><span class="insertion">  [set::plaintext-policy::oper-message](https://www.unrealircd.org/docs/Set_block#set::plaintext-policy).</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l772" name="l772">772</a></td><td><pre><span class="insertion">+</span><span class="insertion">* The French HELPOP text was updated.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l773" name="l773">773</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l774" name="l774">774</a></td><td><pre><span class="insertion">+</span><span class="insertion">Upgrading from UnrealIRCd 4?</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l775" name="l775">775</a></td><td><pre><span class="insertion">+</span><span class="insertion">-----------------------------</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l776" name="l776">776</a></td><td><pre><span class="insertion">+</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l777" name="l777">777</a></td><td><pre><span class="insertion">+</span><span class="insertion">Are you upgrading from UnrealIRCd 4.x to UnrealIRCd 5?</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l778" name="l778">778</a></td><td><pre><span class="insertion">+</span><span class="insertion">Then check out the *UnrealIRCd 5* release notes [further down](#unrealircd-5). At the</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l779" name="l779">779</a></td><td><pre><span class="insertion">+</span><span class="insertion">very least, check out [Upgrading from 4.x](https://www.unrealircd.org/docs/Upgrading_from_4.x).</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l780" name="l780">780</a></td><td><pre> </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l781" name="l781">781</a></td><td><pre> UnrealIRCd 5.0.3.1</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l782" name="l782">782</a></td><td><pre> -------------------</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l783" name="l783">783</a></td><td><pre><span class="bold">diff --git a/doc/conf/except.conf b/doc/conf/except.conf</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l784" name="l784">784</a></td><td><pre><span class="bold">index 14a9be5..562fbd5 100644</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l785" name="l785">785</a></td><td><pre><span class="bold">--- a/doc/conf/except.conf</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l786" name="l786">786</a></td><td><pre><span class="bold">+++ b/doc/conf/except.conf</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l787" name="l787">787</a></td><td><pre><span class="hunk">@@ -33,3 +33,4 @@</span> </span>except ban { mask *@2600:3c03::f03c:91ff:fe96:c1fa; } # bot.search.mibbit.com</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l788" name="l788">788</a></td><td><pre> </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l789" name="l789">789</a></td><td><pre> # Netsplit</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l790" name="l790">790</a></td><td><pre> except ban { mask *@85.25.137.63; } # eagle.netsplit.de</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l791" name="l791">791</a></td><td><pre><span class="insertion">+</span><span class="insertion">except ban { mask *@85.25.10.40;  } # anaconda.netsplit.de</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l792" name="l792">792</a></td><td><pre><span class="bold">diff --git a/doc/conf/ircd.motd b/doc/conf/ircd.motd</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l793" name="l793">793</a></td><td><pre><span class="bold">index 1113ad7..7fc0ae0 100644</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l794" name="l794">794</a></td><td><pre><span class="bold">--- a/doc/conf/ircd.motd</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l795" name="l795">795</a></td><td><pre><span class="bold">+++ b/doc/conf/ircd.motd</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l796" name="l796">796</a></td><td><pre><span class="hunk">@@ -36,12 +36,9 @@</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l797" name="l797">797</a></td><td><pre>      0,0  0║ ╚0,0     0║ 0,0       0╗   0,0  0║   ╚0,0     0╔╝</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l798" name="l798">798</a></td><td><pre>      0╚═╝  ╚════╝ ╚══════╝   ╚═╝    ╚════╝</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l799" name="l799">799</a></td><td><pre> </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l800" name="l800">800</a></td><td><pre><span class="insertion">+</span><span class="insertion">4─────────┤ 0THE WILD WILD WEST OF IRC4├─────────</span>[41m</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l801" name="l801">801</a></td><td><pre> </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l802" name="l802">802</a></td><td><pre><span class="insertion">+</span><span class="insertion">14• 7Do not disrupt the orderly operation of the network</span>[41m</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l803" name="l803">803</a></td><td><pre><span class="insertion">+</span><span class="insertion">14• 7No distribution of child pornography</span>[41m</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l804" name="l804">804</a></td><td><pre> </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l805" name="l805">805</a></td><td><pre><span class="deletion">-4──────────────────┤ 0RULES 4├───────────────────</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l806" name="l806">806</a></td><td><pre><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l807" name="l807">807</a></td><td><pre><span class="deletion">-14• 7Do not disrupt or compromise our security. </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l808" name="l808">808</a></td><td><pre><span class="deletion">-14• 7No malicious abuse of network services.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l809" name="l809">809</a></td><td><pre><span class="deletion">-14• 7No distribution of child pornography.</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l810" name="l810">810</a></td><td><pre><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l811" name="l811">811</a></td><td><pre><span class="deletion">-4──────────────────────────────────────────────</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l812" name="l812">812</a></td><td><pre><span class="insertion">+</span><span class="insertion">8,4         E N T E R   T H E   V O I D          </span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l813" name="l813">813</a></td><td><pre><span class="bold">diff --git a/doc/conf/unrealircd.remote.conf b/doc/conf/unrealircd.remote.conf</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l814" name="l814">814</a></td><td><pre><span class="bold">deleted file mode 100644</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l815" name="l815">815</a></td><td><pre><span class="bold">index e745785..0000000</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l816" name="l816">816</a></td><td><pre><span class="bold">--- a/doc/conf/unrealircd.remote.conf</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l817" name="l817">817</a></td><td><pre><span class="bold">+++ /dev/null</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l818" name="l818">818</a></td><td><pre><span class="hunk">@@ -1,185 +0,0 @@</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l819" name="l819">819</a></td><td><pre><span class="deletion">-admin { &quot;&quot;; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l820" name="l820">820</a></td><td><pre><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l821" name="l821">821</a></td><td><pre><span class="deletion">-alias botserv { type services; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l822" name="l822">822</a></td><td><pre><span class="deletion">-alias bs { target botserv; type services; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l823" name="l823">823</a></td><td><pre><span class="deletion">-alias chanserv { type services; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l824" name="l824">824</a></td><td><pre><span class="deletion">-alias cs { target chanserv; type services; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l825" name="l825">825</a></td><td><pre><span class="deletion">-alias hostserv { type services; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l826" name="l826">826</a></td><td><pre><span class="deletion">-alias hs { target hostserv; type services; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l827" name="l827">827</a></td><td><pre><span class="deletion">-alias nickserv { type services; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l828" name="l828">828</a></td><td><pre><span class="deletion">-alias ns { target nickserv; type services; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l829" name="l829">829</a></td><td><pre><span class="deletion">-alias operserv { type services; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l830" name="l830">830</a></td><td><pre><span class="deletion">-alias os { target operserv; type services; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l831" name="l831">831</a></td><td><pre><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l832" name="l832">832</a></td><td><pre><span class="deletion">-class clients { pingfreq 120; maxclients 100; sendq 1M; options { nofakelag; } }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l833" name="l833">833</a></td><td><pre><span class="deletion">-class servers { pingfreq 120; maxclients  10; sendq 1M; connfreq 30;           }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l834" name="l834">834</a></td><td><pre><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l835" name="l835">835</a></td><td><pre><span class="deletion">-allow { ip *; class clients; maxperip 2; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l836" name="l836">836</a></td><td><pre><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l837" name="l837">837</a></td><td><pre><span class="deletion">-listen { ip *; port 6667;      options { clientsonly;      } }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l838" name="l838">838</a></td><td><pre><span class="deletion">-listen { ip *; port 6697;      options { clientsonly; tls; } }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l839" name="l839">839</a></td><td><pre><span class="deletion">-listen { ip *; port REDACTED;  options { serversonly; tls; } }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l840" name="l840">840</a></td><td><pre><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l841" name="l841">841</a></td><td><pre><span class="deletion">-link irc.supernets.org {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l842" name="l842">842</a></td><td><pre><span class="deletion">-	incoming { mask REDACTED; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l843" name="l843">843</a></td><td><pre><span class="deletion">-	outgoing {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l844" name="l844">844</a></td><td><pre><span class="deletion">-		bind-ip *;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l845" name="l845">845</a></td><td><pre><span class="deletion">-		hostname REDACTED;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l846" name="l846">846</a></td><td><pre><span class="deletion">-		port REDACTED;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l847" name="l847">847</a></td><td><pre><span class="deletion">-		options { tls; autoconnect; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l848" name="l848">848</a></td><td><pre><span class="deletion">-	}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l849" name="l849">849</a></td><td><pre><span class="deletion">-	password &quot;REDACTED&quot; { spkifp; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l850" name="l850">850</a></td><td><pre><span class="deletion">-	class servers;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l851" name="l851">851</a></td><td><pre><span class="deletion">-}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l852" name="l852">852</a></td><td><pre><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l853" name="l853">853</a></td><td><pre><span class="deletion">-log &quot;errors.log&quot; { flags { errors; } maxsize 10K; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l854" name="l854">854</a></td><td><pre><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l855" name="l855">855</a></td><td><pre><span class="deletion">-tld { mask *@*; motd remote.motd; rules remote.motd; options { remote; } }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l856" name="l856">856</a></td><td><pre><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l857" name="l857">857</a></td><td><pre><span class="deletion">-ulines { services.supernets.org; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l858" name="l858">858</a></td><td><pre><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l859" name="l859">859</a></td><td><pre><span class="deletion">-blacklist dronebl {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l860" name="l860">860</a></td><td><pre><span class="deletion">-	dns {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l861" name="l861">861</a></td><td><pre><span class="deletion">-		name dnsbl.dronebl.org;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l862" name="l862">862</a></td><td><pre><span class="deletion">-		type record;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l863" name="l863">863</a></td><td><pre><span class="deletion">-		reply { 3; 5; 6; 7; 8; 9; 10; 11; 12; 13; 14; 15; 16; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l864" name="l864">864</a></td><td><pre><span class="deletion">-	}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l865" name="l865">865</a></td><td><pre><span class="deletion">-	action gzline;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l866" name="l866">866</a></td><td><pre><span class="deletion">-	ban-time 1d;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l867" name="l867">867</a></td><td><pre><span class="deletion">-	reason &quot;8,4   E N T E R   T H E   V O I D   &quot;;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l868" name="l868">868</a></td><td><pre><span class="deletion">-}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l869" name="l869">869</a></td><td><pre><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l870" name="l870">870</a></td><td><pre><span class="deletion">-blacklist efnetrbl {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l871" name="l871">871</a></td><td><pre><span class="deletion">-	dns {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l872" name="l872">872</a></td><td><pre><span class="deletion">-		name rbl.efnetrbl.org;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l873" name="l873">873</a></td><td><pre><span class="deletion">-		type record;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l874" name="l874">874</a></td><td><pre><span class="deletion">-		reply { 1; 4; 5; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l875" name="l875">875</a></td><td><pre><span class="deletion">-	}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l876" name="l876">876</a></td><td><pre><span class="deletion">-	action gzline;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l877" name="l877">877</a></td><td><pre><span class="deletion">-	ban-time 1d;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l878" name="l878">878</a></td><td><pre><span class="deletion">-	reason &quot;8,4   E N T E R   T H E   V O I D   &quot;;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l879" name="l879">879</a></td><td><pre><span class="deletion">-}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l880" name="l880">880</a></td><td><pre><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l881" name="l881">881</a></td><td><pre><span class="deletion">-blacklist torbl {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l882" name="l882">882</a></td><td><pre><span class="deletion">-	dns {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l883" name="l883">883</a></td><td><pre><span class="deletion">-		name torexit.dan.me.uk;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l884" name="l884">884</a></td><td><pre><span class="deletion">-		type record;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l885" name="l885">885</a></td><td><pre><span class="deletion">-		reply { 100; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l886" name="l886">886</a></td><td><pre><span class="deletion">-	}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l887" name="l887">887</a></td><td><pre><span class="deletion">-	action gzline;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l888" name="l888">888</a></td><td><pre><span class="deletion">-	ban-time 1d;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l889" name="l889">889</a></td><td><pre><span class="deletion">-	reason &quot;8,4   E N T E R   T H E   V O I D   &quot;;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l890" name="l890">890</a></td><td><pre><span class="deletion">-}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l891" name="l891">891</a></td><td><pre><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l892" name="l892">892</a></td><td><pre><span class="deletion">-webirc { mask 107.161.19.53;  password &quot;REDACTED&quot;; } # KiwiIRC</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l893" name="l893">893</a></td><td><pre><span class="deletion">-webirc { mask 107.161.19.109; password &quot;REDACTED&quot;; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l894" name="l894">894</a></td><td><pre><span class="deletion">-webirc { mask 107.161.31.4;   password &quot;REDACTED&quot;; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l895" name="l895">895</a></td><td><pre><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l896" name="l896">896</a></td><td><pre><span class="deletion">-webirc { mask 207.192.75.252; password &quot;REDACTED&quot;; } # Mibbit</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l897" name="l897">897</a></td><td><pre><span class="deletion">-webirc { mask 64.62.228.82;   password &quot;REDACTED&quot;; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l898" name="l898">898</a></td><td><pre><span class="deletion">-webirc { mask 78.129.202.38;  password &quot;REDACTED&quot;; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l899" name="l899">899</a></td><td><pre><span class="deletion">-webirc { mask 109.169.29.95 ; password &quot;REDACTED&quot;; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l900" name="l900">900</a></td><td><pre><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l901" name="l901">901</a></td><td><pre><span class="deletion">-set {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l902" name="l902">902</a></td><td><pre><span class="deletion">-	kline-address &quot;banned@supernets.org&quot;;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l903" name="l903">903</a></td><td><pre><span class="deletion">-	gline-address &quot;banned@supernets.org&quot;;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l904" name="l904">904</a></td><td><pre><span class="deletion">-	modes-on-connect &quot;+ipTx&quot;;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l905" name="l905">905</a></td><td><pre><span class="deletion">-	modes-on-oper &quot;+HIq&quot;;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l906" name="l906">906</a></td><td><pre><span class="deletion">-	snomask-on-oper &quot;+bcFfkGsSo&quot;;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l907" name="l907">907</a></td><td><pre><span class="deletion">-	modes-on-join &quot;+ns&quot;;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l908" name="l908">908</a></td><td><pre><span class="deletion">-	level-on-join &quot;op&quot;;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l909" name="l909">909</a></td><td><pre><span class="deletion">-	restrict-channelmodes &quot;CnLpPs&quot;;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l910" name="l910">910</a></td><td><pre><span class="deletion">-	restrict-commands {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l911" name="l911">911</a></td><td><pre><span class="deletion">-		invite          { connect-delay 3600; exempt-identified yes; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l912" name="l912">912</a></td><td><pre><span class="deletion">-		list            { connect-delay 120;  exempt-identified yes; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l913" name="l913">913</a></td><td><pre><span class="deletion">-		private-message { connect-delay 300;  exempt-identified yes; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l914" name="l914">914</a></td><td><pre><span class="deletion">-		private-notice  { connect-delay 3600; exempt-identified yes; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l915" name="l915">915</a></td><td><pre><span class="deletion">-	}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l916" name="l916">916</a></td><td><pre><span class="deletion">-	auto-join &quot;#superbowl&quot;;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l917" name="l917">917</a></td><td><pre><span class="deletion">-	oper-auto-join &quot;#help&quot;;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l918" name="l918">918</a></td><td><pre><span class="deletion">-	static-quit &quot;EMO-QUIT&quot;;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l919" name="l919">919</a></td><td><pre><span class="deletion">-	static-part &quot;EMO-PART&quot;;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l920" name="l920">920</a></td><td><pre><span class="deletion">-	who-limit 100;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l921" name="l921">921</a></td><td><pre><span class="deletion">-	nick-length 20;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l922" name="l922">922</a></td><td><pre><span class="deletion">-	maxchannelsperuser 10;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l923" name="l923">923</a></td><td><pre><span class="deletion">-	channel-command-prefix &quot;`!@$.&quot;;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l924" name="l924">924</a></td><td><pre><span class="deletion">-	options { hide-ulines; flat-map; identd-check; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l925" name="l925">925</a></td><td><pre><span class="deletion">-	network-name &quot;SuperNETs&quot;;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l926" name="l926">926</a></td><td><pre><span class="deletion">-	default-server &quot;irc.supernets.org&quot;;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l927" name="l927">927</a></td><td><pre><span class="deletion">-	services-server &quot;services.supernets.org&quot;;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l928" name="l928">928</a></td><td><pre><span class="deletion">-	sasl-server &quot;services.supernets.org&quot;;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l929" name="l929">929</a></td><td><pre><span class="deletion">-	help-channel &quot;#help&quot;;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l930" name="l930">930</a></td><td><pre><span class="deletion">-	cloak-method ip;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l931" name="l931">931</a></td><td><pre><span class="deletion">-	cloak-keys {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l932" name="l932">932</a></td><td><pre><span class="deletion">-		&quot;REDACTED&quot;;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l933" name="l933">933</a></td><td><pre><span class="deletion">-		&quot;REDACTED&quot;;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l934" name="l934">934</a></td><td><pre><span class="deletion">-		&quot;REDACTED&quot;;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l935" name="l935">935</a></td><td><pre><span class="deletion">-	}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l936" name="l936">936</a></td><td><pre><span class="deletion">-	hiddenhost-prefix &quot;SUPER&quot;;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l937" name="l937">937</a></td><td><pre><span class="deletion">-	plaintext-policy {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l938" name="l938">938</a></td><td><pre><span class="deletion">-		user warn;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l939" name="l939">939</a></td><td><pre><span class="deletion">-		oper deny;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l940" name="l940">940</a></td><td><pre><span class="deletion">-		server deny;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l941" name="l941">941</a></td><td><pre><span class="deletion">-		user-message &quot;4WARNING: You are not using a secure connection with SSL/TLS&quot;;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l942" name="l942">942</a></td><td><pre><span class="deletion">-		oper-message &quot;Network operators must connect using SSL/TLS&quot;;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l943" name="l943">943</a></td><td><pre><span class="deletion">-	}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l944" name="l944">944</a></td><td><pre><span class="deletion">-	outdated-tls-policy {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l945" name="l945">945</a></td><td><pre><span class="deletion">-		user warn;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l946" name="l946">946</a></td><td><pre><span class="deletion">-		oper deny;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l947" name="l947">947</a></td><td><pre><span class="deletion">-		server deny;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l948" name="l948">948</a></td><td><pre><span class="deletion">-		user-message &quot;4WARNING: You are using an outdated SSL/TLS protocol or cipher&quot;;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l949" name="l949">949</a></td><td><pre><span class="deletion">-		oper-message &quot;Network operators must connect using an up-to-date SSL/TLS protocol or cipher&quot;;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l950" name="l950">950</a></td><td><pre><span class="deletion">-	}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l951" name="l951">951</a></td><td><pre><span class="deletion">-	anti-flood {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l952" name="l952">952</a></td><td><pre><span class="deletion">-		away-flood 3:300;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l953" name="l953">953</a></td><td><pre><span class="deletion">-		connect-flood 3:300;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l954" name="l954">954</a></td><td><pre><span class="deletion">-		invite-flood 3:300;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l955" name="l955">955</a></td><td><pre><span class="deletion">-		join-flood 3:300;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l956" name="l956">956</a></td><td><pre><span class="deletion">-		knock-flood 3:300;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l957" name="l957">957</a></td><td><pre><span class="deletion">-		max-concurrent-conversations { users 5; new-user-every 60s; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l958" name="l958">958</a></td><td><pre><span class="deletion">-		nick-flood 3:300;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l959" name="l959">959</a></td><td><pre><span class="deletion">-		unknown-flood-amount 2048;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l960" name="l960">960</a></td><td><pre><span class="deletion">-		unknown-flood-bantime 1h;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l961" name="l961">961</a></td><td><pre><span class="deletion">-	}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l962" name="l962">962</a></td><td><pre><span class="deletion">-	default-bantime 1d;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l963" name="l963">963</a></td><td><pre><span class="deletion">-	spamfilter {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l964" name="l964">964</a></td><td><pre><span class="deletion">-		ban-time 1d;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l965" name="l965">965</a></td><td><pre><span class="deletion">-		ban-reason &quot;8,4   E N T E R   T H E   V O I D   &quot;;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l966" name="l966">966</a></td><td><pre><span class="deletion">-		except &quot;#anythinggoes&quot;;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l967" name="l967">967</a></td><td><pre><span class="deletion">-	}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l968" name="l968">968</a></td><td><pre><span class="deletion">-	max-targets-per-command { kick 1; part 1; privmsg 1; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l969" name="l969">969</a></td><td><pre><span class="deletion">-	hide-ban-reason yes;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l970" name="l970">970</a></td><td><pre><span class="deletion">-	reject-message {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l971" name="l971">971</a></td><td><pre><span class="deletion">-		gline                &quot;8,4   E N T E R   T H E   V O I D   &quot;;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l972" name="l972">972</a></td><td><pre><span class="deletion">-		kline                &quot;8,4   E N T E R   T H E   V O I D   &quot;;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l973" name="l973">973</a></td><td><pre><span class="deletion">-		password-mismatch    &quot;8,4   E N T E R   T H E   V O I D   &quot;;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l974" name="l974">974</a></td><td><pre><span class="deletion">-		server-full          &quot;8,4   E N T E R   T H E   V O I D   &quot;;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l975" name="l975">975</a></td><td><pre><span class="deletion">-		too-many-connections &quot;8,4   E N T E R   T H E   V O I D   &quot;;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l976" name="l976">976</a></td><td><pre><span class="deletion">-		unauthorized         &quot;8,4   E N T E R   T H E   V O I D   &quot;;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l977" name="l977">977</a></td><td><pre><span class="deletion">-	}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l978" name="l978">978</a></td><td><pre><span class="deletion">-	antimixedutf8 {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l979" name="l979">979</a></td><td><pre><span class="deletion">-		score 10;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l980" name="l980">980</a></td><td><pre><span class="deletion">-		ban-action block;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l981" name="l981">981</a></td><td><pre><span class="deletion">-		ban-reason &quot;8,4   E N T E R   T H E   V O I D   &quot;;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l982" name="l982">982</a></td><td><pre><span class="deletion">-		ban-time 1h;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l983" name="l983">983</a></td><td><pre><span class="deletion">-	}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l984" name="l984">984</a></td><td><pre><span class="deletion">-	connthrottle {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l985" name="l985">985</a></td><td><pre><span class="deletion">-		known-users   { minimum-reputation-score 24; sasl-bypass yes;       }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l986" name="l986">986</a></td><td><pre><span class="deletion">-		new-users     { local-throttle 20:60;        global-throttle 30:60; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l987" name="l987">987</a></td><td><pre><span class="deletion">-		disabled-when { reputation-gathering 1w;     start-delay 3m;        }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l988" name="l988">988</a></td><td><pre><span class="deletion">-	}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l989" name="l989">989</a></td><td><pre><span class="deletion">-	history {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l990" name="l990">990</a></td><td><pre><span class="deletion">-		channel {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l991" name="l991">991</a></td><td><pre><span class="deletion">-			playback-on-join        { lines 100; time 1d; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l992" name="l992">992</a></td><td><pre><span class="deletion">-			max-storage-per-channel { lines 100; time 1d; }</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l993" name="l993">993</a></td><td><pre><span class="deletion">-		}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l994" name="l994">994</a></td><td><pre><span class="deletion">-	}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l995" name="l995">995</a></td><td><pre><span class="deletion">-	manual-ban-target ip;</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l996" name="l996">996</a></td><td><pre><span class="deletion">-}</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l997" name="l997">997</a></td><td><pre><span class="deletion">-</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l998" name="l998">998</a></td><td><pre><span class="deletion">-hideserver {</span></pre></td></tr>
+<tr class="item"><td class="linenumber"><a href="#l999" name="l999">999</a></td><td><pre><span class="deletion">-	disable-map yes;</span></pre></td></tr>
+</table>
+<div id="footer">site generated by <a href="https://github.com/acidvegas/stagit" target="_blank">stagit</a> on <a href="#">05/03/20</a></div>

@@ -19,6 +19,8 @@ pre{margin:0px}
 .item td{white-space:nowrap}
 .linenumber{text-align:right;-moz-user-select:-moz-none;-khtml-user-select: none;-webkit-user-select:none}
 .linenumber a{text-decoration:none}
+#footer{border-top:1px dashed #fff;color:#444;font-size:smaller;margin-top:10px;padding-top:5px;width:100%}
+#footer a{color:#aaa;text-decoration:none}
 #main{border-collapse:collapse;table-layout:fixed}
 #main td,th{padding-left:5px;padding-right:5px}
 #navigation{color:#fff;font-weight:900;text-align:left}
